@@ -31,6 +31,8 @@ done
 iconutil -c icns build/AppIcon.iconset -o "$APP/Contents/Resources/AppIcon.icns"
 
 cp LICENSE README.md "$APP/Contents/Resources/"
+# The front end's own files (the main-menu logo); everything else is read from the player's install.
+cp apps/map-mac/resources/* "$APP/Contents/Resources/"
 
 cat > "$APP/Contents/Info.plist" <<EOF
 <?xml version="1.0" encoding="UTF-8"?>

@@ -1,6 +1,6 @@
 # Project status and how to resume
 
-Last updated 2026-10-13 (script UI, audio). Read this first when picking the work back up; then `CLAUDE.md`, `docs/systems-map.md`, and
+Last updated 2026-10-13 (script UI, audio, front end). Read this first when picking the work back up; then `CLAUDE.md`, `docs/systems-map.md`, and
 the spec for whatever you touch.
 
 ## Where things stand
@@ -48,6 +48,10 @@ notices, arrows, the card highlight, pings with the announce ring, scenario flag
 ui_hide, popups in a nested loop, goal dialog, game-over notice); AVFoundation voice / effects / JukeBox music by mood
 (`platform/audio`). tut1 and tut2 play through their first objectives from HUD-equivalent harness input
 (`--select / --option / --look / --zoom-at ...@FRAME`).
+Front end (`ui-port.md` section 10, 2026-10-13): the app opens in its game window on the Main Menu drawn with the
+install's TopMenu art (animated backdrops, ribbon, bronze frame, buttons, fonts, menu music) and the project's
+menu-logo.png; Tutorials / Skirmish / Scenarios lists, AI difficulty, Quit popup; Play and Return to Main Menu (Esc /
+F10 game menu, game over) swap the window's contents in place; `ronmap --menu SCREEN --snapshot`.
 Economy (economy-spec §12 steps 1-13): starting stockpiles, the income pipeline (Leader::gather, calc_gather, caps,
 do_gather; `ron-econ-check` byte-identical to `gather-ref.mjs --examples`), gather rates, gatherer lists, the GATHER /
 CITY_GATHER orders and handlers with every game_random draw, auto-gather, farms (growth, pens, animals), oil wells,

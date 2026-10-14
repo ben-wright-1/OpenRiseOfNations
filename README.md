@@ -4,8 +4,9 @@
 
 OpenRiseOfNations is a from-scratch reimplementation of the game engine, in the spirit of
 [OpenRA](https://www.openra.net/) and [OpenMW](https://openmw.org/). It runs natively on Apple Silicon and Intel Macs
-(Metal + AppKit) and loads the art, maps, rules and scripts from **your own copy of the game**. It ships no game files
-of any kind: no art, no sounds, no maps, and none of the original program code.
+(Metal + AppKit) and loads the art, maps, rules and scripts from **your own copy of the game**. It ships no game files:
+no art, no sounds, no maps, and none of the original program code. (The one exception is the main-menu logo, a fan
+adaptation of the *Extended Edition* logo.)
 
 > **Status: early but playable.** You can load the tutorials and the stock scenarios, select and command units,
 > gather resources, build a city, train an army and fight a computer opponent who builds, expands and attacks.
@@ -37,11 +38,13 @@ of any kind: no art, no sounds, no maps, and none of the original program code.
 4. **First launch.** The app isn't notarised by Apple yet, so macOS will warn you the first time. Right-click (or
    Control-click) the app in Applications and choose **Open**, then **Open** again. Alternatively, go to
    *System Settings → Privacy & Security* and click **Open Anyway**.
-5. **Pick a mode.** The menu offers **Tutorials** (start here), **Skirmish** (ready-made maps against computer
-   opponents, with an AI difficulty setting) and **Scenarios** (chess exercises and campaign battle maps). The app
-   finds the game folder in `~/Games/RiseOfNations` on its own; otherwise use **Change…** to point it at the folder
-   that contains `Data` and `scenario`. Closing a game window brings you back to the menu. **Multiplayer** is not
-   available yet.
+5. **Pick a mode.** The app opens on the game's own Main Menu (drawn with the menu art, backdrops, fonts and music
+   of your install): **Tutorials** (start here), **Skirmish** (ready-made maps against computer opponents, with an AI
+   difficulty setting) and **Scenarios** (chess exercises and campaign battle maps). It finds the game folder in
+   `~/Games/RiseOfNations` (or a Steam / CrossOver folder) on its own and asks for it only when it can't; **Change…**
+   on the Main Menu points it at another folder that contains `Data` and `scenario`. In a game, `Esc` (with nothing
+   selected) or `F10` opens the game menu with **Return to Main Menu**; the game-over screen offers it too.
+   **Multiplayer** is not available yet. The menus work with the mouse or the keyboard (arrows, Return, Esc).
 
 Requirements: macOS 12 Monterey or newer, any Mac with Metal (all Apple Silicon Macs and most Intel Macs from 2012 on).
 
@@ -77,7 +80,8 @@ The engine never modifies these files.
 | Minimap | Click or drag to look, right-click to order |
 | Build / train / research | The command buttons at the bottom left |
 | Pause · fog of war · HUD · bloom | `P` · `F` · `H` · `B` |
-| Cancel / clear selection · quit | `Esc` · `Q` |
+| Cancel / clear selection · game menu (resume, main menu, quit) | `Esc` · `F10` (`Esc` with nothing selected) |
+| Quit | `⌘Q` |
 
 Power users can also start the app from the terminal with a scenario and options:
 
@@ -85,7 +89,8 @@ Power users can also start the app from the terminal with a scenario and options
 /Applications/OpenRiseOfNations.app/Contents/MacOS/OpenRiseOfNations ~/Games/RiseOfNations scenario/Tutorial2/tut2.scx --difficulty 4
 ```
 
-Set `RON_MUTE=1` to start without sound.
+Without a scenario it opens the Main Menu; `--menu tutorials` (or `skirmish`, `scenarios`) opens a list directly. Set
+`RON_MUTE=1` to start without sound.
 
 ## What works
 
@@ -157,7 +162,8 @@ bash package-mac.sh                          # -> build/OpenRiseOfNations.app an
 | `ron-ui-check` | Checks the interface layout reader against the JS reference |
 | `ronviewer` | A unit and animation viewer |
 
-Snapshots are the easiest way to check rendering changes: `./build/ronmap <game dir> <scenario> --snapshot out.png`.
+Snapshots are the easiest way to check rendering changes: `./build/ronmap <game dir> <scenario> --snapshot out.png`,
+and `./build/ronmap <game dir> --menu skirmish --snapshot out.png` for the menus.
 `bash re/tools/sim-all.sh ~/Games/RiseOfNations 300` runs every stock scenario headless and checks determinism.
 
 ## Project layout
@@ -201,4 +207,5 @@ OpenRiseOfNations is free software under the **GNU General Public License v3.0**
 This is an unofficial fan project. It is **not affiliated with, endorsed by, or sponsored by** Microsoft, Big Huge
 Games, SkyBox Labs or any of their partners. *Rise of Nations* and *Rise of Nations: Extended Edition* are trademarks
 of their respective owners. You need a legally obtained copy of *Rise of Nations: Extended Edition* to use this
-engine; no part of the original game is distributed here.
+engine; no part of the original game is distributed here. The main-menu logo (`apps/map-mac/resources/menu-logo.png`) is
+a fan adaptation of the *Extended Edition* logo and is not covered by the GPL; its rights belong to the original owners.

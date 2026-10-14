@@ -90,10 +90,16 @@ public:
 	// A TGA from the install by game-relative path, registered under the id "file:<path>" (returned in `id`), for
 	// add_quad. Null when missing.
 	const UiTexture* file_texture(const std::string& game_path, std::string* id = nullptr);
+	// Registers an IFACETEXLOAD id from another GraphicWinXML file (e.g. topmenu.xml's TEX_TOPMENU_0), consulted before
+	// the layout's own ids; release() drops a loaded atlas (large front-end backgrounds) until it is next used.
+	void add_texload(const std::string& id, const std::string& file);
+	void release(const std::string& id);
 
 	// Starts a frame of ui_w x ui_h UI pixels drawn at `scale` drawable pixels each. Fonts follow fonts.xml's
-	// resolution choice for ui_w.
-	void begin(int ui_w, int ui_h, float scale);
+	// resolution choice for ui_w (or for font_res_w when > 0: the front end lays out a 1024-wide screen).
+	void begin(int ui_w, int ui_h, float scale, int font_res_w = 0);
+	// Bilinear sampling for every atlas piece (a fractional UI scale, where point sampling would double pixels unevenly).
+	void set_smooth(bool on) { smooth_ = on; }
 	int width() const { return w_; }
 	int height() const { return h_; }
 	// update_depth: +1 per window, +2 per drawing layer (section 5.3); quads take the current value.
@@ -173,6 +179,8 @@ private:
 	std::string skin_ = "AS0";
 	std::map<std::string, UiTexture> textures_;        // by IFACETEXLOAD id (+ skin) / private id
 	std::map<std::string, UiTexture> file_textures_;   // by lowercase file
+	std::map<std::string, std::string> extra_texloads_;  // add_texload
+	bool smooth_ = false;
 	UiTexture white_;
 	id<MTLRenderPipelineState> pipes_[5];  // none, alpha, alphasat, add, multiply
 	id<MTLSamplerState> linear_, nearest_;

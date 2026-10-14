@@ -2,7 +2,8 @@
 
 Companion to [ui-spec.md](ui-spec.md) (the decoded original; port plan in its section 8). This file records what the
 port does, the decisions that differ from or go beyond the spec, and what is left. Status: U0 done; U1 steps 8–11, 13
-and most of 12 and 14 done (2026-10-12); the scripts' interface and audio (sections 8-9, 2026-10-13).
+and most of 12 and 14 done (2026-10-12); the scripts' interface and audio (sections 8-9, 2026-10-13); the front end
+in the game window (section 10, 2026-10-13).
 
 ## 1. Pieces
 
@@ -19,6 +20,7 @@ and most of 12 and 14 done (2026-10-12); the scripts' interface and audio (secti
 | `apps/map-mac/main.mm` | fills `hud::State` from the simulation views, runs the card's commands, building placement, selection rules, input routing, control groups, edge scroll, zoom, cursors, the minimap background; fills `sim::ScriptInput` and applies the scripts' camera moves, locks and pauses (section 8) |
 | `apps/map-mac/script_view.*` | the scenario scripts' presentation (section 8): consumes `sim::script_presentation`, keeps and draws the MessageWin / AnimNotice / ping / popup state |
 | `platform/audio/audio.*` | AVFoundation sound layer (section 9): the scenario voice channel, effects, the JukeBox |
+| `apps/map-mac/frontend.*`, `launcher.*` | the front end in the game window (section 10): Main Menu, map lists, AI difficulty, Quit popup; game-folder detection and the first-run picker |
 
 Check: `./build/ron-ui-check ~/Games/RiseOfNations check` → `failures: 0`; `ron-ui-check tree --all --w W --h H --file F`
 is byte-identical to `node re/tools/ifacelayout.mjs tree --all ...` for interface.xml, topmenu.xml, setupwin.xml and
@@ -238,4 +240,61 @@ coordinates), unit acknowledgements.
 ./build/ronmap ... scenario/Tutorial1/tut1.scx --frames 420 --select 0:1@300 --size 1024x768 ...   # arrow, flag
 ./build/ronmap ... scenario/Tutorial2/tut2.scx --frames 1600 --select 0:0@900 --option 1@1500 --script-log ...   # highlight
 ./build/ronmap ... "scenario/Chess Exercise/ceaging1.scx" --frames 2720 ...   # defeat notice, text-only objectives
+./build/ronmap ~/Games/RiseOfNations --menu main --snapshot m.png --size 1024x768   # main, tutorials, skirmish, scenarios, quit-popup
+./build/ronmap ... --menu main --snapshot m.png --size 2880x1800 --ui-scale 2       # a Retina 1440 x 900 window
+RON_MENU_DROP=1 ./build/ronmap ... --menu skirmish ...                             # the open AI difficulty drop-down
+RON_MENU_ANIM=2,10 ./build/ronmap ... --menu main ...                              # backdrop animation 2 at 10 s
+RON_INSTALL_LOGO=1 ./build/ronmap ... --menu main ...                              # the install's bump-mapped EE logo
+RON_GAME_MENU=1 ./build/ronmap ... scenario/Tutorial1/tut1.scx --snapshot g.png    # the game menu (2: game over)
+RON_FLOW_TEST=1 ./build/ronmap                                                     # menu -> game -> menu -> game -> quit, one window
 ```
+
+## 10. Front end (2026-10-13)
+
+`apps/map-mac/frontend.*` draws the front end inside the game window (Metal, the UI layer of section 1); `launcher.*`
+keeps only the game-folder detection, the first-run folder picker and the map lists. The screens, copy and placement
+follow the user's design (Main Menu with the title ribbon top left, the button frame, the help box, the game-folder row
+and the logo on the right; list screens with a centred ribbon, a note, a framed list, AI Difficulty, Back / Play; the
+Quit popup). The look is the install's own front-end art, decompiled in `re/decomp/frontend` (TopMenu,
+TopMenuSelection, MainMenuBase, TopMenuAnimation):
+
+| Element | Original art and behaviour used |
+|---|---|
+| Main Menu backdrop | topmenu.xml `BACKGROUND` `ANIM` list (`TopMenu::on_redraw` @0059c100): four parallax animations of 1280×720 layers (`art/anim/anim_bg_N_layer_K.tga` + the `anim_overlay.tga` vignette), each layer shifted by `(move * t + start_offset) * size`, drawn in IFACETEXLOAD `sort` order with render type 7; fade in from black between 0.5 and 1.5 s, out over the last second of `duration` (30 s), then the next animation. Layers are released when an animation ends. |
+| List backdrop | `static_bg_tex` / `TEX_TOPMENU_0` = `art/iface_wrapper1.tga` (the antique map of the setup screens; the design's "atlas" backdrop) |
+| Title ribbon | TOPMENUSELECTION `ribbon` ×3 (`wrapper_pieces_05.tga`) as a 3-slice expander into IFACERECT `title` (454×74); the title in font 22 (Georgia 22 B), white, black 1 px shadow, centred in `title_text` |
+| Button frame | TOPMENUSELECTION IFACEBORDER `border` (`wrapper_pieces_01.tga`, 42 px corners and extras) around the window below the ribbon: client top + title height (74) down to the last button + 41, buttons with 41 px side margins (`TopMenuSelection::exec` sizes the window around its buttons) |
+| Menu buttons | `button_left` / `button_mid` (tiled) / `button_right` (`wrapper_pieces_02.tga`, 37 px) at MAINMENU's POSITIONING (454×35, 36 px apart); the atlas row one piece-height up when hovered / focused / pressed, one down when disabled (`on_button_redraw` @0059eac0); caption font 18 (Georgia 18 B), white with a (64,64,64) shadow, moved (+2, +2) when enabled |
+| Help box | the hovered (or keyboard-focused) button's help text in font 16 (= Georgia 18 B at 1024; `TopMenu::on_window_redraw`), in the MOTD box style: black at alpha 100 with `motd_border` |
+| Logo | the project's own `apps/map-mac/resources/menu-logo.png` (the user's adaptation of the EE logo, packaged into `Contents/Resources`) at the design's spot (right 28; 440 px on the 470 px box's centre so that it clears the 536 px original frame), with a soft shadow from a coarse mip. Fallback (file missing, or `RON_INSTALL_LOGO=1`): topmenu.xml `LOGO`, `ron_logo_texture_map.tga` lit through `ron_logo_normal_map.tga` by a light leaning toward the mouse (`TopMenu::draw_logo` @0059cff0: `dir = normalize(k · unit(centre − mouse), −1)`, k = logo size / screen width); last resort `Wrapper_Main_Logo_01.tga`. |
+| Combo box (AI Difficulty) | interface.xml GAMESPYREJOIN `combo_left` / `combo_mid` / `combo_right` / `combo_arrow` (white field, black Arial 12 B text); the open list in the same white with `motd_border` |
+| List | the bronze `border` on a dark wash; the selected row on GAMESPYREJOIN `large_button` (bright), the hovered one on the row below; SCROLLCLASS `back_vert` / `slider_vert` / `button_up` / `button_down` |
+| Back / Play / popups | POPUPSTYLE default (`butnormal` / `buthighlight` / `butdown`, TEX_DIPLO, 173×32), `bg_color` (39,40,43,224) inside `motd_border` |
+| Game menu (in a game) | interface.xml MAINMENU (MainMenuBase): the 9-piece `bg0..bg8` scroll from TEX_CIV, title font 24, TEX_DIPLO buttons: Resume Game, Return to Main Menu, Quit. `Esc` with nothing selected or `F10`; 5 s after the local game-over notice it opens as Game Over (Return to Main Menu, Keep Watching, Quit). The simulation pauses while it is open. |
+| Sounds | `TOP_MENU_BUTTON` (soundglobals.xml) on every click; music: `Data/sound.xml` TRACKS / INTROS through the JukeBox (shuffled, as one mood) |
+| Cursor | cursors.xml row 0 (the game's main cursor) |
+
+**Decisions.**
+- *Scale to fit.* The menu is laid out on a 1024×768 canvas scaled uniformly to fit the window and centred (as the
+  design does); fonts are rasterised at the final scale (fonts.xml's 1024 table), pieces bilinear at fractional scales
+  (UVs kept half a texel inside each stretched piece, so atlas neighbours don't bleed in). The in-game HUD keeps the
+  unscaled rule of section 2. Backdrops cover the whole window keeping their aspect (the original stretches them).
+- *Flow.* Without a scenario argument the app opens its window directly on the Main Menu; the window, the first-run
+  folder picker (only when no install is remembered or found) and the menu are created in
+  `applicationDidFinishLaunching`, inside `[NSApp run]` (no modal session before launch has finished), and brought
+  forward with `[NSApp activate]` (macOS 14) + `orderFrontRegardless`. Play shows a Loading box, builds a
+  `MapRenderer` and swaps the view's delegate in place; Return to Main Menu drops the game (its audio stops with it)
+  and rebuilds the menu in the same window. The relaunch in `applicationShouldTerminateAfterLastWindowClosed` is gone:
+  closing the window quits. A game started from the command line returns to the menu the same way.
+- *Remembered* (NSUserDefaults): `GameDirectory`, `Difficulty`, `MenuScreen` (the menu reopens on the last screen,
+  e.g. the Skirmish list after a skirmish), `MenuSelection.<screen>` (the last map of each list). Headless renders
+  write nothing.
+- *Keyboard*: Up / Down move the focus or the selection (Page Up / Down, Home / End in lists), Return activates /
+  plays, Esc goes back (on the Main Menu it opens the Quit popup, as `TopMenuSelection::on_key_down` does), Left /
+  Right change the AI difficulty in lists. Double-click plays a map; the mouse wheel scrolls lists.
+
+**To confirm against the real game.** Whether `state & 1` in `on_button_redraw` is "disabled" (the black row) and
+the (+2, +2) caption offset for enabled buttons (read literally from the decompile); the disabled caption colour (grey
+here); the menu's drop-in slide (`GravWindow::animate`, S_MENU_DOWN / S_MENU_UP) is not reproduced; the install
+logo's lighting (approximated: `tex · (0.42 + 0.78 N·L)` plus a small highlight); which animation plays first (the
+port starts with the Destroyer, index 0); whether the menu music is INTROS or FULLINTROS.

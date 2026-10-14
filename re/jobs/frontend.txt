@@ -1,0 +1,6 @@
+re/decomp/frontend
+TopMenu::.*
+TopMenuSelection::.*
+MainMenuBase::.*
+MainMenu::.*
+TopMenuAnimation.*

@@ -1,7 +1,8 @@
 // ronmap: render a Rise of Nations scenario on macOS (AppKit + Metal) with the game's camera, its units driven by the
 // simulation (engine/sim).
 //
-// Usage: ronmap [game-dir] <scenario.scx> [--zoom LEVEL] [--at X,Y] [--no-bloom] [--build NAME@X,Y[@TEAM] ...]
+// Usage: ronmap [game-dir] [--menu [SCREEN] [--snapshot out.png [--size WxH]]]
+//        ronmap [game-dir] <scenario.scx> [--zoom LEVEL] [--at X,Y] [--no-bloom] [--build NAME@X,Y[@TEAM] ...]
 //               [--unit NAME@X,Y[@ANGLE] ...] [--no-sim] [--seed S] [--difficulty 0..5]
 //               [--move WHO:o1,o2,...@X,Y[@FRAME] ...] [--attack WHO:o1,...@TWHO:TO[@FRAME] ...] [--frames N]
 //               [--farm-time SECONDS] [--snapshot out.png [--size WxH]] [--no-hud] [--ui-scale S]
@@ -29,11 +30,18 @@
 //   over world point X,Y; --look / --zoom-at move the camera as the player would; --script-log prints the
 //   presentation queue as it is consumed.
 //
+//   Without a scenario the window opens in the front end (docs/ui-port.md "Front end"): the Main Menu drawn with the
+//   install's own menu art, its Tutorials / Skirmish / Scenarios lists, Play starting the chosen map in the same window.
+//   --menu SCREEN (main, tutorials, skirmish, scenarios, quit-popup) opens that screen; with --snapshot it is rendered
+//   headless. The game folder comes from the command line, the remembered folder, or the usual install locations; a
+//   native folder picker asks only when none is found.
+//
 // Controls (docs/ui-spec.md 4): click select (Shift adds, Ctrl/Cmd toggles, double click = same type on screen), drag a
 //           box (units before buildings, 128 max); right-click: move / attack / rally point; minimap: click or drag to
 //           look, right-click to order; Ctrl+0..9 stores a control group (no selection: a camera bookmark), 0..9 recalls,
 //           twice centres; edge scrolling (2 px), mouse wheel / pinch zoom toward the cursor, trackpad scroll pans;
-//           arrows scroll   + - zoom level   P pause   F fog   B bloom   H HUD   Esc cancel / clear   Q quit
+//           arrows scroll   + - zoom level   P pause   F fog   B bloom   H HUD   Esc cancel / clear / game menu   F10 game menu
+//           (Resume, Return to Main Menu, Quit); the game-over screen offers Return to Main Menu.
 #import <Cocoa/Cocoa.h>
 #import <Metal/Metal.h>
 #import <MetalKit/MetalKit.h>
@@ -91,6 +99,7 @@
 #include "renderer.hpp"
 #include "ui.hpp"
 #include "unit_draw.hpp"
+#import "frontend.h"
 #import "launcher.h"
 
 namespace rm = ron::metal;
@@ -359,8 +368,6 @@ static int64_t sim_key(int32_t who, int32_t o, int32_t guy = 0) { return (int64_
 // GameInfo difficulty from --difficulty (0 easiest .. 5; -1 keeps the default 2). AI armies only attack once they
 // have enough standard units for the current military epoch (ai-spec find_target); in tut5 that takes difficulty 4.
 static int g_difficulty = -1;
-// Started from the launcher menu: closing the game window goes back to the menu instead of quitting.
-static bool g_from_menu = false;
 
 // Debugging aid: RON_SKIP=floor,land,trans,coral,water skips those passes.
 static bool debug_skip(const char* pass) {
@@ -425,6 +432,10 @@ static bool debug_skip(const char* pass) {
 - (void)setMouseInside:(BOOL)inside;
 - (void)setCursorWorldX:(float)x y:(float)y;
 - (void)testPopup:(const char*)text;
+// Leaving the game from the game menu or the game-over screen: quit = NO returns to the Main Menu. Nil: Quit only.
+@property(nonatomic, copy) void (^onExit)(BOOL quit);
+// Opens the game menu (Esc / F10): 1 the pause menu, 2 the game-over choices.
+- (void)openGameMenu:(int)kind;
 @end
 
 // ---- HUD data adapter: the console player's numbers for the resource panel and the top strip, from the production view
@@ -581,7 +592,6 @@ static hud::Resources hud_resources(const ron::sim::Game* g, int who) {
 	std::unique_ptr<ron::IfaceLayout> _layout;
 	rm::UiRenderer _ui;
 	hud::Hud _hud;
-	std::vector<ron::CursorRow> _cursorRows;
 	std::map<int, NSCursor*> _cursors;
 	id<MTLTexture> _miniBG, _miniFog;
 	std::vector<uint8_t> _miniFogLevels;
@@ -636,6 +646,13 @@ static hud::Resources hud_resources(const ron::sim::Game* g, int who) {
 	BOOL _inPopup;
 	int _popupResult;
 	size_t _gameEventsSeen;
+	// The game menu (MainMenuBase in interface.xml MAINMENU look): 0 closed, 1 Esc menu, 2 game over.
+	int _gameMenu;
+	std::vector<ron::IfaceRect> _gmRects;
+	int _gmHover, _gmPress;
+	double _overMs;  // when the local game-over was first seen (-1 not yet)
+	BOOL _overOffered;
+	BOOL _uiReady;
 }
 
 - (instancetype)initWithDevice:(id<MTLDevice>)device
@@ -649,6 +666,7 @@ static hud::Resources hud_resources(const ron::sim::Game* g, int who) {
 	_fogOn = YES;
 	_uiScale = 1;
 	_targeting = -1, _buildPage = -1, _placeType = -1, _lastGroupKey = -1;
+	_gmHover = _gmPress = -1, _overMs = -1;
 	_simSeed = seed;
 	_device = device;
 	_queue = [device newCommandQueue];
@@ -869,7 +887,7 @@ static hud::Resources hud_resources(const ron::sim::Game* g, int who) {
 		_hudOn = _ui.init(device, _queue, MTLPixelFormatBGRA8Unorm, _files.get(), _layout.get(), uerr) && _hud.init(*_files, *_layout, uerr);
 		if (!_hudOn) std::fprintf(stderr, "interface unavailable: %s\n", uerr.c_str());
 		_sviewOn = _hudOn && _sview.init(*_files, *_layout, uerr);
-		_cursorRows = ron::load_cursors(*_files);
+		_uiReady = _hudOn;
 	} catch (const std::exception& e) {
 		std::fprintf(stderr, "interface unavailable: %s\n", e.what());
 		_hudOn = NO;
@@ -1939,6 +1957,14 @@ static hud::Resources hud_resources(const ron::sim::Game* g, int who) {
 }
 
 - (void)handleKey:(NSEvent*)event {
+	if (_gameMenu) {
+		[self gameMenuKey:event];
+		return;
+	}
+	if (event.keyCode == 109 && !_inPopup) {  // F10: the game menu
+		[self openGameMenu:1];
+		return;
+	}
 	if ([self handleGroupKey:event]) {
 		[self updateTitle];
 		return;
@@ -1968,13 +1994,15 @@ static hud::Resources hud_resources(const ron::sim::Game* g, int who) {
 		case '+': case '=': if (!zoom_locked) _zoom = std::min(_zoom + 1, 6); break;
 		case '-': case '_': if (!zoom_locked) _zoom = std::max(_zoom - 1, 0); break;
 		case 'b': case 'B': _bloom = !_bloom; break;
-		case 27: _selected.clear(), _selectedBuilds.clear(); break;  // Escape
+		case 27:  // Escape: clear the selection, else the game menu
+			if (_selected.empty() && _selectedBuilds.empty() && !(_sviewOn && _sview.modal())) [self openGameMenu:1];
+			_selected.clear(), _selectedBuilds.clear();
+			break;
 		case 'h': case 'H': _hudOn = !_hudOn; break;
 		case 'p': case 'P':
 			if (!(sp && sp->pause_disabled)) _paused = !_paused;  // pause_disable
 			break;
 		case 'f': case 'F': _fogOn = !_fogOn; break;
-		case 'q': case 'Q': [NSApp terminate:nil]; break;
 		default: break;
 	}
 	[self updateTitle];
@@ -2144,7 +2172,15 @@ static hud::Resources hud_resources(const ron::sim::Game* g, int who) {
 	if (_lastFrame > 0) _timeMs += std::min(0.1, now - _lastFrame) * 1000.0;
 	_lastFrame = now;
 	[self advanceFarmsTo:_farmFrame + uint32_t(_timeMs * 0.015) - uint32_t(before * 0.015)];  // 15 simulation frames a second
-	const bool modal = _inPopup || (_sviewOn && _sview.goal_dialog_open());
+	const bool modal = _inPopup || (_sviewOn && _sview.goal_dialog_open()) || _gameMenu != 0;
+	// The game is over for the local player: after the notice has played, offer the way back (ENDGAMEWIN's role).
+	if (_sviewOn && _sview.game_is_over() && !_overOffered) {
+		if (_overMs < 0) _overMs = _timeMs;
+		if (_timeMs - _overMs > 5000 && !_inPopup && !_gameMenu) {
+			_overOffered = YES;
+			[self openGameMenu:2];
+		}
+	}
 	if (_game && !_paused && !modal) {
 		_simMs += _timeMs - before;
 		int steps = int(_simMs / kSimFrameMs);
@@ -2593,16 +2629,24 @@ static hud::Resources hud_resources(const ron::sim::Game* g, int who) {
 }
 
 - (void)encodeHud:(id<MTLRenderCommandEncoder>)enc width:(NSUInteger)w height:(NSUInteger)h {
-	if (!_hudOn) return;
+	if (!_uiReady) return;
 	const float sc = _uiScale > 0 ? _uiScale : 1;
 	_uiW = int(std::lround(double(w) / sc));
 	_uiH = int(std::lround(double(h) / sc));
+	if (!_hudOn) {  // H: no interface, but the game menu still shows
+		if (!_gameMenu) return;
+		_ui.begin(_uiW, _uiH, sc);
+		[self drawGameMenu];
+		_ui.encode(enc);
+		return;
+	}
 	[self updateMinimapFog];
 	_hudState = [self makeHudState];
 	_ui.begin(_uiW, _uiH, sc);
 	_hud.layout(_uiW, _uiH);
 	if (![self hudVisible]) {  // ui_hide (or H): only the script layers
 		if (_sviewOn) _sview.draw(_ui, [self pres], [self scriptEnv]);
+		[self drawGameMenu];
 		_ui.encode(enc);
 		return;
 	}
@@ -2614,7 +2658,102 @@ static hud::Resources hud_resources(const ron::sim::Game* g, int who) {
 	_hud.draw(_ui, _hudState);
 	// MessageWin, AnimNotice, ScreenArrowSpline, the modal windows (docs/ui-port.md "Script UI").
 	if (_sviewOn) _sview.draw(_ui, [self pres], [self scriptEnv]);
+	[self drawGameMenu];
 	_ui.encode(enc);
+}
+
+// ---------------------------------------------------------------- the game menu (docs/ui-port.md "Front end")
+
+- (std::vector<std::string>)gameMenuItems {
+	if (_gameMenu == 2) return {"Return to Main Menu", "Keep Watching", "Quit"};
+	return {"Resume Game", "Return to Main Menu", "Quit"};
+}
+
+- (void)openGameMenu:(int)kind {
+	if (!_uiReady) return;
+	_gameMenu = kind;
+	_gmHover = 0, _gmPress = -1;
+	_pressing = _boxing = _hudPress = _rightPress = NO;
+}
+
+// MainMenuBase (interface.xml MAINMENU): the 9-piece scroll background bg0..bg8, the title in font 24, a column of
+// 173 x 32 buttons (butnormal / buthighlight / butdown), centred on the screen.
+- (void)drawGameMenu {
+	_gmRects.clear();
+	if (!_gameMenu || !_layout) return;
+	const ron::XmlElement* mm = nullptr;
+	for (const ron::XmlElement& c : _layout->root().children) {
+		if (ron::iface_tag_is(c, "MAINMENU")) mm = &c;
+	}
+	const std::vector<std::string> items = [self gameMenuItems];
+	const int bw = 173, bh = 32, gap = 8, pad = 22, titleH = 44;
+	const int w = bw + pad * 2, h = titleH + int(items.size()) * (bh + gap) - gap + pad * 2;
+	const int x = (_uiW - w) / 2, y = (_uiH - h) / 2 - 40;
+	_ui.next_window();
+	_ui.fill(0, 0, float(_uiW), float(_uiH), rm::argb(90, 0, 0, 0), rm::UiType::ColorBlend);
+	_ui.next_layer();
+	ron::IfacePiece bg[9];
+	if (mm) {
+		for (int k = 0; k < 9; k++) bg[k] = ron::iface_find_piece(*mm, "bg" + std::to_string(k));
+	}
+	if (bg[0].valid() && bg[4].valid() && bg[8].valid()) {
+		const int lw = bg[0].width, rw = bg[2].width, th = bg[0].height, bh2 = bg[6].height;
+		const int cx[3] = {x, x + lw, x + w - rw}, cw[3] = {lw, w - lw - rw, rw};
+		const int cy[3] = {y, y + th, y + h - bh2}, ch[3] = {th, h - th - bh2, bh2};
+		for (int r = 0; r < 3; r++) {
+			for (int c = 0; c < 3; c++) _ui.add(bg[r * 3 + c], float(cx[c]), float(cy[r]), float(cw[c]), float(ch[r]));
+		}
+	} else {
+		_ui.fill(float(x), float(y), float(w), float(h), rm::argb(224, 39, 40, 43), rm::UiType::ColorBlend);
+	}
+	_ui.next_layer();
+	const int tf = _ui.font(24, -1), bf = _ui.font(14, -1);
+	_ui.text_centered(tf, _gameMenu == 2 ? "Game Over" : "Game Menu", {x, x + w, y + pad - 6, y + pad - 6 + titleH}, 0xFFFFFFFF, 0xFF000000);
+	for (size_t i = 0; i < items.size(); i++) {
+		const int by = y + pad + titleH + int(i) * (bh + gap);
+		const ron::IfaceRect r{x + pad, x + pad + bw, by, by + bh};
+		_gmRects.push_back(r);
+		const char* kind = _gmPress == int(i) ? "butdown" : _gmHover == int(i) ? "buthighlight" : "butnormal";
+		ron::IfacePiece p[3];
+		if (mm) {
+			for (int k = 0; k < 3; k++) p[k] = ron::iface_find_piece(*mm, std::string(kind) + std::to_string(k));
+		}
+		_ui.next_layer();
+		if (p[0].valid()) _ui.expander(p[0], p[1], p[2], r);
+		else _ui.fill(float(r.l), float(r.t), float(r.w()), float(r.h()), rm::argb(255, 70, 70, 70));
+		_ui.next_layer();
+		_ui.text_centered(bf, items[i], r, 0xFFFFFFFF, 0xFF000000);
+	}
+}
+
+- (int)gameMenuAt:(CGPoint)p {
+	for (size_t i = 0; i < _gmRects.size(); i++) {
+		if (_gmRects[i].contains(int(p.x), int(p.y))) return int(i);
+	}
+	return -1;
+}
+
+- (void)gameMenuChoose:(int)i {
+	const std::vector<std::string> items = [self gameMenuItems];
+	if (i < 0 || size_t(i) >= items.size()) return;
+	const std::string& it = items[size_t(i)];
+	_gameMenu = 0;
+	_lastFrame = 0;  // no catch-up after the pause
+	if (it == "Return to Main Menu" && self.onExit) self.onExit(NO);
+	else if (it == "Quit") {
+		if (self.onExit) self.onExit(YES);
+		else [NSApp terminate:nil];
+	}
+}
+
+- (void)gameMenuKey:(NSEvent*)e {
+	NSString* chars = e.charactersIgnoringModifiers;
+	const unichar c = chars.length ? [chars characterAtIndex:0] : 0;
+	const int n = int([self gameMenuItems].size());
+	if (c == NSUpArrowFunctionKey) _gmHover = (std::max(_gmHover, 0) + n - 1) % n;
+	else if (c == NSDownArrowFunctionKey) _gmHover = (_gmHover + 1) % n;
+	else if (c == '\r' || c == 3) [self gameMenuChoose:std::max(_gmHover, 0)];
+	else if (e.keyCode == 53 || e.keyCode == 109) _gameMenu = 0, _lastFrame = 0;  // Esc / F10: back to the game
 }
 
 // ---------------------------------------------------------------- building placement (docs/ui-spec.md 4.5)
@@ -2962,6 +3101,10 @@ static hud::Resources hud_resources(const ron::sim::Game* g, int who) {
 - (void)uiMouseDown:(CGPoint)p right:(BOOL)right modifiers:(NSEventModifierFlags)m clicks:(NSInteger)clicks {
 	_mouse = p;
 	_mouseInside = YES;
+	if (_gameMenu) {
+		_gmPress = right ? -1 : [self gameMenuAt:p];
+		return;
+	}
 	if (_sviewOn && [self modalMouse:p up:NO]) return;
 	if ([self hudVisible] && _hud.captures(int(p.x), int(p.y))) {
 		_hudPress = YES;
@@ -2980,6 +3123,10 @@ static hud::Resources hud_resources(const ron::sim::Game* g, int who) {
 
 - (void)uiMouseDragged:(CGPoint)p right:(BOOL)right delta:(CGPoint)d {
 	_mouse = p;
+	if (_gameMenu) {
+		_gmHover = [self gameMenuAt:p];
+		return;
+	}
 	if (_hudPress) {
 		[self handleHudAction:_hud.mouse_drag(int(p.x), int(p.y), _hudState) modifiers:0];
 		return;
@@ -2998,6 +3145,13 @@ static hud::Resources hud_resources(const ron::sim::Game* g, int who) {
 
 - (void)uiMouseUp:(CGPoint)p right:(BOOL)right modifiers:(NSEventModifierFlags)m {
 	_mouse = p;
+	if (_gameMenu) {
+		const int i = [self gameMenuAt:p];
+		const int pressed = _gmPress;
+		_gmPress = -1;
+		if (!right && i >= 0 && i == pressed) [self gameMenuChoose:i];
+		return;
+	}
 	if (_sviewOn && (_sview.modal()) && [self modalMouse:p up:YES]) return;
 	if (_hudPress) {
 		_hudPress = NO;
@@ -3040,6 +3194,11 @@ static hud::Resources hud_resources(const ron::sim::Game* g, int who) {
 - (void)uiMouseMoved:(CGPoint)p {
 	_mouse = p;
 	_mouseInside = YES;
+	if (_gameMenu) {
+		const int i = [self gameMenuAt:p];
+		if (i >= 0) _gmHover = i;
+		return;
+	}
 	_hud.mouse_move(int(p.x), int(p.y));
 	if (_sviewOn && _sview.popup_open()) _sview.popup().hover = _sview.popup_button_at(int(p.x), int(p.y));
 	if (_placeType >= 0 && !([self hudVisible] && _hud.captures(int(p.x), int(p.y)))) {
@@ -3068,6 +3227,7 @@ static hud::Resources hud_resources(const ron::sim::Game* g, int who) {
 
 // A mouse wheel notch zooms (ZOOM_IN3 / ZOOM_OUT3); trackpad scrolling pans the map.
 - (void)uiScrollWheel:(NSEvent*)e at:(CGPoint)p {
+	if (_gameMenu) return;
 	if (!e.hasPreciseScrollingDeltas) {
 		if (e.scrollingDeltaY != 0) [self zoomBy:(e.scrollingDeltaY > 0 ? 1 : -1) toward:p];
 		return;
@@ -3076,6 +3236,7 @@ static hud::Resources hud_resources(const ron::sim::Game* g, int who) {
 }
 
 - (void)uiMagnify:(float)amount at:(CGPoint)p {
+	if (_gameMenu) return;
 	_magnify += amount;
 	if (std::fabs(_magnify) >= 0.15f) {
 		[self zoomBy:(_magnify > 0 ? 1 : -1) toward:p];
@@ -3086,6 +3247,7 @@ static hud::Resources hud_resources(const ron::sim::Game* g, int who) {
 // Camera::check_scroll @008440f0: a 2 px edge band; the left and right edges only above the HUD top - 40 px. Step
 // min(1, dt / 67 * 0.5) * 63.9936 * speed (1.0) * scroll_speeds[zoom] world units along the camera axes.
 - (void)edgeScroll:(double)dtMs {
+	if (_gameMenu) return;
 	NSWindow* win = self.view.window;
 	if (!win || !win.isKeyWindow || _hudPress || _rightDragged) return;
 	if ([self pres] && ([self pres]->scroll_lock_flags & 1)) return;  // scrolling_lock (Camera::check_scroll)
@@ -3622,29 +3784,7 @@ static int vk_of(NSEvent* e) {
 - (NSCursor*)cursorWithId:(int)cid {
 	auto it = _cursors.find(cid);
 	if (it != _cursors.end()) return it->second;
-	NSCursor* c = [NSCursor arrowCursor];
-	if (cid >= 0 && size_t(cid) < _cursorRows.size()) {
-		const ron::CursorRow& r = _cursorRows[size_t(cid)];
-		try {
-			const ron::Image img = ron::parse_tga(ron::read_file(_files->resolve(r.file)));
-			NSBitmapImageRep* rep = [[NSBitmapImageRep alloc] initWithBitmapDataPlanes:nil pixelsWide:r.xs pixelsHigh:r.ys bitsPerSample:8
-			                                                         samplesPerPixel:4 hasAlpha:YES isPlanar:NO
-			                                                          colorSpaceName:NSDeviceRGBColorSpace bytesPerRow:r.xs * 4 bitsPerPixel:32];
-			for (int y = 0; y < r.ys; y++) {
-				for (int x = 0; x < r.xs; x++) {
-					const int sx = r.x + x, sy = r.y + y;
-					uint8_t* d = rep.bitmapData + (y * r.xs + x) * 4;
-					if (sx < img.width && sy < img.height) std::memcpy(d, &img.rgba[size_t(sy * img.width + sx) * 4], 4);
-					else std::memset(d, 0, 4);
-				}
-			}
-			NSImage* image = [[NSImage alloc] initWithSize:NSMakeSize(r.xs, r.ys)];
-			[image addRepresentation:rep];
-			c = [[NSCursor alloc] initWithImage:image hotSpot:NSMakePoint(r.hot_x, r.hot_y)];
-		} catch (const std::exception&) {
-		}
-	}
-	return _cursors[cid] = c;
+	return _cursors[cid] = ron_game_cursor(*_files, cid);
 }
 
 // The context cursor (Console::execute_at_cursor preview): Move To while targeting, Attack over an enemy with own units
@@ -3665,8 +3805,10 @@ static int vk_of(NSEvent* e) {
 
 @end
 
+// The game window's view: events go to the front end while it is up, else to the game.
 @interface MapView : MTKView
 @property(nonatomic, weak) MapRenderer* renderer;
+@property(nonatomic, weak) FrontEnd* frontEnd;
 @end
 
 @implementation MapView {
@@ -3679,25 +3821,34 @@ static int vk_of(NSEvent* e) {
 	return YES;
 }
 - (void)keyDown:(NSEvent*)event {
+	if (self.frontEnd) {
+		[self.frontEnd keyDown:event];
+		return;
+	}
 	[self.renderer scriptKey:event down:YES];
 	[self.renderer handleKey:event];
 }
 - (void)keyUp:(NSEvent*)event {
-	[self.renderer scriptKey:event down:NO];
+	if (!self.frontEnd) [self.renderer scriptKey:event down:NO];
 }
 - (void)flagsChanged:(NSEvent*)event {
-	[self.renderer scriptFlags:event.modifierFlags];
+	if (!self.frontEnd) [self.renderer scriptFlags:event.modifierFlags];
 }
 - (void)mouseEntered:(NSEvent*)event {
-	[self.renderer setMouseInside:YES];
+	if (!self.frontEnd) [self.renderer setMouseInside:YES];
 }
 - (void)mouseExited:(NSEvent*)event {
-	[self.renderer setMouseInside:NO];
+	if (!self.frontEnd) [self.renderer setMouseInside:NO];
 }
 // Events go to the renderer in UI pixels: view points with a top-left origin (the HUD's coordinate space).
 - (CGPoint)uiPoint:(NSEvent*)event {
 	const NSPoint p = [self convertPoint:event.locationInWindow fromView:nil];
 	return CGPointMake(p.x, self.bounds.size.height - p.y);
+}
+- (NSCursor*)cursorAt:(CGPoint)p {
+	if (self.frontEnd) return [self.frontEnd cursor];
+	if (self.renderer) return [self.renderer cursorAt:p];
+	return [NSCursor arrowCursor];
 }
 - (void)updateTrackingAreas {
 	[super updateTrackingAreas];
@@ -3709,84 +3860,243 @@ static int vk_of(NSEvent* e) {
 	[self addTrackingArea:_tracking];
 }
 - (void)cursorUpdate:(NSEvent*)event {
-	[[self.renderer cursorAt:[self uiPoint:event]] set];
+	[[self cursorAt:[self uiPoint:event]] set];
 }
 - (void)mouseMoved:(NSEvent*)event {
 	const CGPoint p = [self uiPoint:event];
-	[self.renderer uiMouseMoved:p];
-	[[self.renderer cursorAt:p] set];
+	if (self.frontEnd) [self.frontEnd mouseMoved:p];
+	else [self.renderer uiMouseMoved:p];
+	[[self cursorAt:p] set];
 }
 - (void)mouseDown:(NSEvent*)event {
-	[self.renderer uiMouseDown:[self uiPoint:event] right:NO modifiers:event.modifierFlags clicks:event.clickCount];
+	if (self.frontEnd) [self.frontEnd mouseDown:[self uiPoint:event] clicks:event.clickCount];
+	else [self.renderer uiMouseDown:[self uiPoint:event] right:NO modifiers:event.modifierFlags clicks:event.clickCount];
 }
 - (void)mouseDragged:(NSEvent*)event {
-	[self.renderer uiMouseDragged:[self uiPoint:event] right:NO delta:CGPointMake(event.deltaX, event.deltaY)];
+	if (self.frontEnd) [self.frontEnd mouseDragged:[self uiPoint:event]];
+	else [self.renderer uiMouseDragged:[self uiPoint:event] right:NO delta:CGPointMake(event.deltaX, event.deltaY)];
 }
 - (void)mouseUp:(NSEvent*)event {
-	[self.renderer uiMouseUp:[self uiPoint:event] right:NO modifiers:event.modifierFlags];
-	[[self.renderer cursorAt:[self uiPoint:event]] set];
+	if (self.frontEnd) [self.frontEnd mouseUp:[self uiPoint:event]];
+	else [self.renderer uiMouseUp:[self uiPoint:event] right:NO modifiers:event.modifierFlags];
+	[[self cursorAt:[self uiPoint:event]] set];
 }
 - (void)rightMouseDown:(NSEvent*)event {
-	[self.renderer uiMouseDown:[self uiPoint:event] right:YES modifiers:event.modifierFlags clicks:event.clickCount];
+	if (!self.frontEnd) [self.renderer uiMouseDown:[self uiPoint:event] right:YES modifiers:event.modifierFlags clicks:event.clickCount];
 }
 - (void)rightMouseDragged:(NSEvent*)event {
-	[self.renderer uiMouseDragged:[self uiPoint:event] right:YES delta:CGPointMake(event.deltaX, event.deltaY)];
+	if (!self.frontEnd) [self.renderer uiMouseDragged:[self uiPoint:event] right:YES delta:CGPointMake(event.deltaX, event.deltaY)];
 }
 - (void)rightMouseUp:(NSEvent*)event {
-	[self.renderer uiMouseUp:[self uiPoint:event] right:YES modifiers:event.modifierFlags];
+	if (!self.frontEnd) [self.renderer uiMouseUp:[self uiPoint:event] right:YES modifiers:event.modifierFlags];
 }
 - (void)scrollWheel:(NSEvent*)event {
+	if (self.frontEnd) {
+		const CGFloat dy = event.hasPreciseScrollingDeltas ? event.scrollingDeltaY / 24.0 : event.scrollingDeltaY;
+		[self.frontEnd scrollWheel:dy at:[self uiPoint:event]];
+		return;
+	}
 	[self.renderer uiScrollWheel:event at:[self uiPoint:event]];
 }
 - (void)magnifyWithEvent:(NSEvent*)event {
-	[self.renderer uiMagnify:float(event.magnification) at:[self uiPoint:event]];
+	if (!self.frontEnd) [self.renderer uiMagnify:float(event.magnification) at:[self uiPoint:event]];
 }
 @end
 
-@interface MapAppDelegate : NSObject <NSApplicationDelegate>
+// The app: one window whose view shows either the front end or a game; Play and Return to Main Menu swap them in place.
+@interface MapAppDelegate : NSObject <NSApplicationDelegate, FrontEndHost>
 @property(nonatomic, strong) NSWindow* window;
-@property(nonatomic, strong) MapRenderer* renderer;
+@property(nonatomic, strong) MapView* view;
+@property(nonatomic, strong) MapRenderer* renderer;  // the running game (nil while the menu is up)
+@property(nonatomic, strong) FrontEnd* menu;         // the front end (nil during a game)
 @property(nonatomic, strong) id<MTLDevice> device;
+@property(nonatomic, copy) NSString* gameDir;
+@property(nonatomic, copy) NSString* startScreen;
 @end
 
 @implementation MapAppDelegate
-// The window is created once the app has finished launching, as in the unit viewer: a window ordered front before
-// [NSApp run] is torn down during launch, and the app then quits as its last window closed.
+// Everything is created once the app has finished launching, inside [NSApp run]: a window ordered front (or a modal
+// session run) before that is torn down during launch, and the app then quits as its last window closed.
 - (void)applicationDidFinishLaunching:(NSNotification*)notification {
-	const NSRect frame = NSMakeRect(0, 0, 1440, 900);
+	// Come to the front even when started from Finder, `open` or a terminal (macOS 14 restricts activateIgnoringOtherApps).
+	if (@available(macOS 14.0, *)) [NSApp activate];
+	else [NSApp activateIgnoringOtherApps:YES];
+	if (!self.renderer) {
+		NSString* dir = self.gameDir;
+		if (!launcher::looks_like_install(dir)) dir = launcher::saved_or_guessed_install();
+		if (!launcher::looks_like_install(dir)) dir = launcher::ask_for_install(nil);
+		if (!dir) {
+			[NSApp terminate:nil];
+			return;
+		}
+		launcher::remember_install(dir);
+		self.gameDir = dir;
+	}
+	NSRect frame = NSMakeRect(0, 0, 1440, 900);
+	if (NSScreen* screen = NSScreen.mainScreen) {
+		const NSRect vis = screen.visibleFrame;
+		frame.size.width = std::min<CGFloat>(frame.size.width, std::floor(vis.size.width * 0.92));
+		frame.size.height = std::min<CGFloat>(frame.size.height, std::floor(vis.size.height * 0.92));
+	}
 	self.window = [[NSWindow alloc] initWithContentRect:frame
 	                                          styleMask:NSWindowStyleMaskTitled | NSWindowStyleMaskClosable |
 	                                                    NSWindowStyleMaskResizable | NSWindowStyleMaskMiniaturizable
 	                                            backing:NSBackingStoreBuffered
 	                                              defer:NO];
 	self.window.releasedWhenClosed = NO;
-	MapView* view = [[MapView alloc] initWithFrame:frame device:self.device];
-	view.colorPixelFormat = MTLPixelFormatBGRA8Unorm;
-	view.framebufferOnly = YES;
-	view.renderer = self.renderer;
-	view.delegate = self.renderer;
-	self.renderer.view = view;
-	self.window.contentView = view;
+	self.window.title = @"OpenRiseOfNations";
+	self.window.contentMinSize = NSMakeSize(640, 480);
+	self.view = [[MapView alloc] initWithFrame:frame device:self.device];
+	self.view.colorPixelFormat = MTLPixelFormatBGRA8Unorm;
+	self.view.framebufferOnly = YES;
+	self.window.contentView = self.view;
+	if (self.renderer) {
+		[self attachGame:self.renderer];
+	} else if (![self showMenu:self.startScreen]) {
+		[NSApp terminate:nil];
+		return;
+	}
 	[self.window center];
 	[self.window makeKeyAndOrderFront:nil];
-	[self.window makeFirstResponder:view];
-	[self.renderer updateTitle];
-	[self.renderer startInteractive];
-	[NSApp activateIgnoringOtherApps:YES];
+	[self.window makeFirstResponder:self.view];
+	if (@available(macOS 14.0, *)) [NSApp activate];
+	else [NSApp activateIgnoringOtherApps:YES];
+	[self.window orderFrontRegardless];
+	if (getenv("RON_FLOW_TEST")) [self flowTest:0];
 }
-- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication*)sender {
-	if (g_from_menu) {
-		// Back to the menu: start a fresh copy of the app without arguments, then quit this one.
-		NSTask* t = [NSTask new];
-		t.executableURL = NSBundle.mainBundle.executableURL ?: [NSURL fileURLWithPath:NSProcessInfo.processInfo.arguments[0]];
-		t.arguments = @[];
-		[t launchAndReturnError:nil];
+
+// Debugging aid (RON_FLOW_TEST=1): menu -> Play (tutorial 1) -> game menu "Return to Main Menu" -> Play (skirmish) ->
+// back -> quit, a few seconds apart, printing each step: checks the in-window swaps without clicking.
+- (void)flowTest:(int)step {
+	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, int64_t(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+		std::printf("flow test step %d: %s\n", step, self.renderer ? "game" : self.menu ? "menu" : "?");
+		std::fflush(stdout);
+		switch (step) {
+			case 0: [self frontEndPlay:@"scenario/Tutorial1/tut1.scx" difficulty:-1]; break;
+			case 1: [self.renderer openGameMenu:1]; break;
+			case 2: if (self.renderer.onExit) self.renderer.onExit(NO); break;
+			case 3: [self frontEndPlay:@"scenario/Custom/skirmish/skirmish.scx" difficulty:3]; break;
+			case 4: if (self.renderer.onExit) self.renderer.onExit(NO); break;
+			default: [NSApp terminate:nil]; return;
+		}
+		[self flowTest:step + 1];
+	});
+}
+
+- (void)alert:(NSString*)title text:(NSString*)text {
+	NSAlert* a = [NSAlert new];
+	a.messageText = title;
+	a.informativeText = text ?: @"Unknown error";
+	[a runModal];
+}
+
+// The front end in the window (screen nil: the one remembered from last time).
+- (BOOL)showMenu:(NSString*)screen {
+	if (!self.menu) {
+		NSString* err = nil;
+		self.menu = [[FrontEnd alloc] initWithDevice:self.device gameDir:self.gameDir error:&err];
+		if (!self.menu) {
+			[self alert:@"Could not open the menu" text:err];
+			return NO;
+		}
 	}
+	FrontEnd* m = self.menu;
+	self.view.renderer = nil;
+	self.view.frontEnd = m;
+	self.view.delegate = m;
+	m.view = self.view;
+	m.host = self;
+	self.renderer = nil;  // the game (its sounds stop with it)
+	[m startInteractive];
+	[m showScreen:screen ?: ([NSUserDefaults.standardUserDefaults stringForKey:launcher::kDefScreen] ?: @"main")];
+	self.window.title = @"OpenRiseOfNations";
+	[self.window makeFirstResponder:self.view];
+	[[m cursor] set];
+	return YES;
+}
+
+- (void)attachGame:(MapRenderer*)r {
+	self.renderer = r;
+	r.view = self.view;
+	self.view.frontEnd = nil;
+	self.view.renderer = r;
+	self.view.delegate = r;
+	__weak MapAppDelegate* weakSelf = self;
+	// Swapped on the next turn of the run loop: the game's own event handler is still on the stack.
+	r.onExit = ^(BOOL quit) {
+		dispatch_async(dispatch_get_main_queue(), ^{
+			if (quit) [NSApp terminate:nil];
+			else [weakSelf showMenu:nil];
+		});
+	};
+	[r updateTitle];
+	[r startInteractive];
+	[self.window makeFirstResponder:self.view];
+}
+
+- (void)frontEndPlay:(NSString*)scenario difficulty:(int)difficulty {
+	[self.menu setBusy:@"Loading…"];
+	[self.view draw];
+	dispatch_async(dispatch_get_main_queue(), ^{
+		g_difficulty = difficulty;
+		NSString* err = nil;
+		MapRenderer* r = [[MapRenderer alloc] initWithDevice:self.device gameDir:self.gameDir scenario:scenario simulate:YES seed:12345 error:&err];
+		if (!r) {
+			[self.menu setBusy:nil];
+			[self.menu showError:[NSString stringWithFormat:@"Could not load the scenario: %@", err ?: @"unknown error"]];
+			return;
+		}
+		const CGSize ds = self.view.drawableSize;
+		const float scale = float(self.window.backingScaleFactor > 0 ? self.window.backingScaleFactor : 1);
+		[r setUiWidth:int(ds.width) height:int(ds.height) scale:scale];
+		[self.menu stopAudio];
+		self.view.frontEnd = nil;
+		self.menu = nil;  // its backdrop textures are large; the menu is rebuilt on the way back
+		[self attachGame:r];
+	});
+}
+
+- (void)frontEndChangeFolder {
+	NSString* dir = launcher::choose_install(self.gameDir);
+	if (!dir || [dir isEqualToString:self.gameDir]) return;
+	NSString* err = nil;
+	FrontEnd* m = [[FrontEnd alloc] initWithDevice:self.device gameDir:dir error:&err];
+	if (!m) {
+		[self alert:@"Could not open the menu" text:err];
+		return;
+	}
+	launcher::remember_install(dir);
+	self.gameDir = dir;
+	[self.menu stopAudio];
+	self.menu = m;
+	[self showMenu:@"main"];
+}
+
+- (void)frontEndQuit {
+	[NSApp terminate:nil];
+}
+
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication*)sender {
 	return YES;
 }
 @end
 
 static MapAppDelegate* g_delegate;  // the app delegate property is weak; keep it alive for the whole run
+
+static void run_app(MapAppDelegate* d) {
+	NSApplication* app = [NSApplication sharedApplication];
+	[app setActivationPolicy:NSApplicationActivationPolicyRegular];
+	NSMenu* menuBar = [NSMenu new];
+	NSMenuItem* appItem = [NSMenuItem new];
+	[menuBar addItem:appItem];
+	NSMenu* appMenu = [NSMenu new];
+	[appMenu addItemWithTitle:@"Quit OpenRiseOfNations" action:@selector(terminate:) keyEquivalent:@"q"];
+	appItem.submenu = appMenu;
+	app.mainMenu = menuBar;
+	g_delegate = d;
+	app.delegate = d;
+	[app run];
+}
 
 int main(int argc, const char* argv[]) {
 	@autoreleasepool {
@@ -3847,6 +4157,8 @@ int main(int argc, const char* argv[]) {
 		std::vector<BuildArg> builds;
 		std::vector<BuildArg> units;  // name, x, y, angle in `team`
 		std::vector<NSString*> positional;
+		bool menu = false;
+		NSString* menuScreen = nil;
 		for (int i = 1; i < argc; i++) {
 			const std::string a = argv[i];
 			const bool more = i + 1 < argc;
@@ -3990,29 +4302,53 @@ int main(int argc, const char* argv[]) {
 				fog = false;
 			} else if (a == "--no-bloom") {
 				bloom = false;
+			} else if (a == "--menu") {
+				menu = true;
+				static const char* const screens[] = {"main", "tutorials", "skirmish", "scenarios", "quit-popup"};
+				for (const char* sname : screens) {
+					if (more && std::strcmp(argv[i + 1], sname) == 0) menuScreen = @(argv[++i]);
+				}
 			} else if (a.rfind("--", 0) == 0) {
-				std::printf("usage: %s [game-dir] <scenario.scx> [--zoom 0..6] [--at X,Y] [--no-bloom] [--farm-time S] [--no-sim] [--seed S] "
-				            "[--move WHO:o1,o2@X,Y[@FRAME]]... [--frames N] [--snapshot out.png [--size WxH]]\n", argv[0]);
+				std::printf("usage: %s [game-dir] [--menu [main|tutorials|skirmish|scenarios|quit-popup]] [--snapshot out.png [--size WxH]]\n"
+				            "       %s [game-dir] <scenario.scx> [--zoom 0..6] [--at X,Y] [--no-bloom] [--farm-time S] [--no-sim] [--seed S] "
+				            "[--move WHO:o1,o2@X,Y[@FRAME]]... [--frames N] [--snapshot out.png [--size WxH]]\n", argv[0], argv[0]);
 				return a == "--help" ? 0 : 2;
 			} else {
 				if (a.rfind("-psn_", 0) != 0) positional.push_back(@(argv[i]));  // Finder's process serial number
 			}
 		}
 		if (positional.size() == 2) gameDir = positional[0], scenario = positional[1];
-		if (positional.size() == 1) scenario = positional[0];
-		// Without a scenario (e.g. opened from Finder) the launcher window asks for the game folder and scenario.
-		const bool launched = !scenario && !snapshot;
-		if (launched) {
-			[NSApplication sharedApplication];
-			[NSApp setActivationPolicy:NSApplicationActivationPolicyRegular];
-			int difficulty = g_difficulty >= 0 ? g_difficulty : 2;
-			if (!run_launcher(&gameDir, &scenario, &difficulty)) return 0;
-			g_difficulty = difficulty;
-			g_from_menu = true;
+		NSString* explicitDir = positional.size() == 2 ? positional[0] : nil;
+		if (positional.size() == 1) {
+			// One argument: a game folder opens the menu, anything else is a scenario.
+			if (launcher::looks_like_install(positional[0])) explicitDir = gameDir = positional[0];
+			else scenario = positional[0];
 		}
-		if (!scenario) {
-			std::fprintf(stderr, "usage: %s [game-dir] <scenario.scx> [options]   (try scenario/Tutorial1/tut1.scx)\n", argv[0]);
-			return 2;
+		if (!scenario) menu = true;
+		if (menu) {
+			// The front end: headless with --snapshot, else the app opens its window on the Main Menu.
+			id<MTLDevice> device = MTLCreateSystemDefaultDevice();
+			if (!device) {
+				std::fprintf(stderr, "no Metal device\n");
+				return 1;
+			}
+			if (snapshot) {
+				NSString* dir = launcher::looks_like_install(explicitDir) ? explicitDir : launcher::saved_or_guessed_install();
+				NSString* error = nil;
+				FrontEnd* fe = [[FrontEnd alloc] initWithDevice:device gameDir:dir error:&error];
+				if (!fe) {
+					std::fprintf(stderr, "%s\n", (error ?: @"no Rise of Nations install found").UTF8String);
+					return 1;
+				}
+				[fe showScreen:menuScreen ?: @"main"];
+				return [fe snapshotTo:snapshot width:w height:h scale:ui_scale] ? 0 : 1;
+			}
+			MapAppDelegate* d = [MapAppDelegate new];
+			d.device = device;
+			d.gameDir = explicitDir;
+			d.startScreen = menuScreen;
+			run_app(d);
+			return 0;
 		}
 		id<MTLDevice> device = MTLCreateSystemDefaultDevice();
 		if (!device) {
@@ -4023,12 +4359,6 @@ int main(int argc, const char* argv[]) {
 		MapRenderer* r = [[MapRenderer alloc] initWithDevice:device gameDir:gameDir scenario:scenario simulate:simulate seed:seed error:&error];
 		if (!r) {
 			std::fprintf(stderr, "%s\n", error.UTF8String);
-			if (launched) {
-				NSAlert* alert = [NSAlert new];
-				alert.messageText = @"Could not load the scenario";
-				alert.informativeText = error ?: @"Unknown error";
-				[alert runModal];
-			}
 			return 1;
 		}
 		if (zoom >= 0) r.zoom = zoom;
@@ -4042,6 +4372,7 @@ int main(int argc, const char* argv[]) {
 		[r setUiWidth:w height:h scale:ui_scale];  // the UI the scripts query before any frame is drawn
 		[r setScriptLog:script_log];
 		if (const char* t = getenv("RON_POPUP_TEST")) [r testPopup:t];
+		if (const char* t = getenv("RON_GAME_MENU")) [r openGameMenu:std::atoi(t)];  // 1 the game menu, 2 game over
 		if (play >= 0) [r setLocalPlayer:play];
 		if (sel_who >= 0) [r selectWho:sel_who objects:sel_objs buildings:sel_builds];
 		if (build_page >= 0) [r setBuildPage:build_page];
@@ -4085,21 +4416,11 @@ int main(int argc, const char* argv[]) {
 		if (select_all) [r selectAll];
 		if (snapshot) return [r snapshotTo:snapshot width:w height:h scale:ui_scale] ? 0 : 1;
 
-		NSApplication* app = [NSApplication sharedApplication];
-		[app setActivationPolicy:NSApplicationActivationPolicyRegular];
-		NSMenu* menuBar = [NSMenu new];
-		NSMenuItem* appItem = [NSMenuItem new];
-		[menuBar addItem:appItem];
-		NSMenu* appMenu = [NSMenu new];
-		[appMenu addItemWithTitle:@"Quit" action:@selector(terminate:) keyEquivalent:@"q"];
-		appItem.submenu = appMenu;
-		app.mainMenu = menuBar;
-
-		g_delegate = [MapAppDelegate new];
-		g_delegate.device = device;
-		g_delegate.renderer = r;
-		app.delegate = g_delegate;
-		[app run];
+		MapAppDelegate* d = [MapAppDelegate new];
+		d.device = device;
+		d.renderer = r;
+		d.gameDir = gameDir;
+		run_app(d);
 	}
 	return 0;
 }

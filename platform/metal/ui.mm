@@ -226,7 +226,8 @@ const UiTexture* UiRenderer::texture(const std::string& id) {
 	if (id.empty() || id == "TEX_NONE") return nullptr;
 	auto it = textures_.find(id);
 	if (it != textures_.end()) return it->second.tex ? &it->second : nullptr;
-	std::string file = layout_->texload_file(id);
+	auto ex = extra_texloads_.find(id);
+	std::string file = ex != extra_texloads_.end() ? ex->second : layout_->texload_file(id);
 	if (id == "TEX_CIV" || id == "TEX_LIBRARY_BACK" || id == "TEX_LIBRARY_BACK2") file = iface_skin_file(file, skin_);
 	UiTexture t;
 	const std::string key = to_lower(file);
@@ -244,6 +245,18 @@ const UiTexture* UiRenderer::texture(const std::string& id) {
 	}
 	textures_[id] = t;
 	return t.tex ? &textures_[id] : nullptr;
+}
+
+void UiRenderer::add_texload(const std::string& id, const std::string& file) {
+	extra_texloads_[id] = normalize_game_path(file);
+	textures_.erase(id);
+}
+
+void UiRenderer::release(const std::string& id) {
+	auto ex = extra_texloads_.find(id);
+	const std::string file = ex != extra_texloads_.end() ? ex->second : layout_->texload_file(id);
+	textures_.erase(id);
+	file_textures_.erase(to_lower(file));
 }
 
 void UiRenderer::set_texture(const std::string& key, id<MTLTexture> tex, int w, int h) { textures_[key] = {tex, w, h}; }
@@ -266,19 +279,20 @@ const UiTexture* UiRenderer::file_texture(const std::string& game_path, std::str
 	return t.tex ? &textures_[key] : nullptr;
 }
 
-void UiRenderer::begin(int ui_w, int ui_h, float scale) {
+void UiRenderer::begin(int ui_w, int ui_h, float scale, int font_res_w) {
 	w_ = ui_w, h_ = ui_h, scale_ = scale;
 	depth = 0;
 	quads_.clear();
 	seq_ = 0;
-	if (fonts_res_width_ != ui_w || fonts_scale_ != scale) {
-		const FontsXml fx = load_fonts_xml(*files_, Language::English, ui_w);
+	const int res_w = font_res_w > 0 ? font_res_w : ui_w;
+	if (fonts_res_width_ != res_w || fonts_scale_ != scale) {
+		const FontsXml fx = load_fonts_xml(*files_, Language::English, res_w);
 		if (fx.res != fonts_xml_.res || fonts_scale_ != scale || fonts_.empty()) {
 			fonts_xml_ = fx;
 			fonts_.clear();
 			fonts_.resize(fonts_xml_.fonts.size());
 		}
-		fonts_res_width_ = ui_w;
+		fonts_res_width_ = res_w;
 		fonts_scale_ = scale;
 	}
 }
@@ -301,7 +315,13 @@ void UiRenderer::push_rect(const UiTexture* tex, float sx, float sy, float sw, f
 	const float xy[8] = {x, y, x + w, y, x + w, y + h, x, y + h};
 	const float uv[8] = {sx, sy, sx + sw, sy, sx + sw, sy + sh, sx, sy + sh};
 	// Unstretched pieces are point-sampled so that integer backing scales double pixels exactly.
-	const bool point = std::fabs(w - sw) < 0.01f && std::fabs(h - sh) < 0.01f;
+	const bool point = !smooth_ && std::fabs(w - sw) < 0.01f && std::fabs(h - sh) < 0.01f;
+	if (!point && !text && tex && sw >= 2 && sh >= 2) {
+		// Bilinear: keep the samples inside the piece so the atlas neighbours (guide lines, other pieces) don't bleed in.
+		const float uvi[8] = {sx + 0.5f, sy + 0.5f, sx + sw - 0.5f, sy + 0.5f, sx + sw - 0.5f, sy + sh - 0.5f, sx + 0.5f, sy + sh - 0.5f};
+		push(tex, xy, uvi, c, t, false, text);
+		return;
+	}
 	push(tex, xy, uv, c, t, point || text, text);
 }
 
