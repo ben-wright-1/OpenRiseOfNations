@@ -1,0 +1,4 @@
+re/decomp/combat_B/asm/
+Unit::find_open_slots
+Group::is_attacking_near
+AttackOrder::operator=

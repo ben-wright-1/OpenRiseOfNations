@@ -1,0 +1,11 @@
+re/decomp/mv2/ct.txt
+3
+PathFinder::find_wpath
+UnitType::find_nearby_spot
+WorldData::get_tregion
+UnitData::invalid_loc
+ObjectsData::find_city
+UnitData::can_garrison
+Unit::add_garrison_order
+Group::add
+Groups::push_group

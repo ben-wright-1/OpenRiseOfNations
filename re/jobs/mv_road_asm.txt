@@ -1,0 +1,16 @@
+re/decomp/move_road/asm
+PathFinder::find_road
+PathFinder::astar_caravan_road
+PathFinder::calc_road_cost
+PathFinder::astar_river
+PathFinder::calc_river_cost
+PathFinderData::valid_roadcoord
+vector_dist
+Tree<PathNode\*,int>::ordered_insert
+PathFinder::first_open_node
+PathFinderData::find_node_open
+BRTree<int,unsigned_long>::seek
+PathFinderOut::registration
+PathFinder::init
+PathFinder::PathFinder
+Random::get

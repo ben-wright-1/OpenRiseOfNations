@@ -1,0 +1,3 @@
+re/decomp/scenario_objects
+Guy::update_gpiece
+UnitData::get_gpiece

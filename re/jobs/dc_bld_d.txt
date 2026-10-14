@@ -1,0 +1,2 @@
+re/decomp/bld2
+Options::picked_spot

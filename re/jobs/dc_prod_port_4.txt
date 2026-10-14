@@ -1,0 +1,11 @@
+re/decomp/prod_port
+Unit::do_spec_anim
+SpecialAnimOrder::.*
+ObjectData::inside_bottom
+WallData::covers_tile
+ObjectData::can_carry
+BuildData::get_queue
+ObjectsData::find_any_building_at
+Unit::set_stance
+UnitData::is_busy
+Object::eject_contents

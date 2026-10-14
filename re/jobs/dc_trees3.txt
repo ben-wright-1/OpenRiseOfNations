@@ -1,0 +1,5 @@
+re/decomp/trees
+World::adjust_for_blocking
+World::set_land
+World::set_gather_edge
+WorldData::has_mountain_tcoords

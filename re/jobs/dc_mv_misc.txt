@@ -1,0 +1,12 @@
+re/decomp/mv2
+Group::action_halt
+Groups::push_group
+Group::update_positions
+Unit::clear_partial_path
+Unit::update_action
+GroupData::get_form_option
+GroupData::is_on_map
+UnitData::invalid_loc
+ObjectData::get_inside
+Unit::kill_current_order
+UnitData::is_packing

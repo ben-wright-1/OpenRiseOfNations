@@ -1,0 +1,17 @@
+re/decomp/scen_builtins
+^MessageWin::add_scen_objective$
+^MessageWin::play_scen_objective_sound$
+^MessageWin::end_scen_objective$
+^MessageWin::change_scen_objective$
+^MessageWin::remove_scen_objective$
+^MessageWin::set_scen_objective_sound$
+^MessageWin::set_scen_objective_loc$
+^MessageWin::clear_scen_objectives$
+^MessageWin::add_scen_message$
+^ScreenArrowSpline::add_arrow$
+^ScreenArrowSpline::add_point$
+^ScreenArrowSpline::clear_arrows$
+^Leader::receive_ping$
+^Objects::find_units$
+^Objects::find_builds$
+^UnitData::total_damage$

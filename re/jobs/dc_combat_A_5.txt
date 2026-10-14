@@ -1,0 +1,7 @@
+re/decomp/combat_A/asm
+ObjectData::is_in_range
+ObjectData::attack_dist
+vector_dist
+find_angle
+Unit::on_duty
+UnitData::get_activity

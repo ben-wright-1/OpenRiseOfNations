@@ -1,0 +1,12 @@
+re/decomp/ui_d3dgl/
+D3D11GLFont::.*
+FT::FontFace::.*
+FT::Library::.*
+FontRenderManager::.*
+SGLFont::init
+SGLFont::width
+SGLSys::get_font_data
+D3D11GLBuffer::write_text
+D3D11GLBuffer::select_font
+D3D11GLBuffer::set_text_color
+GSBuffer::write_text

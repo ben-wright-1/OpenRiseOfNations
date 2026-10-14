@@ -1,0 +1,7 @@
+re/decomp/ui_hud2_opt_asm/
+Window::is_enabled
+Window::set_enabled
+IFaceOptions::on_button_clicked
+IFaceOptions::on_button_right_clicked
+IFaceOptions::on_button_move
+IFaceOptions::on_mouse_move

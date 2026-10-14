@@ -1,0 +1,4 @@
+re/decomp/bhsfn/asm
+MathUtilFuncSet::(sin|cos|tan|asin|acos|atan|sqrt|max_val|min_val)
+ScriptArray::remove
+Array<ScriptType_\*>::insert

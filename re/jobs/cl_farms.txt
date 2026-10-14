@@ -1,0 +1,7 @@
+re/decomp/farms2/callers.txt
+3
+FarmsOut::draw
+TerrainOut::add_weather_underlay
+TileSet::get_wheat_texture
+Farms::add
+Farms::recalc_heights

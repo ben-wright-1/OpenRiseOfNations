@@ -1,0 +1,12 @@
+re/decomp/scen_builtins
+^Unit::dbg_jump_to_action$
+^Leader::set_age$
+^BuildData::can_infinite$
+^UnitData::can_ever_transport$
+^Unit::set_group$
+^Leader::fix_tech_flags$
+^ScenarioFuncSet::cast_spell$
+^ObjectData::can_carry$
+^ObjectData::num_aircraft_here$
+^ObjectData::num_aircraft_limit$
+^LeaderData::can_transport$

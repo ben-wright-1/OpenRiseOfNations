@@ -1,0 +1,9 @@
+re/decomp/ui_hud2_opt_asm/
+IFaceOptions::on_redraw
+IFaceOptions::setup_button
+IFaceOptions::setup_selected
+IFaceOptions::update_visibility
+IFaceOptions::init
+IFaceOptions::options_disabled
+IFaceButton::on_redraw
+IFaceButton::init_data

@@ -1,0 +1,5 @@
+re/analysis/callers_random.txt
+1
+Random::get
+Random::reseed
+::random

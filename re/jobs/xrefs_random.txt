@@ -1,0 +1,7 @@
+re/analysis/xrefs_random.txt
+GameAccess::game_random
+game_random
+internal_random
+SoundGlobal::random
+SoundType::random
+TerrainData::random_frac

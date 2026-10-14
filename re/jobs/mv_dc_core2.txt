@@ -1,0 +1,16 @@
+re/decomp/move
+Unit::do_job
+Objects::process_all
+Objects::inc_time
+GameDaemon::process_all
+GameDaemon::.*
+Unit::kill_current_order
+Unit::kill_current_action
+Unit::update_order
+UnitData::order_type
+UnitData::get_action
+UnitData::get_order
+MoveOrder::.*
+Unit::check_idle
+Unit::set_in_danger
+Unit::find_nearby_spot

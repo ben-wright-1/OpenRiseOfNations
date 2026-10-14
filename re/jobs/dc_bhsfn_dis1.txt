@@ -1,0 +1,8 @@
+re/decomp/bhsfn/asm
+ScenarioFuncSet::set_timer
+ScenarioFuncSet::timer_expired
+ScriptTimers::add_timer
+ScriptTimers::check
+TriggerUtilFuncSet::is_trigger_enabled
+StringUtilFuncSet::.*
+ArrayUtilFuncSet::(add|remove|remove_index|insert|find|clear)

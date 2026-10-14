@@ -1,0 +1,4 @@
+re/decomp/ui_d3dgl/
+D3D11GLGraphicCard::add_tl_prim.*
+D3D11GLSys::end_hdr
+D3D11GLSys::init_hdr

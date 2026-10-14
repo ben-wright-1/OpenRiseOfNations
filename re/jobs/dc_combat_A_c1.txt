@@ -1,0 +1,11 @@
+re/decomp/combat_A/callers_find_units.txt
+1
+Objects::find_units
+Object::find_nearby_target
+Unit::find_melee_target
+Unit::target_opportunity
+Unit::find_new_target
+Group::target_opportunity
+Build::find_target
+Object::compare_target
+Object::check_target

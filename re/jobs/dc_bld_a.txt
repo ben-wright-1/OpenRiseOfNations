@@ -1,0 +1,14 @@
+re/decomp/bld2
+Objects::init_build
+Objects::init_wall
+Group::action_swarm_around
+LeaderData::type_avail
+BuildData::could_queue
+Type::pay_cost
+TypeData::can_pay_cost
+TypeData::is
+ObjectData::is
+LeaderData::get_first_library
+Type::sum_cost
+GroupData::is_on_map
+GroupData::num_valid

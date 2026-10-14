@@ -1,0 +1,4 @@
+re/decomp/ai_diplo/asm
+^LeaderData::get_diff$
+^LeaderData::any_proposals$
+^LeaderData::resource_value$

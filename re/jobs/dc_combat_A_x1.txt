@@ -1,0 +1,4 @@
+re/decomp/combat_A/xrefs_types.txt
+is_missile
+get_stance_type
+is_siege

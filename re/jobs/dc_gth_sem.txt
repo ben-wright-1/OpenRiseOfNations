@@ -1,0 +1,8 @@
+re/decomp/gth2/asm2
+Game::is_solo
+Game::is_recording
+Game::is_scenario
+Game::is_tournament
+Game::is_turbo_resources
+Game::is_sandbox
+Game::is_cooperative

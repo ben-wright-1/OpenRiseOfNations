@@ -1,0 +1,7 @@
+re/decomp/script/
+yyparse
+yyerror
+yywrap
+yymemcpy
+yylex
+ConvertToWideString

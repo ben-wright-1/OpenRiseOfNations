@@ -1,0 +1,9 @@
+re/decomp/light
+Scene::(render|registration|init|Scene|refresh_scaling|reset_scaling|close)
+Game::(init_light|close_light)
+TopMenu::init_light
+GraphicPieces::(init_lighting|prep_unit_lighting)
+TerrainOut::(prep_terrain_lighting|light_land_vert|light_vert)
+Light::.*
+LightBase::.*
+Material::.*

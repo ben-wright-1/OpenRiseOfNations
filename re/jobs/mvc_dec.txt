@@ -1,0 +1,12 @@
+re/decomp/move_coll
+project
+find_angle
+cosx
+Objects::find_units
+Objects::find_collision
+BitMask<768>::empty
+.*BitMask.*::empty
+UnitData::is_moving
+WorldData::get_tregion
+Animal::do_idle
+Unit::find_merchant_spot

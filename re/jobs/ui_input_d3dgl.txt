@@ -1,0 +1,6 @@
+re/decomp/ui_input_d3dgl/
+D3D11GLCursor::.*
+GSCursor::.*
+D3D11GLSys::set_stock_cursor
+D3D11GLSys::get_cursor_data
+SGLSys::update_cursor_pos

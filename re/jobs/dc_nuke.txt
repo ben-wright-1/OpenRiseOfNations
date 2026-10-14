@@ -1,0 +1,3 @@
+re/decomp/light/nuke
+NukeOut::draw_.*
+TopMenu::init_light

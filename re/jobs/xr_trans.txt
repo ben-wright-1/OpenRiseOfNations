@@ -1,0 +1,9 @@
+re/decomp/transitions/xrefs.txt
+TerrainData::texture_fractal
+TerrainData::last_map_size
+TerrainOut::generate_transitions
+TerrainOut::create_transition_renderables
+TerrainOut::setup_transition_renderables
+Transitions::find_map
+TerrainOut::render_coral
+TileSet::get_coral_texture

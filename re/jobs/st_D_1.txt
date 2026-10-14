@@ -1,0 +1,13 @@
+re/decomp/state_D
+ScriptType::init_simple
+ScriptType::init_class
+ScriptArray::init_array
+ScriptObject::init_struct
+ScriptFloat::init
+ScriptString::init
+ScriptInt::init
+ScriptType::get_array_type
+.*::is_array
+Script::clear
+ScriptFile::clear
+RunTimeEnv::close

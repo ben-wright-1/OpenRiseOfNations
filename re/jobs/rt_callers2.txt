@@ -1,0 +1,7 @@
+re/decomp/rules_tribes/callers2.txt
+2
+RecordGame::write_rules
+String::set_string_lookup
+Game::init_non_rules_data
+Types::init
+XML::set_language.*

@@ -1,0 +1,13 @@
+re/calltrees/callers_rs_terrain.txt
+1
+RenderState::add_pshader_situation
+RenderState::init
+TextureEffect::increment
+TerrainOut::render
+TerrainOut::render_water
+TerrainOut::get_indexed_mesh.*
+TerrainOut::get_mesh
+TerrainOut::light_land_vert
+TerrainOut::light_vert
+TerrainOut::prep_terrain_lighting
+TerrainOut::generate_skirts

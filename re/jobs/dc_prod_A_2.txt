@@ -1,0 +1,6 @@
+re/decomp/prod_A_asm/
+TypeData::get_cost
+TypeData::can_pay_cost
+Type::pay_cost
+Wall::do_construct
+BuildData::construct_time

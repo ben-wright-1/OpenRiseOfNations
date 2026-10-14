@@ -1,0 +1,6 @@
+re/decomp/script/str/
+String::operator==
+String::operator<
+String::operator>
+String::ignore
+String::operator\+=

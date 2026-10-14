@@ -1,0 +1,3 @@
+re/decomp/move_guy/asm2
+006121d0
+006126f0

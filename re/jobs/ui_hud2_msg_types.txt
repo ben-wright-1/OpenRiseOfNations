@@ -1,0 +1,9 @@
+re/decomp/ui_hud2_msg_types.txt
+MessageWinEntry
+MessageWinList
+TextBubbleParams
+TextBubble
+Scene
+Signposts
+Signpost
+PlayerProfile

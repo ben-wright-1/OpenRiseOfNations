@@ -1,0 +1,10 @@
+re/decomp/combat/types2.txt
+LeaderData
+LeaderDataEncrypt
+Leader
+Constants
+TrajectoryType
+HeroesData
+Hero
+HeroData
+DeathObjData

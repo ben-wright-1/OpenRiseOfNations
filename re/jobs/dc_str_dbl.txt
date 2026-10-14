@@ -1,0 +1,3 @@
+re/decomp/script/str/
+String::operator=
+String::get_double

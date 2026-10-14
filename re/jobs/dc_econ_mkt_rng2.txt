@@ -1,0 +1,5 @@
+re/decomp/econ_mkt/leader_init_start.asm
+006e4e80-006e5080
+006e3dc0-006e3e00
+006e3f20-006e3f50
+006e4100-006e4140

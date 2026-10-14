@@ -1,0 +1,3 @@
+re/analysis/syms_treescale.txt
+sym:.*tree_scale.*
+sym:.*doober_names.*:8

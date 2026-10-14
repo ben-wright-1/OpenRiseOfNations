@@ -1,0 +1,8 @@
+re/analysis/vt_objects.txt
+Build
+BuildData
+Unit
+UnitData
+Object
+City
+CityData

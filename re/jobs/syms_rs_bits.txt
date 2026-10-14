@@ -1,0 +1,10 @@
+re/analysis/syms_rs_bits.txt
+scalar:800
+scalar:20
+scalar:40
+scalar:100
+scalar:400
+scalar:1000
+scalar:2000
+scalar:400000
+scalar:20000

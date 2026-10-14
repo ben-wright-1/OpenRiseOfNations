@@ -1,0 +1,4 @@
+re/decomp/move_group2/types_obj.txt
+ObjectData
+UnitData
+SubObject

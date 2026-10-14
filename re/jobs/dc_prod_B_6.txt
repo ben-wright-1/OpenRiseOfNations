@@ -1,0 +1,5 @@
+re/decomp/prod_B/callers_B3.txt
+2
+GroupOut::issue_swarm_around
+GroupOut::issue_disband
+Options::do_disband

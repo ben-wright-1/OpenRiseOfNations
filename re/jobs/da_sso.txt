@@ -1,0 +1,5 @@
+re/decomp/light_d3dgl/asm
+D3D11GLGraphicCard::set_shader_options
+D3D11GLGraphicCard::frame_ended
+D3D11GLGraphicCard::rebind_state
+D3D11GLGraphicCard::init

@@ -1,0 +1,8 @@
+re/decomp/diplo
+LeaderData::is_enemy
+LeaderData::is_neutral
+LeaderData::is_ally
+LeaderData::is_.*ally.*
+LeaderData::set_diplo.*
+LeaderData::.*treaty.*
+LeaderData::.*diplo.*

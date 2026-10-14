@@ -1,0 +1,2 @@
+re/decomp/grid_build/asm
+GoodTypeData::snap_center

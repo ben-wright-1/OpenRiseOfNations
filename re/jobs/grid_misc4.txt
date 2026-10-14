@@ -1,0 +1,3 @@
+re/decomp/grid_misc
+Item::init
+Objects::init_item

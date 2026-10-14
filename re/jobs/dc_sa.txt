@@ -1,0 +1,3 @@
+re/decomp/replay_rules
+SimpleArray<unsigned_short>::walk_data
+.*SimpleArray.*::walk_data

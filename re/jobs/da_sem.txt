@@ -1,0 +1,3 @@
+re/decomp/light_d3dgl/asm
+D3D11GLGraphicCard::supports_extended_materials
+D3D11ToneMapper::resolution_changed

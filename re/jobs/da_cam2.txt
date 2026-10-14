@@ -1,0 +1,4 @@
+re/decomp/camera/asm
+^MiscAccess::world_to_screen$
+^MiscAccess::screen_to_world.*
+^Transform<float>::rotate_[xz]$

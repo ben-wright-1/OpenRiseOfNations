@@ -1,0 +1,16 @@
+re/decomp/terrain
+TerrainOut::.*
+TileSet::.*
+Terrain::.*
+TerrainData::.*
+ScenarioEditor::init_terrain
+ScenarioEditor::.*height.*
+World::init
+World::set_land
+WorldData::get_land
+ScenarioWrite::save_terrain_chunk
+ScenarioWrite::save_tileset_chunk
+ScenarioWrite::save_cliffs_chunk
+ScenarioWrite::save_rivers_chunk
+ScenarioWrite::save_mountains_chunk
+ScenarioWrite::save_doobers_chunk

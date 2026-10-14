@@ -1,0 +1,5 @@
+re/decomp/build_rules_asm/insn_misc.txt
+\+ 0x278\],
+\+ 0x2e4\],
+\+ 0x2b8\],
+\+ 0x218\],

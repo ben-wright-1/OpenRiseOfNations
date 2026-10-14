@@ -1,0 +1,4 @@
+re/decomp/rules6asm
+ObjectTypeData::is_slow
+ObjectTypeData::get_age
+ObjectTypeData::upgrade_level

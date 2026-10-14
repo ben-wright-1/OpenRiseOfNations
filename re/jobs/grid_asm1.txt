@@ -1,0 +1,3 @@
+re/decomp/grid_misc/asm
+Main::init_menus
+Game::init_rules_data

@@ -1,0 +1,10 @@
+re/decomp/grid_build/callers.txt
+2
+BuildType::mask_me
+Wall::mask_city
+DeathObj::clear_blocking
+DeathObjData::blocking
+World::set_started_at
+World::set_started2_at
+World::set_building_at
+Docks::remask_docks

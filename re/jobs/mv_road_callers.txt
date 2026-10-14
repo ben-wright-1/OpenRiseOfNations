@@ -1,0 +1,8 @@
+re/decomp/move_road/callers.txt
+4
+PathFinder::find_road$
+PathFinder::find_road_restore
+PathFinder::astar_caravan_road
+PathFinder::astar_river
+PathFinder::calc_road_cost
+PathFinder::calc_river_cost

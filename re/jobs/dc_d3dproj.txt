@@ -1,0 +1,6 @@
+re/decomp/camera/d3dgl
+^D3D11GLSys::set_projection.*
+^D3D11GLSys::set_camera_transform$
+^D3D11Context::set_projection$
+^D3D11Context::set_world_transform$
+^D3D11GLLight::.*

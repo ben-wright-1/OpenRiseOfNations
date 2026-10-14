@@ -1,0 +1,2 @@
+re/decomp/grid_coll/asm
+CollCheck::collide_here

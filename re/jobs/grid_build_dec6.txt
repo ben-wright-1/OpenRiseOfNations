@@ -1,0 +1,3 @@
+re/decomp/grid_build
+UnitTypeData::blocks_while_dead
+Wall::kill_at_tile

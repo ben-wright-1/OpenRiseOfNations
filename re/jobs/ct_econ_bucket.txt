@@ -1,0 +1,7 @@
+re/decomp/econ/callers_bucket.txt
+1
+LeaderData::bucket_add
+LeaderData::bucket_set
+Leader::calc_gather
+Leader::calc_resource_caps
+Leader::calc_pop_cap

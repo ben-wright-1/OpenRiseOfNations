@@ -1,0 +1,9 @@
+re/analysis/types_enums.txt
+TextureOp
+BlendMode
+CompareFunc
+MIPFilter
+CullMode
+TexAddress
+Color
+Color_u_0

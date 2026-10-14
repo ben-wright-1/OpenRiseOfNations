@@ -1,0 +1,15 @@
+re/decomp/fog2
+ObjectsData::find_good_at
+ObjectsData::find_goody_at
+LeaderData::type_eligible
+Unit::explore_goody
+Setup::build_cities
+Unit::update_hits
+ObjectData::has_general
+Leaders::process_all
+Leaders::strategy_all
+Leader::strategy
+Objects::init_good
+Objects::init_item
+Good::init
+Item::init

@@ -1,0 +1,12 @@
+re/analysis/vt_types.txt
+Type
+ObjectType
+UnitType
+BuildType
+TechType
+GoodType
+SpellType
+ItemType
+BonusType
+GovernmentType
+GaiaType

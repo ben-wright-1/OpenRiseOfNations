@@ -1,0 +1,6 @@
+re/decomp/rules_tribes
+ObjectTypeData::get_age_slow
+TypeData::get_preq
+Game::init_type_backup
+Game::restore_rules_data
+Game::restore_type_backup

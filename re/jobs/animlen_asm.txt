@@ -1,0 +1,2 @@
+re/decomp/animlen/asm/guy_scale_writes.asm
+7d6e00-7d7010

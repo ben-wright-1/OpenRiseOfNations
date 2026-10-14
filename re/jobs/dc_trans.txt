@@ -1,0 +1,14 @@
+re/decomp/transitions
+Fractal::.*
+Transform<float>::rotate_z
+Point<float>::rotate
+ArrayBase<int>::add_unique
+TerrainData::.*texture_fractal.*
+TerrainData::.*random_frac.*
+TerrainOut::build_coastal_data
+TerrainOut::build_ocean_floor
+TerrainOut::build_decorations
+TerrainOut::modify_ocean_floor_texture
+Terrain::add_weathering
+Terrain::init
+TileSet::get_coral_texture

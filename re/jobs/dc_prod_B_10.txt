@@ -1,0 +1,4 @@
+re/decomp/prod_B/
+ObjectsData::find_building_placed_at
+WorldData::was_seen
+WorldData::was_really_seen

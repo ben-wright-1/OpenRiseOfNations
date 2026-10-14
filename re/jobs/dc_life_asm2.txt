@@ -1,0 +1,2 @@
+re/decomp/life2/asm
+Unit::come_out$

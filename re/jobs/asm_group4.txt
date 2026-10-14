@@ -1,0 +1,2 @@
+re/decomp/move_group2/asm/valid_filter_range.asm
+0067dbbc-0067e5e0

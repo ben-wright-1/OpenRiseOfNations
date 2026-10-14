@@ -1,0 +1,6 @@
+re/decomp/script/asm
+yyparse
+Lexer::yylex
+VirtualMachine::execute_next
+SyntaxNode::eval
+Compiler::compile

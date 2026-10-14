@@ -1,0 +1,11 @@
+re/analysis/script_callers.txt
+2
+RunTimeEnv::run_script
+Compiler::compile
+ScriptFile::find_script
+ScriptTimers::check
+ScriptTimers::add_timer
+Script::toggle_trigger
+Script::toggle_all_triggers
+ScriptFile::merge_script
+ScriptFile::load_script_file

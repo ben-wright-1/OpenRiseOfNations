@@ -1,0 +1,8 @@
+re/decomp/dressing/asm
+RiversOut::start_river
+Fractal::init
+Fractal::get_height
+Spline::next_at_dist
+Spline::generate_bspline
+Spline::calc_bspline_basis
+Doober::draw_weathering

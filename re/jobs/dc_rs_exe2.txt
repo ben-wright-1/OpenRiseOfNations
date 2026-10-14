@@ -1,0 +1,6 @@
+re/decomp/renderstate
+Surf::init_class
+Underlays::init_class
+GraphicPieces::(init_pulsewave_data|init_sniper_effect|init_ammo_data)
+IFaceRenderManager::setup_render_states
+RenderStateMethod::load

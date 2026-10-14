@@ -1,0 +1,9 @@
+re/decomp/gth2/vtables.txt
+Build
+Unit
+Wall
+BuildTypeData
+ObjectTypeData
+UnitTypeData
+WallTypeData
+BuildData

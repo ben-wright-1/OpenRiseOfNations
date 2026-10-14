@@ -1,0 +1,4 @@
+re/decomp/build_rules
+GraphicPieces::build_node_from_gpiece
+GraphicPieces::find_gpiece.*
+Types::init_civ_masks

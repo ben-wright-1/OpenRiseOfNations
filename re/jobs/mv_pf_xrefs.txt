@@ -1,0 +1,5 @@
+re/decomp/move_pf/xrefs_tables.txt
+sine_table
+move_x
+move_y
+div_3_table

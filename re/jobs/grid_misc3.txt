@@ -1,0 +1,5 @@
+re/decomp/grid_misc
+Good::init
+Good::close
+SpellType::cast_unpack
+Objects::init_good

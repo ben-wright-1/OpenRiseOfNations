@@ -1,0 +1,6 @@
+re/analysis/syms_rs_exe2.txt
+addr:c11d30:1
+addr:c11d34:1
+addr:c11d38:1
+addr:c11d3c:1
+addr:c11d28:1

@@ -1,0 +1,9 @@
+re/decomp/ai/types_ai2.txt
+.*Semaphore.*
+.*SEMAPHORE.*
+GameSem.*
+.*Strategy.*
+City
+CityData
+.*Difficulty.*
+.*Diff.*

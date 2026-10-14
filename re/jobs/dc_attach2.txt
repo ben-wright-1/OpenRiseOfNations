@@ -1,0 +1,5 @@
+re/decomp/attach
+Transform<float>::(operator\*|rotate_z|rotate_x|init|translate|scale|fill_matrix)
+AnimationPacket::(set_anim|init_animation|get_action_id|set_action_id|execute|load)
+BasicTransformMethod::(execute|load)
+HierObj::set_to_time

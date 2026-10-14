@@ -1,0 +1,7 @@
+re/analysis/disasm_trees
+ObjectsData::place_tree
+Doober::add_doober
+GraphicPieces::fill_doobers
+GraphicPieces::init_doober_data
+Random::get
+Random::reseed

@@ -1,0 +1,3 @@
+re/decomp/state_core
+WalkDataGame::walk_data
+ObjectsArray::get_.*

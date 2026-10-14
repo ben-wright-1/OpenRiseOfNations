@@ -1,0 +1,3 @@
+re/decomp/state_core
+CheckSum::CheckSum
+CheckSums::check_(units|builds|walls|cities|items|goods|leaders|guys|ammo|deaths)

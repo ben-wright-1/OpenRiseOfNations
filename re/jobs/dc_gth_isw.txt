@@ -1,0 +1,2 @@
+re/decomp/gth2/asm3
+ObjectData::is_worker

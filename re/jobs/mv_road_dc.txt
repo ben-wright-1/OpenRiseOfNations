@@ -1,0 +1,10 @@
+re/decomp/move_road
+WorldData::get_land
+WorldData::start_city_rad_wcoord
+Map::make_riverlist
+Caravan::build_road
+Caravan::verify_road
+BuildType::place_roads
+Random::get
+Caravan::restart_trade_route
+Caravan::process

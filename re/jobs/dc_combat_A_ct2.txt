@@ -1,0 +1,9 @@
+re/decomp/combat_A/calltree_acq8.txt
+9
+Object::find_nearby_target
+Unit::think_attack
+Unit::target_opportunity
+Group::distribute_attack
+Unit::find_new_target
+Build::find_target
+Object::valid_target

@@ -1,0 +1,14 @@
+re/decomp/light_d3dgl
+D3D11ToneMapper::.*
+D3D11AntiAlias::.*
+D3D11Resample::.*
+D3D11GLLight::.*
+GSLight::.*
+GSToneMapper::.*
+GSAntiAlias::.*
+ReflectionManager::.*
+D3D11Context::.*
+D3D11GLSys::(begin_scene|end_scene|flip|create_hdr_buffer|init_hdr|end_hdr|set_ambient|set_render_target|release_render_target|get_tonemapper|get_anti_alias|get_resample|get_light_data|delete_light_data|init_display.*|change_resolution|restore_device|clear_.*|begin_drawing|end_drawing|set_world_transform|set_camera_transform|init_app|create_device.*|init_device.*|create_back.*|resize.*|enable_.*|set_option.*|set_.*hdr.*|.*antialias.*|.*aa.*)
+D3D11GLGraphicCard::(set_material|set_light.*|enable_light.*|init|reset|flush|set_render_mode|rebind_state|update.*|set_world_transform)
+SGLSys::(flip|set_ambient|get_fill_light|set_fill_light|.*light.*)
+GraphSys::(set_ambient|get_fill_light|set_fill_light)

@@ -1,0 +1,6 @@
+re/decomp/ui_hud2_types.txt
+IFaceMainBase
+IFaceMain
+IFaceResources
+MouseOver
+MessageWin

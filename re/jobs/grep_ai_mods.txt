@@ -1,0 +1,5 @@
+re/decomp/ai/mods_refs.txt
+\+ 0x79[48c]\],
+\+ 0x7a[048]\],
+0xe41b2[4-9a-f]\],
+0xe41b3[0-8]\],

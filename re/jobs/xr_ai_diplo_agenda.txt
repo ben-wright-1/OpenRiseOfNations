@@ -1,0 +1,4 @@
+/private/tmp/claude-501/-Users-ben-Desktop-Code-Projects-RON-RON/6d926f2e-095f-457e-8c2f-93b90a8bb2f4/scratchpad/xr_agenda.txt
+1
+^Leader::agenda_on$
+^Leader::agenda_off$

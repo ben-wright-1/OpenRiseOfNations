@@ -1,0 +1,15 @@
+re/decomp/state_D
+PtrLinkList<ScenarioObjective,int>::.*
+PtrLinkListAbstract<ScenarioObjective,int>::.*
+ScriptArray::pop
+ScriptObject::pop
+ScriptInt::pop
+ScriptString::pop
+ScriptFloat::pop
+ScriptType::close
+ScriptArray::close
+ScriptObject::close
+ScriptArray::is_array
+ScriptObject::clear
+ScriptArray::clear
+WalkDataConquestGame::.*

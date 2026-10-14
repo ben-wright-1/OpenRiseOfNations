@@ -1,0 +1,11 @@
+re/types/minimap.txt
+WorldMap
+WorldMapBackground
+WorldMapFog
+Camera
+TexPing
+TexPingPhase
+Blip
+WorldMapBlip
+TileSet
+TerrainTileSet

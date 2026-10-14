@@ -1,0 +1,3 @@
+re/decomp/light/iface
+IFaceRenderManager::setup_render_states
+D3D11GLSprite::init_class

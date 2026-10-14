@@ -1,0 +1,16 @@
+re/decomp/combat_B/callers.txt
+1
+Unit::set_attacking
+Unit::set_attack
+Unit::set_in_danger
+Unit::change_target
+Unit::cavarch_fight
+Unit::find_attack_pos
+Unit::find_melee_pos
+Unit::add_attack_order
+Build::add_attack_order
+Unit::check_target_path
+ObjectData::is_in_range
+ObjectData::attack_dist
+UnitData::find_def_pos
+Unit::do_attack_to_pause

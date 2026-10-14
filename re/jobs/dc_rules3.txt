@@ -1,0 +1,16 @@
+re/decomp/rules3
+String::(binary|convert_int|to_lower|set_string_lookup|reset_string_lookup|lookup|get_float|get_double|number|num|dword_number|hex|find_num|has_int|has_float|fraction|trim|generate_hash|generate_hashes|equals|hash_compare)
+Categories::(find_key|find_data)
+Text::(open|get|item|item_number|init|check_for_indexing)
+StringTable::init
+Main::init_string_tables
+Game::init_rules_and_teams
+GameMod::load
+ConquestGame::init_rules_data
+UnitType::(gather_radius)
+UnitTypeData::(get_speed|get_military_level_slow|research_time|get_relative_value|can_garrison|get_kill_value)
+TypeData::(time|research_time|get_cost|get_kill_value|get_score_value)
+ItemType::.*
+GaiaType::.*
+GovType::.*
+GovernmentType::.*

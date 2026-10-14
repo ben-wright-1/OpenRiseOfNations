@@ -1,0 +1,8 @@
+re/decomp/grid_coll
+Guy::process
+Object::remove_from_world
+BitMask<768>::empty
+Unit::find_merchant_spot
+Ammo::do_damage
+World::walk_data
+WalkDataGame::walk_data

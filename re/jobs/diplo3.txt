@@ -1,0 +1,4 @@
+re/decomp/diplo
+LeaderData::is_team
+Game::teams_locked
+LeaderData::get_team

@@ -1,0 +1,15 @@
+re/decomp/move_guy/asm
+sinx
+cosx
+vector_dist
+project
+flanking
+reversing
+Guy::inc_time
+Guy::process
+Guy::set_anim
+Guy::init_real
+GuyData::is_corner
+Unit::set_new_location
+Unit::update_z
+Unit::move_step

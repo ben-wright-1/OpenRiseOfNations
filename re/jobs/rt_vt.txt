@@ -1,0 +1,5 @@
+re/decomp/rules_tribes/vtables.txt
+UnitType
+BuildType
+Type
+ObjectType

@@ -1,0 +1,2 @@
+re/decomp/ui_hud2_asm/
+IFaceMainBase::on_button_redraw

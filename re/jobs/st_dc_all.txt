@@ -1,0 +1,13 @@
+re/decomp/state
+.*::walk_.*
+.*::.*walk_data.*
+DataWalk::.*
+SaveGame::.*
+LoadGame::.*
+CheckSum::.*
+CheckSums::.*
+String::generate_hash
+String::write
+String::read
+.*::must_walk
+CommandManager::issue_check_sums

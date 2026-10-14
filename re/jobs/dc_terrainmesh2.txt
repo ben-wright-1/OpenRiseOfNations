@@ -1,0 +1,3 @@
+re/decomp/terrainmesh
+Game::init_light
+TileSet::load_tileset

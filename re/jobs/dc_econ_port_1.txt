@@ -1,0 +1,8 @@
+re/decomp/econ_port
+^ScenarioData::clear_components$
+^ScenarioFuncSet::buildings_gather_.*
+^WCoord::traverse_.*
+^Doober::add_hold_doober$
+^Doober::remove_hold_doobers$
+^ScenarioData::init$
+^ScenarioData::clear$

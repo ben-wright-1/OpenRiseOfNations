@@ -1,0 +1,8 @@
+re/decomp/ui_hud2/
+Scene::set_help_type
+Scene::load_help_key
+Scene::add_info$
+Scene::add_info_first
+Scene::set_good_required
+Scene::add_info_last
+HelpBox::.*

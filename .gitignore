@@ -1,0 +1,34 @@
+# Game files and anything derived from them stay local (see CLAUDE.md: ship no original assets or decompiled code)
+/re/bin/
+/re/ghidra/
+/re/ghidra_d3dgl/
+/re/decomp/
+/re/previews/
+/re/analysis/*.bin
+/re/map/strings.tsv
+/re/jobs/last-*
+/gamedata/
+/dist/
+
+# Build output
+/build/
+
+.DS_Store
+/re/jobs/.ghidra.lock/
+# Raw disassembly/symbol dumps from analysis runs (regenerable, game-derived)
+/re/analysis/*
+!/re/analysis/analyze.json
+
+# Agent worktrees
+.claude/worktrees/
+
+# Bulk dumps extracted from the original binary (symbol tables, PDB types, memory layouts, call trees): useful
+# locally, regenerable with re/ghidra_scripts, not published.
+/re/map/
+/re/types/
+/re/iface/
+/re/calltrees/
+/re/analysis/
+# Locally installed Claude Code skills (third-party content)
+/.claude/skills/
+/skills-lock.json

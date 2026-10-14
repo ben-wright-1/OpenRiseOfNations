@@ -1,0 +1,5 @@
+re/decomp/build
+Sprite::.*
+ImageIO::(load|load_tga|init_tga|process|force_load|fill_targa_info)
+SpriteBase::.*
+TextureBase::.*

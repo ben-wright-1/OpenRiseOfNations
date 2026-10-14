@@ -1,0 +1,9 @@
+re/decomp/scenario_objects
+Tribes::init
+Tribes::find
+Game::init_tribes
+Tribe::parse
+Leader::init
+Types::get_type_index
+Build::queue_up
+ScenarioRead::load_leaders_chunk

@@ -1,0 +1,5 @@
+re/decomp/prod_C/callers2.txt
+1
+LeaderData::current_upgrade
+ObjectData::num_aircraft_limit
+UnitData::has_repeat_air

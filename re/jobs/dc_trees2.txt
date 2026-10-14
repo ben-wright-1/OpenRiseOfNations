@@ -1,0 +1,7 @@
+re/decomp/trees
+Random::.*
+TerrainOut::find_data_z
+GraphicPieces::init_maps
+GraphicPieces::draw
+Setup::build_game
+ScenarioRead::load_terrain_chunk

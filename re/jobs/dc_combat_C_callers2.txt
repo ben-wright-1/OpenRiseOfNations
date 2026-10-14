@@ -1,0 +1,3 @@
+re/decomp/combat_C/callers2.txt
+2
+Unit::set_rally

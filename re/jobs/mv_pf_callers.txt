@@ -1,0 +1,4 @@
+re/decomp/move_pf/callers_coordlookup.txt
+1
+init_coord_lookup_array
+sin_table

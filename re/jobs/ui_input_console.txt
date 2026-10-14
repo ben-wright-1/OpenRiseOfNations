@@ -1,0 +1,9 @@
+re/decomp/ui_input/
+Console::.*
+KeyMap::.*
+KeyMapEntry::.*
+DropButton::get_shortcut
+DropButton::find_key_map
+Cursors::.*
+MouseOver::is_over_enemy
+MouseOver::is_over_object

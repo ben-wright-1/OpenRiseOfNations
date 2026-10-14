@@ -1,0 +1,14 @@
+re/decomp/fog
+LeaderData::(has_preq|has_tribe_bonus|has_wonder|get_general_upgrade|get_radius)
+::ring_init
+::project
+Unit::(get_goody_box|find_goody_box|explore_goody|think_scout)
+Leader::(meet|check_explore|compute_explore_score|new_rare)
+World::(wipe|walk_data)
+WorldMapFog::.*
+WorldMap::(render_fog|compute_fog_destination_verts)
+TerrainOut::(clear_visible|find_invalid_fog_entry|fixup_fog_cache_entries|inc_fog_time|invalidate_fog_cache.*|is_visible|set_visible|wcoord_is_seen)
+TerrainVis::(fill_fog_texcoords|invalidate_fog_wcoord)
+TileSet::get_fog_alpha_texture
+Options::do_auto_explore
+BuildTypeData::in_enemy_territory

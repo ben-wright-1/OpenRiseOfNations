@@ -1,0 +1,13 @@
+re/decomp/light_d3dgl/asm
+D3D11ToneMapper::D3D11ToneMapper
+D3D11ToneMapper::update_params
+D3D11ToneMapper::do_.*
+D3D11ToneMapper::update_blur_data
+D3D11ToneMapper::create_.*
+D3D11ToneMapper::resolution_changed
+D3D11AntiAlias::run
+D3D11AntiAlias::create_intermediate_buffer
+D3D11GLSys::(create_hdr_buffer|init_hdr|end_hdr|begin_scene|end_scene|flip|end_drawing|begin_drawing|set_ambient)
+D3D11GLLight::update
+D3D11Context::(set_material|update_for_render|update_frame_time|create_constant_buffers|set_view_transform)
+D3D11Resample::run

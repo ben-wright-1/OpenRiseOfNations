@@ -1,0 +1,9 @@
+re/decomp/camera/xform
+^Transform<float>::rotate_[xyz]$
+^Transform<float>::operator\*$
+^Transform<float>::fill_matrix$
+^Point<float>::rotate$
+^Quat<float>::.*
+^MiscAccess::world_to_screen$
+^MiscAccess::screen_to_world.*
+^MiscAccess::.*camera.*

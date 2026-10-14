@@ -1,0 +1,5 @@
+re/decomp/scen_builtins/asm
+ScenarioFuncSet::add_unit
+Group::dbg_jump_to_action
+ScenarioFuncSet::clear_group
+ScenarioFuncSet::add_to_group

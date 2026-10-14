@@ -1,0 +1,6 @@
+re/analysis/grep_colors.txt
+0x64b[4-9]\]
+0x565[0-9a-f]\]
+0x5654\]
+0x5660\]
+0x55c[48]\]

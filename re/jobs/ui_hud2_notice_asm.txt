@@ -1,0 +1,3 @@
+re/decomp/ui_hud2_asm/
+IFaceMainBase::do_notice
+AnimNotice::new_notice

@@ -1,0 +1,7 @@
+re/decomp/ui_hud2_opt/types.txt
+OptionMode
+Options
+OptionInfo
+IFaceButton
+IFaceOptions
+Prefs

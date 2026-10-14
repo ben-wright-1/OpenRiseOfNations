@@ -1,0 +1,3 @@
+re/decomp/grid_misc/div3_xrefs.txt
+div_3_table
+orig_div_3_table

@@ -1,0 +1,9 @@
+re/decomp/ai_mil/types_army.txt
+^Army$
+^ArmyData$
+^Armies$
+^ArmiesData$
+^ARMY_.*
+.*[Aa]rmy.*
+^GroupData$
+^Group$

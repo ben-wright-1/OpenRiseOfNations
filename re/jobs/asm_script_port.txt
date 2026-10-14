@@ -1,0 +1,6 @@
+re/decomp/script_port/asm
+^OpCode::count_code$
+^OpCode::write_lines$
+^ArrayType::get_unique_token$
+^ScriptArray::init_array$
+^ScriptArray::pop$

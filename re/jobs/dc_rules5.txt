@@ -1,0 +1,11 @@
+re/decomp/rules5
+String::operator==
+String::ignore
+.*degrees_to_angle.*
+String::find
+UnitType::determine_roles
+UnitType::init_final_flags
+UnitType::fill_relative_values
+UnitType::init_planes
+UnitType::init_spellcasters
+BuildType::init_final_flags

@@ -1,0 +1,5 @@
+re/decomp/build_rules_asm/insn_masks.txt
+\+ 0x33c\]
+\+ 0x30c\]
+\+ 0x334\]
+\+ 0x304\]

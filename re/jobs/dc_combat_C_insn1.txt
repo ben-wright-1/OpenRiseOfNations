@@ -1,0 +1,8 @@
+re/decomp/combat_C/insn_guyflags.txt
+OR word ptr \[.*\+ 0x9a\],.*
+OR dword ptr \[.*\+ 0x9a\]
+OR byte ptr \[.*\+ 0x9a\]
+MOV word ptr \[.*\+ 0x9a\]
+OR word ptr \[.*\+ 0x9e\]
+MOV byte ptr \[.*\+ 0x9e\]
+MOV byte ptr \[.*\+ 0xa0\]

@@ -1,0 +1,9 @@
+re/decomp/fog2
+UnitTypeData::is_siege
+BuildData::is_wonder
+BuildTypeData::is_fort
+TypeData::is_wonder_type
+LeaderData::is_team
+LeaderData::get_team
+Leader::treaty_on
+GameDaemon::calc_danger

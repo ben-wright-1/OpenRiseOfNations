@@ -1,0 +1,6 @@
+re/decomp/renderstate
+Game::init
+GraphicPieces::(on_field_change|init_particle_params|init)
+Camera::update_transforms
+Scene::refresh_scaling
+RenderStateMethod::load

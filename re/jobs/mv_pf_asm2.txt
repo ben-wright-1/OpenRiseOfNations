@@ -1,0 +1,3 @@
+re/decomp/move_pf/asm
+trig_init
+init_coord_lookup_array

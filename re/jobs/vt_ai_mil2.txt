@@ -1,0 +1,4 @@
+re/decomp/ai_mil/vt_build.txt
+Build
+Object
+ObjectData

@@ -1,0 +1,15 @@
+re/decomp/animlen
+GraphicPieces::unit_node_from_gpiece
+GraphicPieces::get_type
+GraphicPieces::init_anims_pool
+GraphicPieces::init
+GraphicPieces::verify_load
+GraphicPieces::cont_from_gpiece
+GraphicPieces::get_gpiece_type
+GraphicPieces::init_piece_ranges
+Unit::update_gpiece
+AnimationPacket::is_looping
+AnimationPacket::get_game_frames
+AnimationPacket::get_action_id
+AnimMgr::AnimMgr
+AnimMgr::process

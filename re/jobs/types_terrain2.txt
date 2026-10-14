@@ -1,0 +1,9 @@
+re/types/terrain2.txt
+WData
+TData
+WDataFlags.*
+TDataFlags.*
+.*Flags
+LandType.*
+TerrainType.*
+.*Land.*

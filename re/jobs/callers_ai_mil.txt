@@ -1,0 +1,14 @@
+re/decomp/ai_mil/callers.txt
+1
+^Armies::.*
+^Army::.*
+^Unit::add_to_army$
+^Unit::set_ai_control$
+^Unit::think_.*
+^Unit::explore_goody$
+^Unit::do_explore_to$
+^Group::action_alarm.*
+^Leader::check_explore$
+^Leader::check_transport$
+^Object::get_army$
+^PathFinder::find_wpath_army$

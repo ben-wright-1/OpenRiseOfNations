@@ -1,0 +1,6 @@
+re/decomp/animlen
+TypeData::is_merchant
+UnitData::is_packing
+__EUnitAnimNames
+say_unit_art_style_name
+Guy::clear

@@ -1,0 +1,6 @@
+re/decomp/fog
+Animal::work
+Unit::do_cast
+Leader::compute_site_stats
+Unit::come_out
+Unit::go_inside

@@ -1,0 +1,14 @@
+re/analysis/syms_light_exe.txt
+scalar:6f17e4
+scalar:6f18b8
+scalar:6f18f4
+scalar:6f1914
+scalar:6f1944
+scalar:6f1984
+scalar:6ee8fc
+sym:.*[Ll]ight.*
+sym:.*[Aa]mbient.*
+sym:.*[Tt]one.*
+sym:.*[Bb]loom.*
+sym:.*[Ee]xposure.*
+sym:.*[Hh]dr.*

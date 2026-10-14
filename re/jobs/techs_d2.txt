@@ -1,0 +1,7 @@
+re/decomp/techs
+Lands::init
+Lands::clear
+Buffer::is_pending_load
+BuildTypeData::num_preq
+TechType::set_disabled
+TechTypeData::say_name

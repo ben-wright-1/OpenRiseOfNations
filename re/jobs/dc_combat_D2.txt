@@ -1,0 +1,5 @@
+re/decomp/combat_D/asm
+ObjectData::get_damage
+Object::take_damage
+Object::do_damage
+flanking

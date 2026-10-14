@@ -1,0 +1,15 @@
+re/decomp/move_guy/asm
+angle_diff
+find_angle
+sin_table
+cos_table
+Guy::set_angle
+Guy::do_turn
+Guy::turn_towards
+Guy::turn_angles
+GuyData::turn_speed
+GuyData::get_speed
+Guy::move
+Guy::set_new_location
+Guy::update_z
+Guy::set_new_z

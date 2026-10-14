@@ -1,0 +1,3 @@
+re/decomp/ui_hud2_opt_asm/
+GraphicWin::get_rect
+IFaceRenderManager::add

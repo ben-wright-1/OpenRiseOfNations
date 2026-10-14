@@ -1,0 +1,8 @@
+re/decomp/grid_regions/asm
+Regions::find
+Regions::sort_regions
+Regions::set_coastals
+Region::finalize_coastals
+init_coord_lookup_array
+Regions::find_all
+sort

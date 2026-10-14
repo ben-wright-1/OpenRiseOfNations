@@ -1,0 +1,13 @@
+re/calltrees/callers_camera.txt
+1
+Camera::set_auto_tilt
+Camera::set_dir
+Camera::set_level
+Camera::set_loc
+Camera::set_in
+Camera::compute_distance
+Camera::set_loc_adjust
+BaseCamera::set_view_ratio
+Light::set_direction
+Light::set
+Transform<float>::rotate_x

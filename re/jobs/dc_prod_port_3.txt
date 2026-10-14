@@ -1,0 +1,15 @@
+re/decomp/prod_port
+BuildTypeData::max_gatherers
+BuildTypeData::total_gather_access
+BuildTypeData::gather_radius
+MountainsData::find_nearest
+MountainsData::mnt_loc_x
+MountainsData::mnt_loc_y
+MountainRangeData::gather_size
+CliffsData::find_nearest
+Mountains::add_mountain
+MountainRange::init
+WorldData::has_gather_access
+Array<TCoordData>::remove
+BuildTypeData::get_good
+BuildTypeData::gathers

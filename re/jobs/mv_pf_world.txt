@@ -1,0 +1,9 @@
+re/decomp/move_pf
+WorldData::is_blocked_at
+WorldData::was_really_seen
+WorldData::is_ocean
+WorldData::get_tregion
+Game::current_age
+UnitData::is_fleeing
+WorldData::get_coll_block
+WorldData::in_world

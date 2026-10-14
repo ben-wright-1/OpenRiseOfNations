@@ -1,0 +1,3 @@
+re/decomp/rules_tribes/asm/misc2.asm
+00470810-00470820
+00472a60-00472a70

@@ -1,0 +1,6 @@
+re/decomp/ui_hud2_opt/types2.txt
+Button
+IFaceButtonData
+Option
+OptionData
+IFaceTex

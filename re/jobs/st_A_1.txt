@@ -1,0 +1,8 @@
+re/decomp/state_A/
+^get_new_order$
+ObjectsArray::get_data_type
+ObjectsArray::get_new_data
+OrdersMemManager::get_obj
+.*Order::get_type$
+^is_air$
+^is_move$

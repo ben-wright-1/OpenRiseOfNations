@@ -1,0 +1,2 @@
+re/decomp/state_C
+^TerrainOut::generate_land_lists$

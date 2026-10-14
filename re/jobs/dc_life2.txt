@@ -1,0 +1,11 @@
+re/decomp/life2
+Wall::(process|inc_time)$
+WallData::(is_neutralized|is_active|is_started|can_capture)$
+Object::do_launch$
+BuildData::(check_capture_eligible|construct_time)$
+Build::(make_unit|set_gather|get_gather_point|remove_gather_point)
+GatherPoint::.*
+Unit::go_to_gather
+Objects::inc_time$
+DeathObj::init$
+BuildQueue::(add|queue|push|pop|remove|get).*

@@ -1,0 +1,3 @@
+re/decomp/ai3
+TypeData::get_score_value
+.*::get_score_value

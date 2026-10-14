@@ -1,0 +1,9 @@
+re/decomp/bld2/callers.txt
+1
+Objects::init_wall
+CommandManager::issue_build
+CommandManager::issue_queue_up
+CommandManager::issue_gather_point
+Group::action_build
+Objects::init_build
+Group::action_wall.*

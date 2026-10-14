@@ -1,0 +1,6 @@
+re/decomp/ai/types_ai3.txt
+LeaderDataEncrypt
+MakeList
+Sites
+Region
+RegionData

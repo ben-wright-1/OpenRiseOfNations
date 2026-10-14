@@ -1,0 +1,4 @@
+re/decomp/move_guy
+Unit::init
+Unit::set_type
+UnitData::curr_uber_size

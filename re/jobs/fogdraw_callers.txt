@@ -1,0 +1,5 @@
+re/decomp/fogdraw/callers.txt
+2
+TileSet::get_fog_alpha_texture
+TerrainVis::fill_fog_texcoords
+TerrainOut::inc_fog_time

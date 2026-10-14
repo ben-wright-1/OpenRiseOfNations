@@ -1,0 +1,11 @@
+re/decomp/camera
+^Camera::.*
+^BaseCamera::.*
+^BaseScene::.*
+^Light::.*
+^Scene::render$
+^Scene::init$
+^Scene::init_render_states$
+^Scene::refresh_scaling$
+^Scene::reset_scaling$
+^Scene::set_situation$

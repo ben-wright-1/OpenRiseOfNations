@@ -1,0 +1,12 @@
+re/decomp/move_group
+Groups::(process|get_open_slot|push_group|copy_group|clear)
+Group::(action_move_to|action_move_near|action_form|action_halt|action_attack|action_patrol|compute_form|compute_speed|set_ordered|sort|find_role|update_positions|leader_report_speed|report_speed|kill_group_move|kill_group_order|kill_next_order|refresh_group_order|normalize|add|set_up_insert|finish_insert|kill|clear|is_moving_to|redo_patrol_order|action_queue_up|target_opportunity|distribute_attack|action_swarm_around|action_stance)
+GroupData::(get_form|get_form_option|get_form_mod_option|get_angle|get_loc|get_loc_to|find_leader|get_speed|get_o|member|count|num_valid|get_unit)
+Form::.*
+Forms::(init)
+FormData::type_cat
+Army::.*
+ArmyData::.*
+Armies::.*
+CommandPackage::(process_move_to|process_move_near|process_group|process_form)
+Unit::(do_group_move|add_group_move_order|kill_group_move|ungroup_move_order|do_form|leader_report_speed|report_speed)

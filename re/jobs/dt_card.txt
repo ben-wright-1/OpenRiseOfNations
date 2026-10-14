@@ -1,0 +1,7 @@
+re/analysis/types_gscard.txt
+^GSGraphicCard$
+^GraphicCard$
+^GSToneMapper$
+^Scalability$
+^SectionScale.*
+^GraphSys$

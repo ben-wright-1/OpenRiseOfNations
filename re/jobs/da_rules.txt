@@ -1,0 +1,7 @@
+re/decomp/rules_asm
+Game::walk_rules_data
+Balance::walk_rules_data
+Types::walk_rules_data
+RecordGame::write_rules
+RecordGame::write_random_game_info
+RecordGame::init_record

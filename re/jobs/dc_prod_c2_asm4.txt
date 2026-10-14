@@ -1,0 +1,2 @@
+re/decomp/prod_c2_asm/
+Leader::gain_tech

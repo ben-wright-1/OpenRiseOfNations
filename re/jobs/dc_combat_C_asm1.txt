@@ -1,0 +1,11 @@
+re/decomp/combat_C/asm/
+Ammo::init
+Ammo::inc_time
+Ammo::do_damage
+Ammo::check_hit
+Ammo::hit_target
+Ammo::init_crash
+Object::fire_ammo
+Unit::fight
+Build::do_attack
+UnitData::recharge

@@ -1,0 +1,4 @@
+re/decomp/script_port/str
+^String::parse$
+^String::parse_get_token.*
+^String::parse_.*

@@ -1,0 +1,6 @@
+re/analysis/grep_water3.txt
+00c06294
+00c0f81[4-9a-f]
+00c0f82[0-9a-f]
+00c0f86[0-9a-f]
+00c0f87[0-9a-f]

@@ -1,0 +1,6 @@
+re/decomp/ui_hud2_opt/
+IFaceOptionsBuildings::.*
+UnitOut::make_options
+BuildOut::make_options
+WallOut::make_options
+SubObjectData::make_options

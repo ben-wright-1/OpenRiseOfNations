@@ -1,0 +1,2 @@
+re/decomp/ui_hud2_mm/asm2
+WorldMap::WorldMap

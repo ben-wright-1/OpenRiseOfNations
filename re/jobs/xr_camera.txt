@@ -1,0 +1,6 @@
+re/calltrees/xrefs_camera.txt
+camera_scale
+Game::init_camera
+Camera::init
+Game::init_light
+Scene::sprite_x_width

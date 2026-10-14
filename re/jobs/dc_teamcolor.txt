@@ -1,0 +1,4 @@
+re/decomp/dressing
+get_global_color
+Color::set
+Color::Color

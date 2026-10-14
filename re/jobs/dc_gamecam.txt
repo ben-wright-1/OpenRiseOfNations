@@ -1,0 +1,7 @@
+re/decomp/camera/game
+^Game::init_camera$
+^Game::init_light$
+^Game::init$
+^Game::zoom_to_first_unit$
+^ScenarioFuncSet::jump_camera$
+^TerrainMap::init_camera$

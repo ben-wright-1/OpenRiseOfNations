@@ -1,0 +1,14 @@
+re/decomp/rules_tribes
+Game::init_tribes
+Game::init_handicaps
+Game::init_starting_resources
+Game::init_teams
+Leaders::init
+LeaderOptions::init
+Lands::init
+Forms::init
+Map::set_map
+Game::init_random_colors
+Tribe::set_pseudonym
+Tribe::sub_nation_name
+Handicap.*::init.*

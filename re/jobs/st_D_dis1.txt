@@ -1,0 +1,13 @@
+re/decomp/state_D/asm
+ScriptType::walk_base
+ScriptType::walk_array
+ScriptType::init_simple
+ScriptType::init_class
+Script::walk_data
+ScriptFile::walk_data
+ScriptArray::walk_data
+ScriptObject::walk_data
+RunTimeEnv::walk_data
+ScriptArray::init_array
+ScriptObject::init_struct
+PtrArray<Script>::walk_data

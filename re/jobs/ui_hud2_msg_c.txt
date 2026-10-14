@@ -1,0 +1,3 @@
+re/decomp/ui_hud2_msg/
+LeaderOut::display_chat
+Leader::receive_chat

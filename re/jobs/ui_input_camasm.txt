@@ -1,0 +1,12 @@
+re/decomp/ui_input/asm/
+Camera::check_scroll
+Camera::scroll_dir
+Camera::zoom_in
+Camera::zoom_out
+Camera::check_zoom
+Camera::zoom_to_level
+Camera::set_level
+Camera::set_zoom_to
+Camera::set_in
+Camera::init
+Camera::Camera

@@ -1,0 +1,16 @@
+re/decomp/build
+SpriteMethod::.*
+SpritePacket::.*
+PreTransformMethod::.*
+PreTransformBatchMethod::.*
+ZSpriteAccumMethod::.*
+SpriteAccumMethod::.*
+BatchFlusherMethod::.*
+Camera::.*
+BaseCamera::.*
+Scene::(init|render|init_render_states|refresh_scaling|reset_scaling)
+RData::(load|execute|set_param|get_param)
+RMap::(load|execute_method_type|add_method)
+GraphicPieces::(draw|get_build_gpiece|get_construct_gpiece|build_node_from_gpiece|cont_from_gpiece|age_from_gpiece|init_bounding_volumes|decipher_animation|draw_scaffold|init_construct_data|init_scaffold_timing|get_rdata|init_maps|init|emit_build_particles|emit_build_particle|expire_building_graphics|expire_addons|init_farm_map)
+MiscAccess::world_to_screen
+BuildOut::.*

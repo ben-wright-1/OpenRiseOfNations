@@ -1,0 +1,10 @@
+re/decomp/move_group/callers.txt
+1
+Groups::process
+Armies::process_all
+Army::process
+Army::do_marching
+Group::action_move_near
+Unit::do_group_move
+Group::compute_form
+Army::march_to_target

@@ -1,0 +1,3 @@
+re/decomp/replay_rng
+Leader::diplomacy
+Leader::process_taunt

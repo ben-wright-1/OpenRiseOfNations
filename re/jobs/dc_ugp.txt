@@ -1,0 +1,8 @@
+re/decomp/scenario_objects
+GraphicPieces::get_unit_gpiece
+GraphicPieces::unit_node_from_gpiece
+GraphicPieces::get_good_gpiece
+GraphicPieces::get_item_gpiece
+GraphicPieces::scale_gpiece
+GraphicPieces::age_from_gpiece
+GraphicPieces::cont_from_gpiece

@@ -1,0 +1,11 @@
+re/decomp/combat_port
+UnitTypeData::blocks_while_dead
+DeathObj::clear_blocking
+DeathObj::clear
+Objects::init
+UnitData::get_gpiece
+Unit::get_gpiece
+UnitData::curr_uber_size
+UnitTypeData::get_kill_value
+TypeData::get_score_value
+TypeData::get_kill_value

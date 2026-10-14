@@ -1,0 +1,8 @@
+re/decomp/rules_tribes/callers.txt
+3
+Types::finalize_grafting
+Types::init_civ_masks
+Tribe::set_barbarian
+Tribe::set_substitute_tribe
+Tribes::init
+Game::init_rules_and_teams

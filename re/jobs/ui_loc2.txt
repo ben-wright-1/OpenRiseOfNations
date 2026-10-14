@@ -1,0 +1,4 @@
+re/decomp/ui/
+String::generate_hash.*
+String::set_string_lookup
+String::lookup

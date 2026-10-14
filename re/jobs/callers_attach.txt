@@ -1,0 +1,5 @@
+re/decomp/attach/callers.txt
+3
+GraphicPieces::draw_ammo
+NodePacket::set_node
+NodePacket::get_node

@@ -1,0 +1,2 @@
+re/decomp/camera/game
+^WorldData::is_valid$

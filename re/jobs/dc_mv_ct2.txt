@@ -1,0 +1,16 @@
+re/decomp/mv2/ct2.txt
+4
+Unit::clear_orders
+Unit::add_group_move_order
+Unit::add_move_facing_order
+Unit::add_move_order
+Group::action_halt
+Group::set_up_insert
+Group::update_positions
+Group::action_begin
+Group::kill
+Unit::update_gpiece
+Group::compute_form
+Group::clear
+GroupData::get_loc
+GroupData::get_loc_to

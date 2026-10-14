@@ -1,0 +1,11 @@
+re/decomp/scen_builtins/asm
+ScenarioFuncSet::object_near
+ScenarioFuncSet::object_near_build
+ScenarioFuncSet::is_game_mouse_near
+ScenarioFuncSet::find_objects
+ScenarioFuncSet::any_object_near
+ScenarioFuncSet::territory_object
+ScenarioFuncSet::get_object_at_mouse
+ScenarioFuncSet::object_health
+Objects::find_units
+Objects::find_builds

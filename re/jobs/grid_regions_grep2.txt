@@ -1,0 +1,6 @@
+re/decomp/grid_regions/insngrep2.txt
+OR byte ptr \[.*\+ 0x8\],0x40$
+MOV dword ptr \[.*\+ 0x8\],0x40$
+OR byte ptr \[.*\+ 0x8\],0x(1|8|10|20|80)$
+AND byte ptr \[.*\+ 0x8\],0x(bf|fe)$
+AND dword ptr \[.*\+ 0x8\],0xffffff(bf|fe)$

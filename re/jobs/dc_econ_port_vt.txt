@@ -1,0 +1,5 @@
+re/decomp/econ_port/vtables.txt
+UnitType
+Unit
+BuildType
+ObjectType

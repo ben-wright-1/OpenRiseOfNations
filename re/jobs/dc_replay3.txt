@@ -1,0 +1,9 @@
+re/decomp/replay3
+Game::init_rules_and_teams
+Game::load_game
+Game::is_observing
+Game::solo_checks
+Player::walk_data
+UnitBalance::walk_data
+BitMask<256>::walk_data
+Game::clear

@@ -1,0 +1,4 @@
+re/analysis/syms_d3dgl_rs2.txt
+addr:100dd0a0:34
+sym:.*alpha_func_lookup:12
+sym:.*gs_.*[Ss]hader.*:8

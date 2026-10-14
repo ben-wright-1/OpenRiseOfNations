@@ -1,0 +1,9 @@
+re/decomp/combat_C/
+UnitTypeData::is_siege
+UnitTypeData::is_tank
+UnitTypeData::is_missile
+ObjectTypeData::has_objmask
+UnitData::is_flying_low
+UnitData::get_captain
+ObjectData::is_jammed
+UnitData::is_moving

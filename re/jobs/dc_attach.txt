@@ -1,0 +1,8 @@
+re/decomp/attach
+GraphicPieces::(execute_graphic_events|draw|get_rdata|draw_skeleton|draw_item|draw_doober|init_ammo_piece_ranges|init_ammo_map|expire_addons|prep_unit_lighting|get_type)
+NodePacket::.*
+GraphicChad::.*
+GraphicEvents::(init_unit_events|execute_game_events|process|get_event_group)
+EventPacket::(add|close)
+GraphicEvent::(init|walk_data)
+AnimationPacket::(get_anim_time|get_animobj|get_current_time)

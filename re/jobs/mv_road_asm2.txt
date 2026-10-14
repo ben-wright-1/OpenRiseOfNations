@@ -1,0 +1,7 @@
+re/decomp/move_road/asm
+Tree<PathNode_\*,int>::ordered_insert
+Tree<PathNode_\*,int>::remove_current
+BRTree<TreeNode<PathNode_\*,int>_\*,unsigned_long>::ordered_insert
+BRTree<PathNode_\*,unsigned_long>::ordered_insert
+PathFinder::kill_lists
+PathFinder::add_to_openlist

@@ -1,0 +1,2 @@
+re/analysis/syms_d3dgl_rs4.txt
+sym:geomShaderOptions:8

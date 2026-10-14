@@ -1,0 +1,17 @@
+re/analysis/vt_script.txt
+ScriptType
+ScriptInt
+ScriptFloat
+ScriptString
+ScriptArray
+ScriptObject
+SymType
+VarType
+ConstType
+ArrayType
+StructType
+LocalScriptType
+TriggerType
+StringWrapType
+EnumConstType
+TriggerToggle

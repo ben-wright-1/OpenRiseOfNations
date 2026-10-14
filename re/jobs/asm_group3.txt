@@ -1,0 +1,4 @@
+re/decomp/move_group2/asm
+Search::valid_filter
+Search::valid_search
+^circle_init

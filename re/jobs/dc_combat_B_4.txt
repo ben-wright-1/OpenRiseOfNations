@@ -1,0 +1,14 @@
+re/decomp/combat_B/
+Unit::find_open_slots
+Group::is_attacking_near
+UnitData::get_activity
+ObjectData::is_map_unit
+ObjectData::is_worker
+AttackOrder::operator=
+Group::is_moving_to
+Group::kill_next_order
+UnitData::find_def_pos
+GroupData::member
+Group::refresh_group_order
+Group::kill_group_order
+Group::kill_group_move

@@ -1,0 +1,13 @@
+re/decomp/grid_coll
+World::new_coll_block
+WorldData::get_coll_block
+WorldData::get_tregion
+WorldData::valid
+WorldData::is_passable
+WorldData::is_pass_land
+WorldData::is_impassable
+Guy::set_new_location
+Object::add_to_world
+Objects::kill_guy
+GameDaemon::walk_data
+WData::~WData

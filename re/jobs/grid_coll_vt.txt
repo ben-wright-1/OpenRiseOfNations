@@ -1,0 +1,3 @@
+re/decomp/grid_coll/vt_types.txt
+UnitType
+ObjectType

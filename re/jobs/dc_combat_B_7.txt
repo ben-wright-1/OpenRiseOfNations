@@ -1,0 +1,3 @@
+re/decomp/combat_B/insn_attacking_flag.txt
+^(OR|AND) byte ptr \[E[A-Z]{2} \+ 0x8\],0x(80|7f)$
+^(OR|AND|MOV) byte ptr \[E[A-Z]{2} \+ 0x3d\],

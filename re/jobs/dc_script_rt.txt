@@ -1,0 +1,12 @@
+re/decomp/script_rt/
+RunTimeEnv::run_script
+Leaders::init_production_script
+Leader::production_ai
+Setup::build_game
+Game::do_frame
+TurnControl::do_frame_solo
+ConquestLeader::run_strategy_script
+Leader::plan_strategy
+Leaders::walk_data
+ScriptData::.*
+ScenarioData::walk_data

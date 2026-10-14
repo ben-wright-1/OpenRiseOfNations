@@ -1,0 +1,8 @@
+re/decomp/ui_hud2_msg/
+PlayerProfile::default_game
+PlayerProfile::default_profile
+IFaceRenderManager::draw_scroll
+TextBubble::draw_update
+TextBubble::draw
+MessageWin::walk_data
+CircleRender::draw

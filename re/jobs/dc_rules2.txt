@@ -1,0 +1,8 @@
+re/decomp/rules2
+SaveGame::(walk_function|walk_test)
+LoadGame::(walk_function|walk_test)
+String::walk_data
+SimpleArray<unsigned_short>::walk_data
+CheckSums::check_constants
+CheckSums::check_tribes
+CheckSums::check_all

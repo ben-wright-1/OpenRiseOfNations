@@ -1,0 +1,6 @@
+re/decomp/script/
+ScenarioFuncSet::init_funcs
+StringUtilFuncSet::init_funcs
+ArrayUtilFuncSet::init_funcs
+TriggerUtilFuncSet::init_funcs
+MathUtilFuncSet::init_funcs

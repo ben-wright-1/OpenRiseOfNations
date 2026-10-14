@@ -1,0 +1,17 @@
+re/decomp/econ/asm
+Unit::do_gather
+Unit::do_non_flat_gather
+Unit::find_gather_spot
+Unit::think_fish
+Unit::think_peasant
+Unit::think_merchant
+Unit::add_gather_order
+Leader::do_gather
+Leader::calc_gather
+Leader::gather
+BuildTypeData::calc_gather
+UnitData::calc_gather
+LeaderData::calc_rare
+LeaderData::calc_resource_bonuses
+LeaderData::calc_city_resources
+Group::action_gather

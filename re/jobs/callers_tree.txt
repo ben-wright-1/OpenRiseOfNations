@@ -1,0 +1,9 @@
+re/calltrees/callers_tree.txt
+2
+World::set_tree_at
+ObjectsData::place_tree
+GraphicPieces::init_trees
+GraphicPieces::init_tree_map
+GraphicPieces::init_tree_data
+Terrain::mark_forest
+GraphicPieces::draw_trees_at_wcoord

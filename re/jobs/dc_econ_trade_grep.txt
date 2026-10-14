@@ -1,0 +1,2 @@
+re/decomp/econ_trade/insngrep.txt
+\+ 0x(8ec|504|440|3b4|5c0|5c4|6b4|924|cac|cb0|cc4|3c0|3e4|3e8|3ec|3f0|43c|5a8|5b0|890|8f0|1c8|1d8|1e8|1ec|1f0|470|510|524|74c|750|7f0|95c|a0c|d34|d38|d3c)\]

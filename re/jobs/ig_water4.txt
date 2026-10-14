@@ -1,0 +1,13 @@
+re/analysis/grep_water4.txt
+0x46e[4-8]\]
+0x46e[c]\]
+0x46f[0-4]\]
+0x472c\]
+0x3fb4\]
+0x3ff4\]
+0x3ff0\]
+00c0f7d4
+00c0f7dc
+00c0f81c
+00c0f824
+00c0f0e4

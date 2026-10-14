@@ -1,0 +1,3 @@
+re/decomp/light/asm2
+TerrainOut::render_water
+Scene::init

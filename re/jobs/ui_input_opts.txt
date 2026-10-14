@@ -1,0 +1,10 @@
+re/decomp/ui_input/
+OptionsWinControl::.*
+Options::set_mode
+Options::draw_cursor_follows
+Options::picked_spot
+Options::mouse_move
+Options::reset
+Console::init
+Console::Console
+Scene::draw_drag_formations

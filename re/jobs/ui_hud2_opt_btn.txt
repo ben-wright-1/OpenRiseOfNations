@@ -1,0 +1,9 @@
+re/decomp/ui_hud2_opt/
+Button::on_left_down
+Button::on_left_up
+Button::on_up
+Button::on_mouse_move
+Button::on_mouse_leave
+Button::on_right_down
+Button::on_left_click
+Button::on_right_click

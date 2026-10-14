@@ -1,0 +1,6 @@
+re/decomp/dressing/asm
+ZSpriteAccumMethod::execute
+SpriteAccumMethod::execute
+BatchFlusherMethod::execute
+Scene::refresh_scaling
+Scene::reset_scaling

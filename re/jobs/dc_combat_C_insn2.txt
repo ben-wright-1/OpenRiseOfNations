@@ -1,0 +1,2 @@
+re/decomp/combat_C/insn_guyflags2.txt
+^(OR|AND|MOV|XOR|ADD) (byte|word|dword) ptr \[[^]]*\+ 0x9[89ab]\],

@@ -1,0 +1,9 @@
+re/decomp/prod_D/callers2.txt
+1
+LeaderData::get_.*_upgrade
+LeaderData::has_bonus
+LeaderData::get_city_limit
+LeaderData::calc_resource_bonuses
+LeaderData::get_city_upgrade_level
+Leader::reset_obs_flags
+LeaderData::has_tribe_bonus

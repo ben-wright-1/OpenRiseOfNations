@@ -1,0 +1,3 @@
+re/decomp/fog/asm
+Object::update_seen
+Unit::update_los

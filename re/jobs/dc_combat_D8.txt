@@ -1,0 +1,5 @@
+re/decomp/combat_D
+BuildData::get_shot
+GraphicPieces::verify_ammo_flags
+WallData::in_unfriendly_territory
+AnimationPacket::get_game_frames

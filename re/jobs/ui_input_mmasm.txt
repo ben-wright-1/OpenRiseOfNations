@@ -1,0 +1,2 @@
+re/decomp/ui_input/asm/
+Console::on_mouse_move

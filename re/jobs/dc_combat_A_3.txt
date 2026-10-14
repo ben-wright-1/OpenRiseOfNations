@@ -1,0 +1,7 @@
+re/decomp/combat_A
+UnitTypeData::get_stance_type
+BuildTypeData::get_stance_type
+ObjectTypeData::get_stance_type
+Type::sum_rules_cost
+UnitTypeData::is_tank
+UnitTypeData::is_siege

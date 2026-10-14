@@ -1,0 +1,13 @@
+re/decomp/state_B
+Camera::walk_data
+Achieve::walk_data
+Forms::walk_data
+HotKeyGroups::walk_data
+Scene::walk_data
+Types::walk_data
+Leaders::walk_data
+Game::walk_rules_data
+Console::walk_data
+Options::walk_data
+SelectGroups::walk_data
+Tribes::walk_data

@@ -1,0 +1,3 @@
+re/decomp/water/asm
+TerrainOut::calculate_norms
+TerrainOut::light_vert

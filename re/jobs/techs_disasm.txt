@@ -1,0 +1,7 @@
+re/decomp/techs/asm
+TypeData::num_preq
+TechTypeData::num_preq
+GoodType::compute_largest_gather
+TechType::compute_ai_values
+TechType::add_preq_ai
+Type::find_preq

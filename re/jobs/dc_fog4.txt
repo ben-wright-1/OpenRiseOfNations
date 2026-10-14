@@ -1,0 +1,6 @@
+re/decomp/fog
+LeaderData::has_tech
+Leader::gain_tech
+Leader::calc_unit_stats
+Leader::calc_wall_stats
+GameDaemon::update_all_seen

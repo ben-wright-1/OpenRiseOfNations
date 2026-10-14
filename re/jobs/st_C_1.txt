@@ -1,0 +1,5 @@
+re/decomp/state_C/asm
+^Lands::walk_data$
+^UnbuiltCities::walk_data$
+^PtrArray<CliffMiningData>::walk_data$
+^Mountains::walk_data$

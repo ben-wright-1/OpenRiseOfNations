@@ -1,0 +1,2 @@
+re/analysis/vt_sprite.txt
+D3D11GLSprite

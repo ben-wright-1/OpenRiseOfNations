@@ -1,0 +1,4 @@
+re/decomp/fogdraw
+TerrainOut::render$
+TerrainOut::render_fog.*
+TerrainOut::draw_fog.*

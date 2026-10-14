@@ -1,0 +1,14 @@
+re/decomp/move_pf/asm
+PathFinder::astar_path
+PathFinder::calc_cost
+PathFinder::valid_ucoord
+PathFinder::valid_tcoord
+PathFinder::valid_wcoord
+PathFinder::building_danger
+PathFinder::first_open_node
+PathFinderData::get_estimate
+vector_dist
+find_angle
+angle_diff
+sin_table
+cos_table

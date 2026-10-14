@@ -1,0 +1,8 @@
+re/decomp/ui_input/
+Camera::.*
+SelectGroups?::.*
+HotKeyGroups?::.*
+CommandManager::issue_hotkey
+CommandPackage::process_hotkey
+OptionsWinHotkeys.*::.*
+BuildTypeOut::.*

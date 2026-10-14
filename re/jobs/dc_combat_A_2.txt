@@ -1,0 +1,13 @@
+re/decomp/combat_A/asm
+Unit::think_attack
+Object::find_nearby_target
+Object::check_target
+Object::poor_target
+Object::compare_target
+Unit::target_opportunity
+Objects::find_units
+Unit::find_melee_target
+Unit::think
+Group::target_opportunity
+Group::distribute_attack
+GroupData::valid_target

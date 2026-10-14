@@ -1,0 +1,9 @@
+re/decomp/ui_hud2/
+IFaceMain::.*
+IFaceMarket::.*
+IFaceAirGarrison::.*
+IFaceWindow::.*
+MouseOver::.*
+Options::.*
+OptionsBase::.*
+IFaceButtonPool::.*

@@ -1,0 +1,7 @@
+re/decomp/econ_trade/insngrep3.txt
+0xe3ac7c
+0xe3abc8
+0x8ec\],
+0x838\]
+traded_with
+0x2c\],EAX

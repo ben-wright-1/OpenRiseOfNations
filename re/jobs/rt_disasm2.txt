@@ -1,0 +1,4 @@
+re/decomp/rules_tribes/asm
+UnitTypeData::get_military_level_slow
+ObjectTypeData::get_age_slow
+Types::finalize_grafting

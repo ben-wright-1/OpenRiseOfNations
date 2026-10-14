@@ -1,0 +1,12 @@
+re/decomp/grid_misc/callers_set.txt
+1
+World::set_blocked_at
+World::set_tree_at
+World::set_bad_path
+World::set_building_at
+World::set_started_at
+World::set_started2_at
+World::compute_all_vals
+World::adjust_for_blocking
+World::set_mountain_at
+World::new_coll_block

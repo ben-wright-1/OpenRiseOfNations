@@ -1,0 +1,3 @@
+re/decomp/scen_builtins
+^SimpleArray<int>::remove$
+^SimpleArray<int>::remove_position$

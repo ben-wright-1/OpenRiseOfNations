@@ -1,0 +1,5 @@
+re/decomp/camera/asm
+^Quat<float>::set$
+^fast_half_degree_to_.*
+^Matrix<float>::fill$
+^Transform<float>::operator\*$

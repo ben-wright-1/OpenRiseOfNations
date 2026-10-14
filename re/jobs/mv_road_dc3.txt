@@ -1,0 +1,2 @@
+re/decomp/move_road
+do_all_non_input

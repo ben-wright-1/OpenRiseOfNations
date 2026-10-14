@@ -1,0 +1,3 @@
+re/analysis/syms_rs_exe3.txt
+sym:RenderState::all_pshaders:2
+sym:.*all_pshaders.*:2

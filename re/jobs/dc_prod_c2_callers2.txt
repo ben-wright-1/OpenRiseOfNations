@@ -1,0 +1,13 @@
+re/decomp/prod_c2b/callers2.txt
+1
+UnbuiltCities::add_unbuilt_city
+UnbuiltWonders::add_unbuilt_wonder
+UnbuiltForts::add_unbuilt_fort
+LeaderData::has_unbuilt_wonder
+LeaderData::get_unbuilt_wonders
+Wonder::init
+Build::swap_team
+City::set_name
+CityData::count_buildings
+Leader::found_cities
+Leader::produce_city

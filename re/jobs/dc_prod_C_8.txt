@@ -1,0 +1,7 @@
+re/decomp/prod_C/
+BuildTypeData::is_training_building
+BuildTypeData::is_military_trainer
+BuildTypeData::basic_type
+Wall::decrement_stats
+Wall::increment_stats
+BuildQueueData::get_size

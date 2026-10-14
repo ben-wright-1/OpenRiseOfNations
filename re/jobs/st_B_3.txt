@@ -1,0 +1,2 @@
+re/decomp/state_B
+GameInfo::walk_data

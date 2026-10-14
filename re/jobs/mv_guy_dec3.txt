@@ -1,0 +1,4 @@
+re/decomp/move_guy
+TerrainOut::find_data_z
+TerrainOut::find_tcoord_z
+CollCheck::move_unit

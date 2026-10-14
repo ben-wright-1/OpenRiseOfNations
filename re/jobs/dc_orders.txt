@@ -1,0 +1,14 @@
+re/decomp/orders
+::copy_order
+::get_new_order
+OrderList::.*
+UnitOrder::.*
+.*Order::<ctor>
+.*Order::clear
+.*Order::get_type
+VRecycledOrderNode::.*
+Recycler.*::.*
+Unit::(process|inc_time|work|do_job|update_order|update_action|think|do_idle|check_idle|add_.*_order|kill_.*|clear.*|close.*|die.*|init|<ctor>|do_move|do_attack|do_attack_to|do_gather|do_build|do_think_order|do_group_move|do_group_attack|set_rally|go_to|set_attack|set_attacking|modify_group_order|reset_move_orders|ungroup_move_order|execute_events|come_out|update_patrol_order|update_guard_order|find_new_target|target_opportunity|fight|set_stance|set_group|on_duty|set_type|find_path|move_step|repath|check_build_order|build_done|set_new_location)
+UnitData::.*
+Build::.*
+BuildQueue::.*

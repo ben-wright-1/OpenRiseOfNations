@@ -1,0 +1,6 @@
+re/types/scenario_enums.txt
+.*[Ff]lag.*
+.*[Mm]ask.*
+.*Stance.*
+.*Form.*
+.*Diplo.*

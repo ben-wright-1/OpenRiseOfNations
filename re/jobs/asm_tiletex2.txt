@@ -1,0 +1,6 @@
+re/decomp/tiletex/asm
+TerrainOut::get_indexed_mesh.*
+TerrainOut::get_mesh
+TerrainVis::move_data_to_stream
+TerrainVis::fill_fog_texcoords
+TerrainOut::refresh_data

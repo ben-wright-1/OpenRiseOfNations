@@ -1,0 +1,2 @@
+re/decomp/balance/insngrep.txt
+(?i)c06afc|c12bf[0-9a-f]|SteamWorkshopTagLinks|combat_table

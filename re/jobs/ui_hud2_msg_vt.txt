@@ -1,0 +1,3 @@
+re/decomp/ui_hud2_msg/font_vt.txt
+D3D11GLFont
+SGLFont

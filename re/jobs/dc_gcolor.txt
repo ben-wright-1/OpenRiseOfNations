@@ -1,0 +1,3 @@
+re/decomp/attach
+get_global_color
+TeamColor::get_unit

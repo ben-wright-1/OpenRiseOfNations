@@ -1,0 +1,6 @@
+re/decomp/trees
+VoidArray::append_tree_data
+VoidArray::get_diffuse_offset
+TileSet::init
+GraphicPieces::init_maps
+TerrainOut::find_data_z

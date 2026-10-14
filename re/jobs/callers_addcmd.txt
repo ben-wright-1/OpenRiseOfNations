@@ -1,0 +1,8 @@
+re/analysis/callers_addcmd.txt
+1
+CommandPackage::add_command
+CommandPackage::add_group
+CommandPackage::add_chat
+CommandPackage::add_spline
+RecordGame::write_package
+CommandPackage::process_all

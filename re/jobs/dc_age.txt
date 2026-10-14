@@ -1,0 +1,5 @@
+re/decomp/scenario_objects
+Leader::gain_tech
+LeaderData::get_age
+Leader::set_age
+Leader::advance_age

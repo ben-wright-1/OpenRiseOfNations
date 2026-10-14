@@ -1,0 +1,3 @@
+re/decomp/halt/stance_grep.txt
+STANCE_(AGG|RAID|STAND|HOLD|RAZE|DEF)
+6e84

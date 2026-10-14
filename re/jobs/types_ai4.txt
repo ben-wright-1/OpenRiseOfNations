@@ -1,0 +1,5 @@
+re/decomp/ai/types_ai4.txt
+World
+WorldData
+WData
+WCoordData

@@ -1,0 +1,7 @@
+re/decomp/prod_main/
+WallData::is_neutralized
+WallData::in_unfriendly_territory
+WallData::is_active
+WallData::is_started
+BuildData::is_wonder
+WallData::is_under_attack

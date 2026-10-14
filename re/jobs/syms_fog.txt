@@ -1,0 +1,6 @@
+re/decomp/fog/syms.txt
+sym:fog_tcoord_lookup:16
+sym:^circle_radius$:8
+sym:^ring_radius$:34
+sym:^circle_points$:1
+sym:^fog$:4

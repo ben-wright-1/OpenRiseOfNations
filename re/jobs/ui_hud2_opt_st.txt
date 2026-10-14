@@ -1,0 +1,3 @@
+re/decomp/ui_hud2_opt/
+GroupData::get_stance_option
+GroupData::get_form_option

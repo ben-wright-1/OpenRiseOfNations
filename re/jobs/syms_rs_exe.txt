@@ -1,0 +1,7 @@
+re/analysis/syms_rs_exe.txt
+scalar:12d40
+scalar:1e9d8
+scalar:1ea00
+scalar:1ea8c
+sym:render_states:4
+sym:Scene::render_states:4

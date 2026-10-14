@@ -1,0 +1,5 @@
+re/decomp/ui_input/
+Cursor::init
+Cursor::close
+Window::set_cursor
+Window::update_cursor

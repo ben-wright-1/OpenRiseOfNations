@@ -1,0 +1,5 @@
+re/analysis/callers_reflect_d3dgl.txt
+2
+D3D11Resample::run
+ReflectionManager::.*
+D3D11GLSys::create_hdr_buffer

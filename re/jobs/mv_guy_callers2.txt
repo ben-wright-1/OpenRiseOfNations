@@ -1,0 +1,12 @@
+re/decomp/move_guy/callers2.txt
+1
+Guy::set_pitch
+Guy::set_bank
+Guy::set_new_z
+Guy::set_elev_angle
+Guy::set_pivot_angle
+Guy::set_all_pivots
+Guy::reset_pivots
+GuyData::find_slope_normal
+Guy::update_gpiece
+Guy::copy_data

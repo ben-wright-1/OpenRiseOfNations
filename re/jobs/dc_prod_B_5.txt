@@ -1,0 +1,9 @@
+re/decomp/prod_B/callers_B2.txt
+1
+CommandManager::issue_swarm_around
+CommandManager::issue_disband
+CommandManager::issue_buildmask
+CommandManager::issue_build
+Unit::do_repair
+Build::repair_damage
+Object::repair_damage

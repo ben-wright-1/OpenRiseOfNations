@@ -1,0 +1,4 @@
+re/decomp/ui_input/asm/
+Console::on_key_down
+Console::Console
+Console::init

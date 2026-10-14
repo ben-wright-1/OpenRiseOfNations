@@ -1,0 +1,17 @@
+re/decomp/transitions/asm
+TerrainOut::mark_trans_flags
+TerrainOut::check_blocks
+TerrainOut::check_connects
+TerrainOut::check_fills
+TerrainOut::check_for_diagonal
+TerrainOut::check_for_tendrils
+TerrainOut::neighbor_count
+TerrainOut::build_trans_flags
+TerrainOut::one_time_init
+TerrainOut::render_coral
+TerrainOut::render_decorations
+TerrainOut::render_ocean_floor
+Fractal::init
+Fractal::get_height
+Transform<float>::rotate_z
+ArrayBase<int>::add_unique

@@ -1,0 +1,3 @@
+re/decomp/fog/asm
+GameDaemon::update_all_seen
+Object::update_seen_ally

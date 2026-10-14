@@ -1,0 +1,17 @@
+re/decomp/move_coll/callers.txt
+1
+CollCheck::move_unit
+CollCheck::collide_here
+Unit::detect_unit_collision
+Unit::detect_boat_collision
+Unit::resolve_unit_collision
+Unit::resolve_block
+Unit::go_around_building
+UnitData::is_here
+UnitData::is_corner
+UnitData::will_be_corner
+Objects::find_collision
+Objects::find_ordered_collision
+Object::add_to_world
+Object::remove_from_world
+GameDaemon::process_coll_blocks

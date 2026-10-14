@@ -1,0 +1,3 @@
+re/decomp/combat_C/vt_unittype.txt
+UnitType
+BuildType

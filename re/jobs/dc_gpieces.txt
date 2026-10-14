@@ -1,0 +1,2 @@
+re/decomp/gpieces
+GraphicPieces::(init_unit_events|init_build_events|init_ammo_events|draw_unit|draw_build|draw_ammo|place_hierarchy|find_empty_addon|init_build_data|init_ammo_data|init_unit_data|init_zbuild_map|init_build_map|draw_unit_shadow|init_pivot_restrictions|scale_gpiece)

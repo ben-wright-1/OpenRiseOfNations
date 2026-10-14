@@ -1,0 +1,5 @@
+re/types/replay_player.txt
+Player
+Tribe
+CloudFile
+File

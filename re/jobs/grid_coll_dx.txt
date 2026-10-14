@@ -1,0 +1,9 @@
+re/decomp/grid_coll/dataxrefs.txt
+radius
+move_x
+move_y
+corner_box_x
+collcheck
+GameAccess::collcheck
+num_blocks
+used_blocks

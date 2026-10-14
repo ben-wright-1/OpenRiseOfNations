@@ -1,0 +1,2 @@
+re/types/rules_paths.txt
+/rise.pdb/(Type|TypeData|TypeOut|ObjectType|ObjectTypeData|ObjectTypeOut|UnitType|UnitTypeData|UnitTypeOut|BuildType|BuildTypeData|TechType|TechTypeData|GoodType|GoodTypeData|ItemType|ItemTypeData|SpellType|SpellTypeData|BonusType|BonusTypeData)(/.*)?

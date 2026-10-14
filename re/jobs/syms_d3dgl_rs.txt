@@ -1,0 +1,8 @@
+re/analysis/syms_d3dgl_rs.txt
+sym:.*d3d11.*Lookup.*:16
+sym:.*remapShaderLookup.*:40
+sym:.*texop_lookup.*:30
+sym:.*color_arg_lookup.*:20
+sym:.*alpha_func_lookup.*:12
+sym:.*[Oo]ption[Nn]ame.*:40
+sym:.*[Dd]efine.*:40

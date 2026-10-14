@@ -1,0 +1,8 @@
+re/calltrees/game_init.txt
+3
+System::init
+Game::init
+Game::init_data
+Game::init_rules_data
+Game::init_non_rules_data
+Game::init_common_data

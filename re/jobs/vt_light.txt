@@ -1,0 +1,5 @@
+re/iface/d3dgl_vtables_light.txt
+D3D11ToneMapper
+D3D11AntiAlias
+D3D11Resample
+D3D11GLLight

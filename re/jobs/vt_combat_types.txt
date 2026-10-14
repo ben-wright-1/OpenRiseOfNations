@@ -1,0 +1,4 @@
+re/decomp/combat/vt_types2.txt
+UnitType
+BuildType
+ObjectType

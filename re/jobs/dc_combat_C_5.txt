@@ -1,0 +1,4 @@
+re/decomp/combat_C/
+ObjectData::count_inside
+BuildData::most_shots
+UnitData::is_jammed

@@ -1,0 +1,6 @@
+re/analysis/xrefs_build.txt
+build_scale
+unit_scale
+camera_scale
+TILE_SIZE
+tile_size

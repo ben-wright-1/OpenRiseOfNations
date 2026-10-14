@@ -1,0 +1,6 @@
+re/decomp/ui/
+BaseScene::.*
+Window::update_screen
+Window::update_cursor
+Cursors::set
+Scene::post_update_screen

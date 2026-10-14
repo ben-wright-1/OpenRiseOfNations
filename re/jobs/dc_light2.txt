@@ -1,0 +1,6 @@
+re/decomp/light_d3dgl
+D3D11GLBuffer::(init|init_to_screen|set_render_target|release_render_target|fill|get_rtv)
+D3D11GLSys::(set_render_target|init_device_objects|create_.*|setup_.*|init_tonemapper|init_.*)
+D3D11GLGraphicCard::(set_shader_options|set_lighting|enable_lighting|set_light|.*light.*|.*hdr.*)
+D3D11GLSys::.*option.*
+.*::.*[Ll]ight.*

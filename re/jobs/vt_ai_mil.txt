@@ -1,0 +1,5 @@
+re/decomp/ai_mil/vt_group.txt
+Group
+GroupData
+Army
+Unit

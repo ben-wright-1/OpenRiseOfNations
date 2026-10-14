@@ -1,0 +1,5 @@
+re/decomp/move_group2
+Search::valid_search
+Search::valid_filter
+^circle_init
+^even_circle_init

@@ -1,0 +1,8 @@
+re/decomp/ui_hud2_msg_asm/
+__EWHITE
+__EBLACK
+__ERED
+__EORANGE
+__ELIGHT_GREY
+__EAQUA
+__ETRANSPARENT_WHITE

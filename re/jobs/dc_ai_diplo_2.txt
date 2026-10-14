@@ -1,0 +1,11 @@
+re/decomp/ai_diplo
+^LeaderData::any_proposals$
+^LeaderData::is_rusher$
+^LeaderData::is_boomer$
+^Game::current_age$
+^LeaderData::find_capital$
+^LeaderData::afford_dow$
+^LeaderData::get_player$
+^LeaderData::researching$
+^Leader::meet$
+^Leader::victory$

@@ -1,0 +1,14 @@
+re/analysis/types_script2.txt
+SyntaxTypes
+VarScope
+ScriptRunTimeStates
+LocalScriptUsage
+ScriptReloadType
+OpArg_u_4
+Breakpoints
+ScenarioFuncSet
+ScriptUtils
+.*FuncFlag.*
+.*ScriptParam.*Flag.*
+ScriptDataTypes
+.*DataType.*

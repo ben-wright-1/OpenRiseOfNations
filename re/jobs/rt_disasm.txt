@@ -1,0 +1,3 @@
+re/decomp/rules_tribes/asm
+Tribes::init
+Types::init_civ_masks

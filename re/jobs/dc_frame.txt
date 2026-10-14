@@ -1,0 +1,13 @@
+re/decomp/frame
+Objects::.*
+OrdersMemManager::.*
+Leaders::(process_all|strategy_all|end_process_all)
+Leader::process_event_frame
+GameDaemon::process_all
+Armies::process_all
+GraphicEvents::process
+Roads::scan_and_kill_stray_roads
+Groups::.*
+SubObject::.*
+Object::(init|die|close|add_to_world|remove_from_world|kill_contents|remove_from_inside|process|inc_time|clear|activate|disband)
+Achieve::capture_data

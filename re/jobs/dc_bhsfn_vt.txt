@@ -1,0 +1,9 @@
+re/decomp/bhsfn/vtables.txt
+ScenarioFuncSet
+ScriptFuncSet
+MathUtilFuncSet
+ArrayUtilFuncSet
+StringUtilFuncSet
+TriggerUtilFuncSet
+ScriptGameInterface
+ScriptGameInterfaceBase

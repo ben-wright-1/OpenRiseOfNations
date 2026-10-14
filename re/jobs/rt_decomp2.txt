@@ -1,0 +1,7 @@
+re/decomp/rules_tribes
+Game::init_data
+Game::init
+Game::end_game_close
+WalkDataGame::walk_data
+Main::init_common_data
+Types::close

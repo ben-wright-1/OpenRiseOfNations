@@ -1,0 +1,4 @@
+re/decomp/ui_d3dgl/
+FT::GlyphData::.*
+SGLFont::get_style
+FontFamily.*

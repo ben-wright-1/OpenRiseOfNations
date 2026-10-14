@@ -1,0 +1,16 @@
+re/decomp/combat_D/callers.txt
+1
+Object::do_damage
+Object::take_damage
+ObjectData::get_damage
+Object::die
+Unit::die
+Objects::add_death
+Objects::kill_guy
+Unit::plunder
+Object::disband
+Unit::process_attrition
+Unit::suffer_attrition
+Unit::process_healing
+Object::repair_damage
+Unit::repair_damage

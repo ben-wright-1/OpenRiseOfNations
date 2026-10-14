@@ -1,0 +1,5 @@
+re/decomp/circle
+UnitOut::draw_unit_circles
+UnitTypeData::get_(underlay_)?circle_radius
+CircleRender::(draw|scale|init_circle|init)
+GraphicPieces::draw_circle

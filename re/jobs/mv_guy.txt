@@ -1,0 +1,7 @@
+re/decomp/move_guy
+Guy::.*
+GuyData::(find_slope_normal|is_corner|turn_speed|get_speed|get_render_.*|walk_data)
+angle_diff
+find_angle
+sin_table
+cos_table

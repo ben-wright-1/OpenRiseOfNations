@@ -1,0 +1,4 @@
+re/decomp/grid_build/asm
+BuildType::place_roads
+BuildTypeData::blocked_tcoord
+BuildTypeData::blocked_site

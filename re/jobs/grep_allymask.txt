@@ -1,0 +1,3 @@
+re/decomp/fog/insn_allymask.txt
+^(MOV|OR|AND|XOR) byte ptr \[.*(0x6929|0xe3c... )\],
+0xe40d09|0x6929\],

@@ -1,0 +1,4 @@
+re/decomp/ai_create/asm
+LeaderData::get_diff$
+SubObjectData::is_active$
+WallData::tile_corner$

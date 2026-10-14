@@ -1,0 +1,4 @@
+re/decomp/ai_mil
+^Leader::action_ping$
+^Unit::set_group$
+^Region::coast_here$

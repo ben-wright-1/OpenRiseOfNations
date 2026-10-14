@@ -1,0 +1,14 @@
+re/decomp/halt
+Unit::close_orders
+Unit::clear_orders
+Unit::clear_partial_path
+Unit::update_action
+Unit::update_order
+Unit::clear_mandatory
+Unit::kill_current_order
+Unit::repath
+Unit::kill_group_order
+GroupData::is_on_map
+GroupData::get_stance_option
+UnitData::is_entering_or_exiting
+GroupData::count

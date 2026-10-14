@@ -1,0 +1,8 @@
+re/decomp/camera/asm
+^Camera::.*
+^BaseCamera::.*
+^Light::.*
+^Scene::init$
+^Scene::init_render_states$
+^Scene::refresh_scaling$
+^Scene::reset_scaling$

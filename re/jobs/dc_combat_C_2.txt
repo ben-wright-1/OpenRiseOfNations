@@ -1,0 +1,13 @@
+re/decomp/combat_C/
+Objects::find_builds
+Vector<int>::length
+Vector<int>::cross
+BuildData::get_shot
+GameAccess::rnd
+UnitData::get_combat_stance
+Unit::on_duty
+UnitData::in_supply
+ObjectData::get_damage
+GraphicPieces::get_gpiece_type
+GraphicPieces::verify_ammo_flags
+Random::get

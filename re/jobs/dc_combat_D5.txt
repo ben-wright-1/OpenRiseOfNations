@@ -1,0 +1,3 @@
+re/decomp/combat_D
+Object::attempt_launch
+Unit::close

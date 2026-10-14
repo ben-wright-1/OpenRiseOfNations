@@ -1,0 +1,3 @@
+re/decomp/gth2
+WallData::is_active
+SubObjectData::is_active

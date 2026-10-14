@@ -1,0 +1,11 @@
+re/decomp/grid_coll/callers.txt
+1
+CollCheck::.*
+CollBlock::(get|set|operator_new|operator_delete)
+World::new_coll_block
+WorldData::get_coll_block
+GameDaemon::process_coll_blocks
+PathFinder::valid_.*
+PathFinderData::valid_roadcoord
+WorldData::is_pass.*
+WorldData::is_impassable

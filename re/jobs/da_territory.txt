@@ -1,0 +1,2 @@
+re/decomp/territory_asm
+World::compute_reg_territory

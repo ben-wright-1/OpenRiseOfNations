@@ -1,0 +1,14 @@
+re/decomp/replay
+RecordGame::.*
+CommandManager::.*
+CommandPackage::.*
+TurnControl::.*
+Random::.*
+PackageFifo::.*
+Game::walk_data
+Game::run_playback
+Game::run
+Game::do_frame
+CheckSums::check_all
+CheckSum::walk_function
+CheckSums::reset

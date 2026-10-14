@@ -1,0 +1,13 @@
+re/decomp/tiletex/asm
+TerrainOut::generate_land
+TerrainOut::build_projected_texcoords
+TerrainOut::get_submap_texcoords
+TerrainOut::rotate_tex_coords
+TerrainOut::create_transition_renderables
+TerrainOut::setup_transition_renderables
+TerrainOut::add_patch
+TerrainOut::get_vert_codes
+CoordInfo::add_geometry
+TerrainList::add_new_coord_info
+TerrainOut::render_weathering
+TerrainOut::add_weather_underlay

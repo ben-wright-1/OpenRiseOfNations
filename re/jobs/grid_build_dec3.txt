@@ -1,0 +1,6 @@
+re/decomp/grid_build
+Wall::kill_competing_buildings
+Wall::mark_behind_tiles
+ObjectsData::find_building_placed_at
+Wall::refresh_nearby_tiles
+World::set_behind

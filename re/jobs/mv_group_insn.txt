@@ -1,0 +1,6 @@
+re/decomp/move_group/insn_square.txt
+\+ 0xd68\]
+\+ 0xd20\]
+\+ 0xe8c\]
+\+ 0xd3c\]
+\+ 0xd1c\]

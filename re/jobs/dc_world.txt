@@ -1,0 +1,7 @@
+re/decomp/world
+WorldData::is_.*
+WorldData::get_land
+World::set_.*
+World::init
+World::revert_coast
+Map::make_coastlines

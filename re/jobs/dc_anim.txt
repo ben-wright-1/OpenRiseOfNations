@@ -1,0 +1,9 @@
+re/decomp/anim
+AnimObj::.*
+AnimFileLoader::.*
+AnimMgr::force_load
+BasicTransformMethod::(execute|update_vert_list|update_vertnorm_list_normal|load)
+TextureMethod::(load|execute)
+HierObj::(set_to_time|set_to_time_fast|update_transforms|update_all_transforms|match_animobj|render)
+Transform<float>::init
+AnimationPacket::(set_anim|init_animation)

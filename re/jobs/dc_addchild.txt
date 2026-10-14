@@ -1,0 +1,2 @@
+re/decomp/anim
+HierObj::add_child

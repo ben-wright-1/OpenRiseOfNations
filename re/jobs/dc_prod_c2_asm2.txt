@@ -1,0 +1,4 @@
+re/decomp/prod_c2_asm/
+ObjectsData::find_city_at
+ObjectsData::find_town_at
+WorldData::is_city_at

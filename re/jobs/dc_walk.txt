@@ -1,0 +1,10 @@
+re/decomp/walk
+DataWalk::.*
+WalkDataGame::.*
+CheckSums::(calc|compute|check|do).*
+Unit::walk_data
+UnitData::walk_data
+Game::walk_data
+SaveGame::save_game
+LoadGame::load_game
+RecordGame::(init_record|write_save_game|write_rules|read_rules|close|record_.*|write_.*|read_.*)

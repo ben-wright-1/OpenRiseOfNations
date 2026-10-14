@@ -1,0 +1,8 @@
+re/calltrees/callers_submap.txt
+2
+TerrainOut::get_submap_texcoords
+TerrainOut::rotate_tex_coords
+TextureEffect::load_as_supertile
+TextureEffect::get_subtile
+TerrainOut::generate_skirts
+TileSet::get_supertile_texture

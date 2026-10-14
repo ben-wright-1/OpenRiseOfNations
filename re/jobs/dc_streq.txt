@@ -1,0 +1,4 @@
+re/decomp/attach
+String::operator==
+String::operator\+=
+String::compare.*

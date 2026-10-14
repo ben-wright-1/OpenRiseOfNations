@@ -1,0 +1,9 @@
+re/decomp/move_group2
+GroupData::get_stance_type
+GroupData::get_stance_option
+UnitType::get_stance_type
+BuildType::get_stance_type
+UnitData::get_stance_type
+Unit::clear_mandatory
+Objects::add_flock
+ObjectData::has_general

@@ -1,0 +1,16 @@
+re/decomp/grid_misc
+init_coord_lookup_array
+close_coord_lookup_array
+World::compute_all_vals
+Mountains::add_mountain
+Mountains::set_edge_flags
+Cliffs::set_edge_flags
+Terrain::eliminate_dead_mount_spots
+MountainRange::validate_tcoord
+WorldData::has_gather_access
+World::new_coll_block
+WData::WData
+Cliff::add_tcoord_data
+Mountains::.*mask.*
+Mountains::add_.*
+MountainRange::.*

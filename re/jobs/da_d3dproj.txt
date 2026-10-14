@@ -1,0 +1,2 @@
+re/decomp/camera/d3dgl
+^D3D11GLSys::set_projection.*

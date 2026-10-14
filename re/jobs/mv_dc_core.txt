@@ -1,0 +1,7 @@
+re/decomp/move
+PathFinder::.*
+PathFinderData::.*
+PathNode::.*
+Unit::(process|inc_time|do_move|move_step|find_path|repath|go_to.*|go_around_building|kill_current_path|clear_partial_path|resolve_block|resolve_unit_collision|detect_unit_collision|detect_boat_collision|set_angle|update_speed|set_new_location|reset_move_orders|do_idle|do_group_move|ungroup_move_order|kill_group_move|add_move_order|add_move_facing_order|add_group_move_order|find_nearby_spot|check_target_path|update_z|do_follow|do_flee_to|do_explore_to|do_attack_to|work|update_action|update_order|set_anim)
+UnitData::(get_speed|speed|turn_speed|is_moving|get_final_loc|invalid_loc|is_here|find_def_pos|uber_size|curr_uber_size|is_corner|will_be_corner)
+VPathData::.*

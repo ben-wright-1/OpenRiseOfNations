@@ -1,0 +1,2 @@
+re/decomp/ui_input/keymap_strings_init.asm
+004062e0-00412000

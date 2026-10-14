@@ -1,0 +1,2 @@
+re/decomp/ui_hud2_asm/
+IFaceMainBase::draw_button_row_area

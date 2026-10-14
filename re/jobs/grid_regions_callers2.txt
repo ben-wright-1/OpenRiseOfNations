@@ -1,0 +1,8 @@
+re/decomp/grid_regions/callers_halfland.txt
+4
+Terrain::check_and_set_halfland
+Terrain::check_and_set_halfland_wcoord
+Terrain::mark_halfwater
+Terrain::clear_halfland_wcoord
+World::revert_coast
+Map::make_rivers

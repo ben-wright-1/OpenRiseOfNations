@@ -1,0 +1,13 @@
+re/decomp/state_B
+LeaderData::bucket_set
+LeaderData::bucket_add
+LeaderData::bucket_get
+LeaderData::income_get
+LeaderData::resource_cap_get
+LeaderData::resource_cap_add
+LeaderData::resources_get
+LeaderData::get_epoch
+LeaderData::epochs_get
+LeaderDataEncrypt::init
+LeaderDataEncrypt::log_data
+calcWorkshopIdAndPath

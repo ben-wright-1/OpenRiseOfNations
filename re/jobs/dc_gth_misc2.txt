@@ -1,0 +1,8 @@
+re/decomp/gth2
+BuildTypeData::is_gather_type
+BuildTypeData::is_flat
+Build::get_gatherer_tile
+Unit::kill_garrison_order
+UnitData::can_garrison
+Unit::add_garrison_order
+Group::action_board_ship

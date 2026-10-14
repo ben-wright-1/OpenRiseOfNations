@@ -1,0 +1,9 @@
+re/decomp/prod_main/
+Build::process$
+Wall::process$
+Build::process_ejection
+Build::find_gather_tiles
+Build::verify_gather_tiles
+Build::update_max_gatherers
+Build::do_bonus
+Build::check_capture$

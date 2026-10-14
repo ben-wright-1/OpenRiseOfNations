@@ -1,0 +1,5 @@
+re/decomp/renderstate
+RenderState::.*
+Scene::(init_render_states|close_render_states)
+Camera::update_render_states
+RenderStateMethod::(execute|load|verify)

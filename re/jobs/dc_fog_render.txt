@@ -1,0 +1,10 @@
+re/decomp/fog/render
+RTreeData::adjust_tree_colors
+GraphicPieces::draw_unit
+GraphicPieces::draw_good
+Doober::draw
+WorldMap::render_fog
+WorldMap::render_blips
+TerrainOut::fixup_fog_cache_entries
+TerrainOut::invalidate_fog_cache_wcoord
+TerrainOut::find_invalid_fog_entry

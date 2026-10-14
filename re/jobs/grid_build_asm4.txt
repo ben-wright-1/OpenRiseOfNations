@@ -1,0 +1,2 @@
+re/decomp/grid_build/asm
+BuildTypeData::snap_center

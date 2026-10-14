@@ -1,0 +1,8 @@
+re/decomp/move_pf/asm
+WorldData::is_blocked_at
+UnitData::needs_transport
+UnitData::invalid_loc
+Game::current_age
+UnitData::is_fleeing
+PathFinder::find_wpath
+PathFinder::find_tpath

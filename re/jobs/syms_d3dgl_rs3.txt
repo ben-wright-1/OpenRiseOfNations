@@ -1,0 +1,4 @@
+re/analysis/syms_d3dgl_rs3.txt
+addr:100dcb90:2
+addr:100e6c94:2
+sym:s_1:1

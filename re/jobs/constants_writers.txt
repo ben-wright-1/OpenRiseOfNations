@@ -1,0 +1,4 @@
+re/decomp/constants_writes
+Leader::calc_resource_caps
+Leader::calc_gather
+ScenarioFuncSet::set_age_diff_penalty

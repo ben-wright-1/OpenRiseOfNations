@@ -1,0 +1,3 @@
+re/decomp/anim
+.*match_animobj.*
+.*count_nodes.*

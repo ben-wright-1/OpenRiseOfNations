@@ -1,0 +1,5 @@
+re/decomp/grid_regions/insngrep.txt
+OR dword ptr \[.*\+ 0x8\],0x40$
+MOV word ptr \[.*\+ 0x4\],0x7f$
+MOV word ptr \[.*\+ 0x6\],0x7f$
+OR dword ptr \[.*\+ 0x8\],0x1$

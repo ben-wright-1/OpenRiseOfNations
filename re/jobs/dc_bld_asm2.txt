@@ -1,0 +1,4 @@
+re/decomp/bld2/asm
+GroupData::is_on_map
+Group::action_swarm_around
+GroupData::validate_build

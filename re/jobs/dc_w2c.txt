@@ -1,0 +1,3 @@
+re/decomp/build
+MiscAccess::world_to_console
+MiscAccess::console_to_world

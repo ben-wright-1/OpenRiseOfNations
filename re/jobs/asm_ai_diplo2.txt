@@ -1,0 +1,4 @@
+re/decomp/ai_diplo/asm
+^Leader::init$
+^Leader::action_respond$
+^LeaderData::is_tribute_period$

@@ -1,0 +1,17 @@
+re/decomp/econ_mkt/callers.txt
+6
+LeaderData::get_mod_resource_cap
+Leader::use_market
+Leader::market_speculation
+Leader::consider_tribute
+LeaderData::calc_rare
+Leader::new_rare
+Leader::action_respond
+LeaderData::scale_tribute
+LeaderData::is_tribute_period
+Leader::action_offer
+Leader::action_tribute
+LeaderData::calc_market_prices
+Leader::do_buy
+Leader::do_sell
+Game::init_starting_resources

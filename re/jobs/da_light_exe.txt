@@ -1,0 +1,8 @@
+re/decomp/light/asm
+Game::init_light
+GraphicPieces::(init_lighting|prep_unit_lighting)
+TerrainOut::(prep_terrain_lighting|light_land_vert|light_vert)
+Light::(set_.*|update_transforms|enable|set|init)
+TopMenu::init_light
+Nuke::draw
+System::init_graphics

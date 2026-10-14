@@ -1,0 +1,8 @@
+re/decomp/move/callers_pathfinder.txt
+2
+PathFinder::find_.*
+PathFinder::astar_path
+Unit::find_path
+Unit::repath
+Unit::move_step
+Unit::do_move

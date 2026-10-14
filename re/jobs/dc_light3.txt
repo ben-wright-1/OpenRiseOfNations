@@ -1,0 +1,8 @@
+re/decomp/light
+ConquestWin::on_redraw
+Nuke::(setup|draw)
+System::init_graphics
+GraphicPieces::(parse_cmd|init|on_field_change)
+TopMenu::draw_logo
+BaseScene::(render_begin|render_end)
+Game::loop_render

@@ -1,0 +1,8 @@
+re/decomp/econ_trade/callers2.txt
+2
+Leader::calc_unit_stats
+OilWells::init_oil_well
+OilWells::close_oil_well
+Supplies::find_supply
+UnitData::get_attrition
+Unit::process_supply

@@ -1,0 +1,2 @@
+re/decomp/goods
+GraphicPieces::(draw_good|init_good_data|init_good_map|init_farm_map)

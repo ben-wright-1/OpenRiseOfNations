@@ -1,0 +1,5 @@
+re/decomp/light/asm2
+ObjectsOut::pop_all_zoomed_in
+GraphicPieces::draw_unit
+ConquestGraphicPieces::draw
+ConquestPieces::draw_all

@@ -1,0 +1,4 @@
+re/decomp/move_guy/insn_guy_fields.txt
+^MOV word ptr \[E[A-Z][A-Z] \+ 0x9[24]\],
+^(ADD|SUB|INC|DEC) word ptr \[E[A-Z][A-Z] \+ 0x9[24]\]
+^MOV dword ptr \[E[A-Z][A-Z] \+ 0x5[48]\],

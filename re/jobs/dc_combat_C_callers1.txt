@@ -1,0 +1,10 @@
+re/decomp/combat_C/callers1.txt
+3
+GraphicEvents::verify_load
+GraphicEvents::init_unit_events
+GraphicPieces::init_unit_events
+Objects::add_ammo
+Object::fire_ammo
+Unit::fight
+Unit::cavarch_fight
+Build::do_attack

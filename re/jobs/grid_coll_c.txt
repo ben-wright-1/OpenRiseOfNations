@@ -1,0 +1,8 @@
+re/decomp/grid_coll
+WorldData::is_built_at
+WorldData::is_cliff_at
+UnitData::can_transport
+WorldData::was_seen
+WorldData::is_ocean
+UnitTypeData::blocks_while_dead
+ObjectData::is

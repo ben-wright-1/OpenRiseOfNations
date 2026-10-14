@@ -1,0 +1,4 @@
+re/decomp/gth2/vt_types.txt
+TypeData
+BuildType
+UnitType

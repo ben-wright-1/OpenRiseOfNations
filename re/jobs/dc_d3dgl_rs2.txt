@@ -1,0 +1,5 @@
+re/decomp/d3dgl_rs
+.*dynamic_initializer_for_'(texop_lookup|color_arg_lookup|alpha_func_lookup)'
+D3D11GLGraphicCard::(set_texture|set_vert_stream|set_render_mode|set_colors|reset)
+D3D11GLSys::(set_texture|begin_scene|init_shaders)
+D3D11Context::(set_world_transform|set_view_transform|set_projection|update_frame_time)

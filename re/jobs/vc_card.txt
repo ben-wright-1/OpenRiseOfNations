@@ -1,0 +1,3 @@
+re/analysis/vcalls_card_material.txt
+0x00c0aeac
+1c

@@ -1,0 +1,5 @@
+re/decomp/balance/callers.txt
+2
+Balance::return_modifier
+Balance::compute_modifier
+Balance::init

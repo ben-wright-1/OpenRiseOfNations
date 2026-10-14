@@ -1,0 +1,2 @@
+re/decomp/combat_A/insn_targeted.txt
+(MOV|INC|DEC|SUB|ADD|AND) byte ptr \[E.. \+ 0x3d\].*

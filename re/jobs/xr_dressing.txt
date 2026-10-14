@@ -1,0 +1,3 @@
+re/decomp/dressing/xrefs_pool.txt
+random_map_pool
+render_states

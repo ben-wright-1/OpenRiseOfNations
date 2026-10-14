@@ -1,0 +1,8 @@
+re/decomp/core
+Main::main
+WinMain
+Game::(run|loop|do_frame|loop_render|init|init_data|init_rules_data|init_non_rules_data|init_common_data|run_solo|run_playback)
+System::(init|init_game|init_graphics|init_sound)
+CommandManager::(process_turn|start|send_local_package|process_command_package_data)
+CommandPackage::(process|process_all|begin_process|end_process)
+Types::init

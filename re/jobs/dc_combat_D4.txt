@@ -1,0 +1,3 @@
+re/decomp/combat_D/insn_vcalls.txt
+CALL dword ptr \[E.. \+ 0x16c\]
+CALL dword ptr \[E.. \+ 0x158\]

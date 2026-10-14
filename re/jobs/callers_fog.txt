@@ -1,0 +1,13 @@
+re/decomp/fog/callers.txt
+1
+World::(set_seen|set_seen2|set_was_seen|clear_seen|clear_seen2|clear_seen3|reveal_fog|get_seen|get_was_seen|adjust_fog)
+WorldData::(is_seen|was_seen|was_really_seen|is_really_seen|is_seen_wcoord|was_seen_wcoord|is_detected|is_detected_by_enemy)
+Object::(update_seen|update_seen_ally|update_los)
+Unit::(update_local_seen|update_los)
+Wall::(update_local_seen|update_los|check_ever_seen)
+GameDaemon::update_all_seen
+UnitData::(is_seen|is_detected|is_cloaked)
+WallData::(is_seen|is_now_seen)
+BuildData::(is_seen|is_now_seen)
+SubObjectData::is_seen
+::(circle_init|ring_init|project)

@@ -1,0 +1,3 @@
+re/decomp/balance/callers2.txt
+1
+ObjectData::get_damage

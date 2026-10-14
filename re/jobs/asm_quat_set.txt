@@ -1,0 +1,3 @@
+re/decomp/transitions/asm
+Quat<float>::set
+fast_half_degree_to_.*

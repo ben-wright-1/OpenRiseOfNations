@@ -1,0 +1,16 @@
+re/types/rules_enums.txt
+.*TYPE.*
+.*FLAG.*
+.*MASK.*
+.*_types?
+.*Types?Enum.*
+NUM_.*
+.*Index.*
+.*ATTRIB.*
+.*CONST.*
+.*ROLE.*
+.*CATEG.*
+.*ARMOR.*
+.*DAMAGE.*
+.*GOOD.*
+.*RESOURCE.*

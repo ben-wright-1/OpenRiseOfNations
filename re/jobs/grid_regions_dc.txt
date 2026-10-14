@@ -1,0 +1,16 @@
+re/decomp/grid_regions
+Map::make
+ScenarioRead::load_tcoord_chunk
+MapWarringStates::make_continents
+Map::make_continents
+Map::eliminate_pools
+Map::make_rivers
+MapAustralianOutback::make_continents
+Leader::plan_strategy
+Unit::think_civilian_transport
+Army::do_transporting
+MapConquest::check_sea_map
+World::is_edge_of_region
+World::compute_reg_territory
+Terrain::mark_halfwater
+Terrain::check_and_set_halfland_wcoord

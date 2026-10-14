@@ -1,0 +1,16 @@
+re/types/terrain.txt
+World.*
+WCoord.*
+TCoord.*
+Terrain.*
+TileSet.*
+Tileset.*
+Cliff.*
+River.*
+Map
+Scene.*
+Camera.*
+Mountain.*
+Surf.*
+Water.*
+.*Terrain.*

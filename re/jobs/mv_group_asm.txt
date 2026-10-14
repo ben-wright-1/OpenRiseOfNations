@@ -1,0 +1,10 @@
+re/decomp/move_group/asm
+Form::(compute_dests|compute|compute_rows_and_columns|categorize)
+Group::(compute_form|action_move_near|update_positions|compute_speed|leader_report_speed|report_speed|normalize|sort|kill_group_move)
+Groups::process
+GroupData::(get_loc|get_loc_to|find_leader|get_speed|get_form)
+Unit::(do_group_move|add_group_move_order|kill_group_move|ungroup_move_order)
+Army::(do_marching|march_to_target|do_forming|do_mustering|normalize|center_of_gravity|process)
+cosx
+sinx
+vector_dist

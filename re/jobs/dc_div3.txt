@@ -1,0 +1,2 @@
+re/decomp/dressing
+init_coord_lookup_array

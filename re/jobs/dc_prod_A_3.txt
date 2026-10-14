@@ -1,0 +1,10 @@
+re/decomp/prod_A/vcalls.txt
+CALL dword ptr \[E[A-Z]X \+ 0x78\]
+CALL dword ptr \[E[A-Z]X \+ 0x6c\]
+CALL dword ptr \[E[A-Z]X \+ 0x70\]
+CALL dword ptr \[E[A-Z]X \+ 0x84\]
+CALL dword ptr \[E[A-Z]X \+ 0x88\]
+CALL dword ptr \[E[A-Z]X \+ 0xcc\]
+CALL dword ptr \[E[A-Z]X \+ 0xd4\]
+CALL dword ptr \[E[A-Z]X \+ 0xd8\]
+CALL dword ptr \[E[A-Z]X \+ 0x18c\]

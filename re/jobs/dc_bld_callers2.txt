@@ -1,0 +1,5 @@
+re/decomp/bld2/callers2.txt
+2
+GroupOut::issue_build
+GroupOut::issue_queue_up
+GroupOut::issue_gather_point

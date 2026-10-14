@@ -1,0 +1,5 @@
+re/decomp/rules6
+ObjectTypeData::(is|is_slow|isnt|has_objmask|basic_type|upgrade_level|get_age|get_age_slow)
+TypeData::(is|type_graft|avail)
+UnitTypeData::(type_graft|is_missile|is_tank|is_siege|is_caravan|blocks_while_dead|get_stance_type|num_preq|can_entrench|is_spellcaster|needs_packing)
+ObjectType::close_is_list

@@ -1,0 +1,8 @@
+re/decomp/replay_rng
+::random
+GameAccess::rnd
+Unit::repair_damage
+MathUtilFuncSet::rand_.*
+GameLog::say_checksum
+CheckSum::walk_test
+Game::close

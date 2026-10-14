@@ -1,0 +1,5 @@
+re/decomp/replay_rng
+DropControl::process_drops
+Console::on_key_down
+Options::picked_spot
+IFaceDiploBase::on_key_click

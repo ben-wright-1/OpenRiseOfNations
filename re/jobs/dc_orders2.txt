@@ -1,0 +1,11 @@
+re/decomp/orders2
+LinkListBase<UnitOrder.*
+SafeRecycler<UnitOrder>::.*
+Recycler<RecycledOrderNode>::.*
+.*Order::[A-Za-z]+Order
+.*Order::~.*
+Unit::(do_explore_to|do_flee_to|do_follow|do_guard|go_to_unit|find_attack_pos|set_in_danger|check_target_path|change_target|do_attack_ground|set_ai_control|update_speed|set_mask)
+LeaderOptions::.*
+Object::(take_damage|do_launch)
+Leader::(process|end_process|strategy)
+LeaderData::is_active

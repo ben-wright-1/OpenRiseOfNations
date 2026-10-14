@@ -1,0 +1,3 @@
+re/decomp/gth2/asm
+Group::action_gather
+Group::action_garrison

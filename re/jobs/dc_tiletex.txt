@@ -1,0 +1,11 @@
+re/decomp/tiletex
+Transitions::.*
+TextureEffect::.*
+TerrainList::.*
+CoordInfo::.*
+TerrainVis::fill_fog_texcoords
+TerrainVis::move_data_to_stream
+TerrainVis::init
+TerrainVis::add_visible_wcoord
+WeatherMapping::.*
+LandID::.*

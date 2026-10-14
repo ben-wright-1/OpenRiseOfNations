@@ -1,0 +1,6 @@
+re/decomp/move/vtables.txt
+Unit
+Animal
+UnitOrder
+MoveOrder
+GroupMoveOrder

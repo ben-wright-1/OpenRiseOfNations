@@ -1,0 +1,8 @@
+re/decomp/rules4
+(UnitType|BuildType|GoodType|TechType|SpellType|BonusType|ItemType|TypeData|ObjectTypeData|UnitTypeData|BuildTypeData|GoodTypeData|TechTypeData|SpellTypeData|BonusTypeData)::\1
+UnitType::close
+BuildType::close
+GoodType::close
+TechType::close
+SpellType::close
+BonusType::close

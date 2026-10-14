@@ -1,0 +1,5 @@
+re/decomp/scen_builtins
+^NamedArray<int>::get_data$
+^ScenarioFuncSet::get_ctw_int$
+^ScenarioFuncSet::get_ctw_str$
+^ScenarioFuncSet::set_ctw_str$

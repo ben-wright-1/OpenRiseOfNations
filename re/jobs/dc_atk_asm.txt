@@ -1,0 +1,3 @@
+re/decomp/atk/asm
+Group::action_attack
+CommandPackage::process_attack

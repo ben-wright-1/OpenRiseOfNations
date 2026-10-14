@@ -1,0 +1,6 @@
+re/decomp/move_group2
+UnitTypeData::get_stance_type
+BuildTypeData::get_stance_type
+ObjectTypeData::get_stance_type
+UnitData::has_stance_type
+ObjectData::has_stance_type

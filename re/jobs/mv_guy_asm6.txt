@@ -1,0 +1,3 @@
+re/decomp/move_guy/asm
+TerrainOut::find_data_z
+TerrainOut::find_tcoord_z

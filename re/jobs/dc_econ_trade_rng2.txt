@@ -1,0 +1,2 @@
+re/decomp/econ_trade/canTrade.asm
+0067e204-0067e358

@@ -1,0 +1,10 @@
+re/decomp/state_D/vtables2.txt
+ScenarioComponent
+ScenarioRevealPoint
+ScenarioMessage
+ScenarioObjective
+PtrLinkList<ScenarioObjective,int>
+PtrLinkListAbstract<ScenarioObjective,int>
+ConquestPiece
+WalkDataConquestGame
+ObjectArray<ScenarioComponent>

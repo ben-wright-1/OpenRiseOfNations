@@ -1,0 +1,2 @@
+re/decomp/ai/pers_refs2.txt
+0xe411[6-9a-c][0-9a-f]\]

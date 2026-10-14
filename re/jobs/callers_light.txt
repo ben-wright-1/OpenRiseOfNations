@@ -1,0 +1,10 @@
+re/calltrees/callers_light.txt
+1
+Light::set_direction
+Light::set_diffuse
+Light::set_ambient
+GraphicPieces::init_lighting
+TerrainOut::render_.*
+Surf::draw
+CliffsOut::render
+RiversOut::render.*

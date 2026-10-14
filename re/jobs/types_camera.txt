@@ -1,0 +1,10 @@
+re/types/camera.txt
+^BaseCamera$
+^BaseScene$
+^Light$
+^BaseObject$
+^Transform<float>$
+^Matrix<float>$
+^Scene$
+^ScenarioData$
+^Options$

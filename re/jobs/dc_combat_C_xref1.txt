@@ -1,0 +1,2 @@
+re/decomp/combat_C/xrefs_gravz.txt
+GRAV_Z

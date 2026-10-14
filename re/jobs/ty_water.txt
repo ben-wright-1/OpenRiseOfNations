@@ -1,0 +1,11 @@
+re/analysis/types_water.txt
+^RenderTechnique$
+^RenderState$
+^Surf$
+^SurfWave$
+^SurfWaveSection$
+^WaveStruct$
+^CoordInfo$
+^OceanVars$
+^RiverSectionOut$
+^TextureEffect$

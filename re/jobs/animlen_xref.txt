@@ -1,0 +1,2 @@
+re/decomp/animlen/xrefs_guy_scale.txt
+guy_scale

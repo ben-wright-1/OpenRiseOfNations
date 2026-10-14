@@ -1,0 +1,4 @@
+re/decomp/move_group2/types3.txt
+FilterIndex
+SearchIndexBH
+GameData

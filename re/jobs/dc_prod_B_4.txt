@@ -1,0 +1,14 @@
+re/decomp/prod_B/callers_B.txt
+1
+Wall::increment_stats
+Wall::decrement_stats
+Leader::gain_building
+Build::repair_damage
+Unit::add_repair_order
+Group::action_swarm_around
+Group::action_repair
+Wall::do_construct
+Unit::check_build_order
+Unit::build_done
+Build::refund_cost
+Object::disband

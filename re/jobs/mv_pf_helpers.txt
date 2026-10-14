@@ -1,0 +1,14 @@
+re/decomp/move_pf
+Tree<PathNode_\*,int>::(ordered_insert|remove_current|clear|inorder_start|close)
+BRTree<.*PathNode.*>::(ordered_insert|seek|clear|close|test)
+BRTree<int,unsigned_long>::(ordered_insert|seek|clear|close)
+Recycler<PathNode>::(pop|init_stored|clear_stored)
+Recycler<TreeNode<PathNode_\*,int>>::pop
+Recycler<BRTreeNode<.*>>::pop
+vector_dist
+find_angle
+angle_diff
+sin_table
+cos_table
+UnitData::needs_transport
+PathFinder::find_wpath_army

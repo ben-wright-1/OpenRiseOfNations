@@ -1,0 +1,2 @@
+re/decomp/combat_D/asm
+UnitTypeData::get_kill_value

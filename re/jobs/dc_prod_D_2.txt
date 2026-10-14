@@ -1,0 +1,6 @@
+re/decomp/prod_D_asm/
+Leader::gain_tech
+Leader::set_age
+Leader::lose_tech
+LeaderData::current_upgrade
+LeaderData::has_upgrade

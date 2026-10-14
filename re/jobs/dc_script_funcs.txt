@@ -1,0 +1,6 @@
+re/decomp/script_funcs/
+ScenarioFuncSet::.*
+ScriptFuncs::.*
+ScriptUtils::.*
+ScriptData::.*
+ScriptGameInterface::.*

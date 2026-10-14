@@ -1,0 +1,4 @@
+re/decomp/combat_B/
+GroupData::get_max_range
+GroupData::get_min_range
+Unit::add_strafe_order

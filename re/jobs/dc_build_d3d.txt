@@ -1,0 +1,6 @@
+re/decomp/build_d3dgl
+D3D11GLSprite::.*
+GSSprite::(draw_multi|draw_z|set_render_state|init)
+D3D11GLGraphicCard::(set_render_state|set_rasterizer_state|set_depth_stencil_state|set_blend_state|set_shader_options)
+SGLSys::(set_sprite_scale|get_sprite_scale)
+D3D11GLSys::(set_projection|set_projection_parallel|set_camera_transform)

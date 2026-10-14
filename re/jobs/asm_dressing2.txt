@@ -1,0 +1,4 @@
+re/decomp/dressing/asm
+TerrainOut::add_weather_underlay
+TerrainOut::render_weathering
+TerrainOut::get_indexed_mesh_unaligned

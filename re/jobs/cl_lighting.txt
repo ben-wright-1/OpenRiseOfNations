@@ -1,0 +1,9 @@
+re/analysis/callers_lighting.txt
+2
+GraphicPieces::prep_unit_lighting
+TerrainOut::prep_terrain_lighting
+TerrainOut::light_land_vert
+TerrainOut::light_vert
+GraphicPieces::init_lighting
+Game::init_light
+TopMenu::init_light

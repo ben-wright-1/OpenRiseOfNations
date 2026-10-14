@@ -1,0 +1,11 @@
+re/types/type_struct.txt
+Type
+ObjectType
+UnitType
+BuildType
+Types
+UnitTypeData
+BuildTypeData
+ObjectTypeData
+TypeData
+Leader

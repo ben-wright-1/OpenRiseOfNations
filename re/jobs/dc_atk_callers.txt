@@ -1,0 +1,7 @@
+re/decomp/atk/callers.txt
+2
+Group::distribute_attack
+Group::target_opportunity
+GroupData::valid_target
+Group::action_attack
+Build::add_attack_order

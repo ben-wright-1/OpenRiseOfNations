@@ -1,0 +1,7 @@
+re/decomp/atk2
+Unit::add_move_facing_order
+Unit::close_orders
+Unit::clear_partial_path
+UnitData::get_final_loc
+Group::kill
+Unit::copy_order

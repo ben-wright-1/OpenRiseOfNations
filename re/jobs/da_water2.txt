@@ -1,0 +1,7 @@
+re/decomp/water/asm
+TerrainOut::build_ocean_floor
+TerrainOut::light_land_vert
+RiverSectionOut::render_water
+RiverSectionOut::create_water_plane
+RiversOut::render_water
+TerrainOut::coord_contains_water

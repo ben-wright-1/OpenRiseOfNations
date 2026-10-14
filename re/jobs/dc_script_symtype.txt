@@ -1,0 +1,11 @@
+re/decomp/script/
+SymType::casts_to
+SymType::accepts_op
+SymType::equals
+SymType::is_simple
+SymType::get_create_opcode
+SymType::get_unique_token
+ArrayType::casts_to
+ConstType::casts_to
+StructType::equals
+VarType::equals

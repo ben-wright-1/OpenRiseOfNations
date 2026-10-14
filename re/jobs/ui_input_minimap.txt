@@ -1,0 +1,3 @@
+re/decomp/ui_input/
+WorldMap::on_.*
+WorldMap::check_mouse_accept

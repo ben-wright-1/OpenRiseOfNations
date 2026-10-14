@@ -1,0 +1,6 @@
+re/decomp/bld2
+Group::find_angle
+UnitType::find_nearby_spot
+GroupData::count
+Build::init
+Unit::add_move_facing_order

@@ -1,0 +1,11 @@
+re/decomp/farms2
+^build_box$
+.*__Ewheat_.*
+FarmsOut::registration
+GraphicPieces::init_farm_map
+Farms::remove
+FarmsData::get_nearest_farm_type
+FarmsData::get_farm_type
+Farms::clear
+FarmStruct::FarmStruct
+Farms::add_animals

@@ -1,0 +1,5 @@
+re/decomp/cmds
+Group::(add|clear|kill|init|<ctor>|action_move_to|action_attack|action_halt|action_gather|action_build|action_queue_up|action_gather_point|action_stance|action_garrison|action_form|action_begin|set_ordered|can_activate|kill_group_order|kill_next_order|refresh_group_order|kill_group_move|process|.*select.*|find_.*|set_.*|is_.*|compute.*|calc.*|make_.*)
+Groups::.*
+TurnControl::(do_frame|do_frame_solo|do_frame_multi|check_new_frame_solo|check_new_frame_playback|compute_next_turn_solo|init|process_pause|set_pause|toggle_pause|get_frame_timing|get_delta_percent|check_cannon_time)
+CommandManager::(process_turn|start|init|issue_check_sums)

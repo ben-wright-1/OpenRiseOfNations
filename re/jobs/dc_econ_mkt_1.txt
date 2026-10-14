@@ -1,0 +1,13 @@
+re/decomp/econ_mkt
+Leader::action_offer.*
+Leader::action_tribute.*
+Leader::action_agree.*
+Leader::action_respond.*
+Leader::notify_deal.*
+Leader::action_treaty.*
+Leader::clear_agree.*
+LeaderData::is_any_offer.*
+LeaderData::is_agree.*
+Diplomacy::clear_offers.*
+Leader::treaty_on.*
+Leader::treaty_off.*

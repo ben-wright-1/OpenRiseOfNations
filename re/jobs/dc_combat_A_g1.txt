@@ -1,0 +1,2 @@
+re/decomp/combat_A/insn_near_who.txt
+MOV word ptr \[E.. \+ 0x36\],.*

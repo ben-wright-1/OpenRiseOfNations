@@ -1,0 +1,3 @@
+re/decomp/scenario
+ScenarioRead::.*
+ChunkRead::.*

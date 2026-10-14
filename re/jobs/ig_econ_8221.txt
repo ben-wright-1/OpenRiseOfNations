@@ -1,0 +1,2 @@
+re/decomp/econ/insn_8221.txt
+XOR.*0x8221$

@@ -1,0 +1,7 @@
+re/decomp/gth2/callers.txt
+1
+GroupData::test_garrison
+CommandManager::issue_garrison
+CommandManager::issue_gather$
+Group::action_gather$
+Group::action_garrison

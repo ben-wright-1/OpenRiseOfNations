@@ -1,0 +1,6 @@
+re/decomp/bld2/asm
+Group::action_build
+Group::action_queue_up
+Group::action_gather_point
+Build::add_gather_point
+Build::queue_up

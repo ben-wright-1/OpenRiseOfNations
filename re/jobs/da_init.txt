@@ -1,0 +1,4 @@
+re/decomp/camera/asm
+^Game::init$
+^OptionsWinGraphics::change_resolution$
+^Game::init_light$

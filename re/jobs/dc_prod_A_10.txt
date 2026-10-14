@@ -1,0 +1,4 @@
+re/decomp/prod_A/
+BuildTypeData::is_city
+BuildTypeData::is_fort
+BuildTypeData::is_tower

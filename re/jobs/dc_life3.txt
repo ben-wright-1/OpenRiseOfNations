@@ -1,0 +1,5 @@
+re/decomp/life2
+Wall::do_construct$
+Wall::(start_me|increment_stats)$
+Build::(complete|finish_queue|pay_cost|check_cost)
+BuildData::(queue_fail|find_in_queue|num_queued|time_to_make|make_time)

@@ -1,0 +1,10 @@
+re/decomp/d3dgl_rs
+D3D11PixelShader::.*
+D3D11VertexShader::(compile|init)
+D3D11GeometryShader::(compile|init)
+.*enableGeometryShader.*
+D3D11GLGraphicCard::(set_sampler_states|rebind_state|bind_input_layout|set_shader_data|init|flush|add_prim|lock_renderstate)
+D3D11Context::(set_tfactor|update_for_render|create_constant_buffers|set_material)
+D3D11GLSys::(validate_renderstate|load_and_create_shader|set_render_state|set_situation|init_hdr|end_hdr|fix_card_specific_variables)
+.*__E(texop_lookup|color_arg_lookup|alpha_func_lookup|remapShaderLookup).*
+.*[Ss]hader[Oo]ption.*

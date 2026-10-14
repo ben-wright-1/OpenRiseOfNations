@@ -1,0 +1,11 @@
+re/decomp/scenario_objects
+Guy::set_angle
+GuyData::get_render_angle
+find_angle
+angle_to_degrees
+degrees_to_angle
+fast_angle_to_cosine
+fast_angle_to_sine
+BuildTypeData::snap_center
+Build::init
+Objects::find_free

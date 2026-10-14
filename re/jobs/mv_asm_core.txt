@@ -1,0 +1,11 @@
+re/decomp/move_asm
+Unit::do_move
+Unit::move_step
+Unit::find_path
+Unit::repath
+PathFinder::astar_path
+PathFinder::find_upath
+Unit::clear_partial_path
+Unit::check_target_path
+vector_dist
+Unit::kill_current_path

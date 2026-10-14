@@ -1,0 +1,17 @@
+re/analysis/vt_orders.txt
+Unit
+Build
+Wall
+Animal
+Object
+SubObject
+UnitOrder
+MoveOrder
+AttackOrder
+GatherOrder
+BuildOrder
+ThinkOrder
+GroupMoveOrder
+GroupAttackOrder
+TargetOrder
+Group

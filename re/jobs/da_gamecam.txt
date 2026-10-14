@@ -1,0 +1,6 @@
+re/decomp/camera/asm
+^Game::init_camera$
+^Game::init_light$
+^Game::zoom_to_first_unit$
+^Camera::set_auto_tilt$
+^Camera::compute_distance$

@@ -1,0 +1,4 @@
+re/decomp/mv2
+Group::action_begin
+Group::get_num_cap
+GroupData::get_num_const

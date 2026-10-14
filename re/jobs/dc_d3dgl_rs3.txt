@@ -1,0 +1,2 @@
+re/decomp/d3dgl_rs
+.*dynamic_initializer_for_'(texop_lookup|color_arg_lookup|alpha_func_lookup)'.*

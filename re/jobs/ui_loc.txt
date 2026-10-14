@@ -1,0 +1,7 @@
+re/decomp/ui/
+LocalizationManager::.*
+String::lookup.*
+String::calc_hash.*
+String::hash.*
+XML::init
+StringTable::init

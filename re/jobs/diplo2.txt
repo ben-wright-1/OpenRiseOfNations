@@ -1,0 +1,9 @@
+re/decomp/diplo
+Leader::set_diplo
+Leaders::clear
+Leaders::init
+Leader::init
+LeaderData::is_peace
+Leader::treaty_on
+Leader::ally_diplo
+Leader::diplomacy$

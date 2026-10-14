@@ -1,0 +1,11 @@
+re/decomp/move_group2/asm
+UnitType::find_nearby_spot
+ObjectsData::find_unit_ordered_with_radius
+ObjectsData::find_unit_with_radius
+Objects::find_ordered_collision
+Objects::find_collision
+^project
+Group::action_form
+Group::action_stance
+Group::set_up_insert
+Group::finish_insert

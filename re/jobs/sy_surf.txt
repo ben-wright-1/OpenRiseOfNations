@@ -1,0 +1,9 @@
+re/analysis/syms_surf.txt
+sym:world_tex.*
+sym:location_offset
+sym:surf_[xy]offset
+sym:position_noise
+sym:should_render_water
+sym:oceanbottom_bright
+sym:^land_height
+sym:sea_depth

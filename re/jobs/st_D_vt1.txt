@@ -1,0 +1,7 @@
+re/decomp/state_D/vtables1.txt
+ScriptType
+ScriptInt
+ScriptFloat
+ScriptString
+ScriptObject
+ScriptArray

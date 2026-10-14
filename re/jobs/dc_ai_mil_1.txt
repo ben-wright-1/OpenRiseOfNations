@@ -1,0 +1,11 @@
+re/decomp/ai_mil
+^Group::action_siege_attack_to$
+^Group::action_attack$
+^GroupData::num_valid$
+^Group::get_num_cap$
+^Unit::go_to$
+^LeaderData::find_capital$
+^Game::wonder_winning$
+^CityData::num_wonders$
+^LeaderData::is_tribute_period$
+^UnitType::find_nearby_spot$

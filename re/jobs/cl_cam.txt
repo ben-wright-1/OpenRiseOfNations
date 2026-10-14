@@ -1,0 +1,7 @@
+re/calltrees/callers_camera.txt
+2
+Camera::set_auto_tilt
+Camera::set_in
+BaseCamera::set_view_ratio
+Camera::check_zoom
+Camera::update_transforms

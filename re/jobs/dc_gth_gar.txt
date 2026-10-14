@@ -1,0 +1,9 @@
+re/decomp/gth2
+Unit::find_garrison_build
+UnitTypeData::can_garrison
+BuildData::is_unassimilated
+BuildTypeData::get_garrison_limit
+ObjectData::num_inside
+UnitData::is_entering_or_exiting
+Unit::kill_current_order
+Unit::repath

@@ -1,0 +1,3 @@
+re/decomp/grid_misc/callers_coord.txt
+2
+init_coord_lookup_array

@@ -1,0 +1,11 @@
+re/decomp/combat_port
+UnitOrder::is_move_attack
+UnitOrder::is_move
+UnitOrder::is_air
+Unit::find_open_slots
+Group::kill_group_order
+Unit::set_anim
+Guy::execute_events
+GraphicEvents::execute_game_events
+Unit::execute_events
+Build::process

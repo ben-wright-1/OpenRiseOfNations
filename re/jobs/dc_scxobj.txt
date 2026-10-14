@@ -1,0 +1,9 @@
+re/decomp/scenario_objects
+ScenarioWrite::save_.*
+ScenarioWrite::export_data
+Objects::init_unit
+Objects::init_build
+Objects::init_good
+Objects::init_item
+Unit::set_angle
+ScenarioRead::load_scenario_screen

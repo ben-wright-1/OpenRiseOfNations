@@ -1,0 +1,4 @@
+re/decomp/ui_hud2_opt/
+IFaceTex::get
+IFaceRenderManager::draw_heads
+IFaceRenderManager::write

@@ -1,0 +1,47 @@
+// The order list and the per-frame order machine (docs/orders-spec.md sections 3-6): Unit::add_*_order with queue
+// positions, kill_current_order / close_orders / clear_orders / repath, update_action, Unit::work and do_job.
+#pragma once
+
+#include <cstdint>
+
+#include "sim/objects.hpp"
+
+namespace ron::sim {
+
+class Game;
+
+// Unit::add_move_facing_order @5e55c0: (ux, uy) in UCoords (the target snaps to the cell centre). kind: 1 MOVE_TO,
+// 2 ATTACK_TO, 3 EXPLORE_TO, 4 FLEE_TO (anything else MOVE_TO). Returns the new order.
+Order* add_move_facing_order(Game& g, Unit& u, int32_t ux, int32_t uy, uint32_t angle, int32_t kind, bool pathed,
+                             QueuePos q, bool expl, int32_t facing, int32_t orig_x, int32_t orig_y, bool disembark);
+// Unit::add_move_order @616ed0: Coord target -> add_move_facing_order(x/48, y/48, find_angle(...), ...).
+Order* add_move_order(Game& g, Unit& u, int32_t x, int32_t y, int32_t kind, bool pathed, QueuePos q, bool expl,
+                      int32_t orig_x, int32_t orig_y);
+// Unit::add_think_order @5e3df0 (always QUEUE_FIRST).
+void add_think_order(Game& g, Unit& u);
+// The QUEUE_NEW preamble shared by every adder (and Unit::clear_orders @5e3860).
+void clear_orders(Game& g, Unit& u);
+// Adds `o` (already filled) at queue position q, with the QUEUE_NEW / QUEUE_FIRST handling of every add_*_order.
+// Returns the stored order.
+Order* add_order(Game& g, Unit& u, const Order& o, QueuePos q);
+
+void kill_current_order(Game& g, Unit& u, bool no_side_effects = false);  // Unit::kill_current_order @5e2cb0
+void close_orders(Game& g, Unit& u, bool x = false);                      // Unit::close_orders @5e37f0
+void kill_current_path(Game& g, Unit& u);                                 // Unit::kill_current_path @5e31d0
+void repath(Game& g, Unit& u);                                            // Unit::repath @5e29b0
+void kill_current_action(Game& g, Unit& u);                               // Unit::kill_current_action @5e2bb0
+// Unit::update_action @60a870: sets orders_x/orders_y/dest_angle, returns the action order (or null).
+Order* update_action(Game& g, Unit& u);
+// UnitData::get_action @608450 (const twin; no writes).
+const Order* get_action(const Unit& u);
+OrderType action_type(const Unit& u);  // UnitData::action_type
+// Unit::update_order @6179d0: the current (front) order, or null.
+Order* update_order(Unit& u);
+
+void work(Game& g, Unit& u);                           // Unit::work @60d180
+int32_t do_job(Game& g, Unit& u, OrderType t, Order* o);  // Unit::do_job @617a10
+void do_idle(Game& g, Unit& u);                        // Unit::do_idle @60dcd0
+void check_idle(Game& g, Unit& u);                     // Unit::check_idle @6032c0
+void think(Game& g, Unit& u);                          // Unit::think @5f6e40 (TODO: AI; see orders.cpp)
+
+}  // namespace ron::sim

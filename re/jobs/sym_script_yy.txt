@@ -1,0 +1,2 @@
+re/analysis/script_yysyms.txt
+sym:.*yy.*:4

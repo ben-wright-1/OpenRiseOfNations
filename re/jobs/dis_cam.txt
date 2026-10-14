@@ -1,0 +1,7 @@
+re/analysis/disasm_cam.txt
+Camera::update_transforms
+HierObj::update_transforms
+Quat<float>::operator\*
+fast_half_degree_to_cosine
+fast_half_degree_to_sine
+Quat<float>::set

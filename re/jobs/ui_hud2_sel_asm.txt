@@ -1,0 +1,2 @@
+re/decomp/ui_hud2_sel_asm/
+IFaceSelected::draw_name

@@ -1,0 +1,5 @@
+re/decomp/econ_mkt
+Leader::gather$
+Leader::calc_gather.*
+LeaderData::calc_resource_bonuses.*
+BitMask<44>::operator.*

@@ -1,0 +1,6 @@
+re/decomp/script/
+StringWrapType::.*
+String::num
+String::convert_int
+String::get_double
+Recycler<StringWrapType>::pop

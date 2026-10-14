@@ -1,0 +1,4 @@
+re/decomp/ui_hud2_asm/
+IFaceMain::add_windows
+IFaceMain::on_redraw
+IFaceMain::position_windows

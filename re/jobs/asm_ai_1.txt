@@ -1,0 +1,10 @@
+re/decomp/ai/asm
+^Leader::research_techs$
+^Leader::make_this$
+^Leader::compute_site_stats$
+^Leader::create_buildings$
+^Leader::create_units$
+^Leader::produce_building$
+^Leader::upgrade_units$
+^Leader::found_cities$
+^Leaders::max_human_age$

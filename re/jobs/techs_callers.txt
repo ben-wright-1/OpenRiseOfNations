@@ -1,0 +1,7 @@
+re/decomp/techs/callers.txt
+3
+GoodType::compute_largest_gather
+TechType::is_ultimate_preq
+TechType::set_disabled
+TechType::compute_ai_values
+TechType::add_preq_ai

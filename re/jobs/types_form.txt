@@ -1,0 +1,7 @@
+re/decomp/move_group2/types_form.txt
+Form.*
+FormData.*
+FormCat.*
+Group
+GroupData.*
+FormIndex

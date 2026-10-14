@@ -1,0 +1,13 @@
+re/decomp/attach/types.txt
+HierObj
+GraphicEvent
+GraphicChad
+NodePacket
+Transform<float>
+RData
+AnimationPacket
+TransformPacket
+EventPacket
+RenderState
+AmmoGraphicData
+GraphicData

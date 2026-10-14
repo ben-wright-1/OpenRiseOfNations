@@ -1,0 +1,6 @@
+re/decomp/bh3
+BH3Method::.*
+BH3LightMethod::load.*
+MOTMethod::(load|load_anim_header|load_frames|load_mot)
+HierObj::(set_to_time|update_transforms)
+AnimMgr::(add|force_load|process)

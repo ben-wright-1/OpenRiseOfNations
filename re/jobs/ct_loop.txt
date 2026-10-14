@@ -1,0 +1,6 @@
+re/calltrees/game_loop.txt
+4
+Game::run
+Game::loop
+Game::do_frame
+Game::loop_render

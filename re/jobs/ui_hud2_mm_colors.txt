@@ -1,0 +1,7 @@
+re/decomp/ui_hud2_mm/asm3
+__EWHITE
+__EGOODY_COLOR
+__ERARE_SEA_COLOR
+__ERARE_LAND_COLOR
+TeamColor::get_border
+TeamColor::get_neon

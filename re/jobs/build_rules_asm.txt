@@ -1,0 +1,5 @@
+re/decomp/build_rules_asm
+ObjectTypeData::basic_type
+BuildType::init
+TypeData::basic_type.*
+BuildTypeData::.*

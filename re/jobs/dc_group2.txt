@@ -1,0 +1,13 @@
+re/decomp/move_group2
+UnitType::find_nearby_spot
+ObjectsData::find_unit_ordered_with_radius
+ObjectsData::find_unit_with_radius
+Objects::find_ordered_collision
+Objects::find_collision
+^project
+LeaderData::can_transport
+LeaderData::current_upgrade
+ObjectData::num_inside
+ObjectData::get_inside
+UnitData::is_packing
+UnitData::get_captain

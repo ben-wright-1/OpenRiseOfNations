@@ -1,0 +1,4 @@
+re/decomp/prod_c2b/xrefs.txt
+0073b7c0
+0073c1d0
+0073bc00

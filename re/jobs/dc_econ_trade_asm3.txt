@@ -1,0 +1,10 @@
+re/decomp/econ_trade
+UnitData::get_attrition
+Supplies::find_supply
+Search::valid_filter
+OilWells::.*
+OilWell::.*
+Leader::calc_gather
+Leader::calc_unit_stats
+Caravans::walk_data
+Supplies::walk_data

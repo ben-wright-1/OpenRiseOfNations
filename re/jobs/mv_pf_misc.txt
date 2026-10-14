@@ -1,0 +1,4 @@
+re/decomp/move_pf
+init_coord_lookup_array
+close_coord_lookup_array
+trig_init
