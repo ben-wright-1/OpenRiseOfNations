@@ -1,5 +1,7 @@
 # OpenRiseOfNations
 
+[![Featured by Awesome REA](https://raw.githubusercontent.com/reacher-z/Awesome-REA/477658fa73f6860e86cd1fc526657c2efdc25194/assets/featured-by-awesome-rea-inline.svg)](https://awesomerea.org/resources/openriseofnations-engine-case/)
+
 **An open-source, native macOS engine for *Rise of Nations: Extended Edition*.**
 
 OpenRiseOfNations is a from-scratch reimplementation of the game engine, in the spirit of
